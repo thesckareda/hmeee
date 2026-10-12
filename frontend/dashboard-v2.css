@@ -1,0 +1,764 @@
+/**
+ * Speaksy Dashboard v2 — Studio shell
+ * UX inspired by dashh design system; built on vercel-ui.css tokens.
+ * Scoped to .vui-v2 — v1 dashboard unchanged.
+ */
+
+/* ─── Dashh → Vercel token bridge ───────────────────────────────────────── */
+.vui-v2 {
+  --ds-void: #09090b;
+  --ds-graphite: #1a1a1f;
+  --ds-surface: #111111;
+  --ds-surface-raised: #161616;
+  --ds-surface-high: #252b28;
+  --ds-mint: #63dcb4;
+  --ds-mint-bright: #81f9cf;
+  --ds-mint-dim: rgba(99, 220, 180, 0.12);
+  --ds-mint-glow: rgba(99, 220, 180, 0.15);
+  --ds-emerald: #4edea3;
+  --ds-on-surface: #dee4df;
+  --ds-on-muted: #bccac2;
+  --ds-outline: rgba(255, 255, 255, 0.08);
+  --ds-glass: rgba(26, 26, 31, 0.82);
+  --ds-sidebar: 260px;
+  --ds-topbar: 64px;
+  --ds-max-content: 1440px;
+  --speaksy-green: var(--ds-mint);
+  --speaksy-green-hover: #7ae8c8;
+  --speaksy-green-dim: var(--ds-mint-dim);
+  --speaksy-void: var(--ds-void);
+  --color-bg: var(--ds-void);
+  --color-surface: var(--ds-graphite);
+  --color-surface-2: var(--ds-surface-raised);
+  --vui-bg-100: var(--ds-void);
+  --vui-bg-200: #000000;
+  --sidebar-width: var(--ds-sidebar);
+}
+
+[data-theme="light"].vui-v2,
+[data-theme="light"] .vui-v2 {
+  --ds-void: #f9fafb;
+  --ds-graphite: #ffffff;
+  --ds-surface: #ffffff;
+  --ds-surface-raised: #f4f4f5;
+  --ds-on-surface: #09090b;
+  --ds-on-muted: #52525b;
+  --ds-outline: rgba(0, 0, 0, 0.08);
+  --ds-glass: rgba(255, 255, 255, 0.88);
+  --ds-mint-dim: rgba(99, 220, 180, 0.18);
+}
+
+/* ─── Canvas ──────────────────────────────────────────────────────────────── */
+.vui-v2 {
+  background: var(--ds-void);
+  color: var(--ds-on-surface);
+}
+
+.vui-v2 .main {
+  background: var(--ds-void);
+}
+
+.vui-v2 .main::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  left: var(--ds-sidebar);
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 220, 180, 0.06), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(78, 222, 163, 0.04), transparent);
+  z-index: 0;
+}
+
+.vui-v2 .main > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Sidebar (dashh left-rail active state) ──────────────────────────────── */
+.vui-v2 .sidebar {
+  background: var(--ds-graphite);
+  border-right: 1px solid var(--ds-outline);
+  padding: 0;
+}
+
+.vui-v2 .sidebar-inner {
+  padding: 24px 0 20px;
+  gap: 0;
+}
+
+.vui-v2 .sidebar-top {
+  padding: 0 24px 20px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--ds-outline);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.vui-v2 .brand {
+  flex: 1;
+  min-width: 0;
+}
+
+.vui-v2 .brand-wordmark {
+  font-family: "Syne", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--ds-mint-bright);
+}
+
+.vui-v2 .wordmark-speak,
+.vui-v2 .wordmark-sy {
+  color: inherit;
+}
+
+.vui-v2 .brand-sub {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ds-on-muted);
+  opacity: 0.7;
+  margin-top: 4px;
+}
+
+.vui-v2 .icon-mark {
+  background: linear-gradient(135deg, var(--ds-mint-dim), transparent);
+  border: 1px solid rgba(99, 220, 180, 0.2);
+}
+
+.vui-v2 .v2-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--ds-mint-dim);
+  color: var(--ds-mint);
+  border: 1px solid rgba(99, 220, 180, 0.25);
+}
+
+.vui-v2 .search-wrap {
+  display: none;
+}
+
+.vui-v2 .section-nav {
+  padding: 12px 0;
+  gap: 2px;
+}
+
+.vui-v2 .sidebar-group-label {
+  padding: 16px 24px 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ds-on-muted);
+  opacity: 0.55;
+}
+
+.vui-v2 .nav-item,
+.vui-v2 .nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin: 0;
+  padding: 10px 24px;
+  border: none;
+  border-left: 2px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ds-on-muted);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
+  box-shadow: none;
+}
+
+.vui-v2 .nav-item:hover,
+.vui-v2 .nav-btn:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--ds-on-surface);
+}
+
+.vui-v2 .nav-item.active,
+.vui-v2 .nav-btn.active {
+  border-left-color: var(--ds-mint-bright);
+  background: var(--ds-mint-dim);
+  color: var(--ds-mint-bright);
+  box-shadow: none;
+}
+
+.vui-v2 .nav-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.vui-v2 .nav-item.active .nav-icon,
+.vui-v2 .nav-btn.active .nav-icon {
+  color: var(--ds-mint-bright);
+}
+
+.vui-v2 .sidebar-cta {
+  padding: 16px 24px 0;
+}
+
+/* btn-deploy styling lives in vk-realty-dashboard.css (.btn-speaksy) */
+
+.vui-v2 .sidebar-links {
+  padding: 16px 24px 0;
+  border-top: 1px solid var(--ds-outline);
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.vui-v2 .sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ds-on-muted);
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.vui-v2 .sidebar-link:hover {
+  color: var(--ds-on-surface);
+}
+
+.vui-v2 .sidebar-footer {
+  margin-top: auto;
+  padding: 16px 24px 0;
+  border-top: 1px solid var(--ds-outline);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.vui-v2 .status-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--ds-mint);
+  box-shadow: 0 0 8px var(--ds-mint-glow);
+  animation: v2-pulse-dot 2s ease infinite;
+}
+
+@keyframes v2-pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(0.92); }
+}
+
+/* ─── Topbar (glass, dashh studio header) ───────────────────────────────── */
+.vui-v2 .vui-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  min-height: var(--ds-topbar);
+  padding: 12px 32px;
+  background: rgba(9, 9, 11, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--ds-outline);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+[data-theme="light"] .vui-v2 .vui-topbar {
+  background: rgba(249, 250, 251, 0.85);
+}
+
+.vui-v2 .topbar-left {
+  gap: 20px;
+  flex: 1;
+  min-width: 0;
+}
+
+.vui-v2 .topbar-titles h2 {
+  font-family: "Syne", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.vui-v2 .page-subtitle {
+  font-size: 13px;
+  color: var(--ds-on-muted);
+}
+
+.vui-v2 .v2-topbar-search {
+  flex: 1;
+  max-width: 420px;
+  position: relative;
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .vui-v2 .v2-topbar-search {
+    display: block;
+  }
+}
+
+.vui-v2 .v2-topbar-search svg {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: var(--ds-on-muted);
+  pointer-events: none;
+}
+
+.vui-v2 .v2-topbar-search input {
+  width: 100%;
+  padding: 9px 16px 9px 40px;
+  border-radius: 999px;
+  border: 1px solid var(--ds-outline);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--ds-on-surface);
+  font-size: 13px;
+  outline: none;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.vui-v2 .v2-topbar-search input:focus {
+  border-color: rgba(99, 220, 180, 0.4);
+  box-shadow: 0 0 0 3px var(--ds-mint-dim);
+}
+
+.vui-v2 .top-actions {
+  gap: 12px;
+}
+
+.vui-v2 .pill-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--ds-mint-dim);
+  border: 1px solid rgba(99, 220, 180, 0.2);
+  color: var(--ds-mint);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.vui-v2 .pill-live::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ds-mint);
+  box-shadow: 0 0 0 0 rgba(99, 220, 180, 0.5);
+  animation: v2-pulse-ring 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+}
+
+@keyframes v2-pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(99, 220, 180, 0.5); }
+  70% { box-shadow: 0 0 0 8px rgba(99, 220, 180, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(99, 220, 180, 0); }
+}
+
+.vui-v2 .v2-switch-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ds-on-muted);
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--ds-outline);
+  transition: color 150ms ease, border-color 150ms ease;
+}
+
+.vui-v2 .v2-switch-link:hover {
+  color: var(--ds-on-surface);
+  border-color: rgba(99, 220, 180, 0.3);
+}
+
+/* ─── Page canvas ─────────────────────────────────────────────────────────── */
+.vui-v2 .page {
+  max-width: var(--ds-max-content);
+  padding: 28px 32px 48px;
+}
+
+/* ─── Glass cards (dashh elevated surfaces) ───────────────────────────────── */
+.vui-v2 .card,
+.vui-v2 .bento-card,
+.vui-v2 .panel,
+.vui-v2 .query-card,
+.vui-v2 .glass-card {
+  background: var(--ds-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+[data-theme="light"] .vui-v2 .card,
+[data-theme="light"] .vui-v2 .bento-card,
+[data-theme="light"] .vui-v2 .panel {
+  border-color: var(--ds-outline);
+  box-shadow: var(--vui-shadow-sm);
+}
+
+.vui-v2 .bento-card:hover,
+.vui-v2 .card.query-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(99, 220, 180, 0.18);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), 0 0 15px var(--ds-mint-glow);
+}
+
+/* ─── KPI / metrics (Syne numerals) ───────────────────────────────────────── */
+.vui-v2 .metric-value,
+.vui-v2 .kpi-value,
+.vui-v2 .ta-metric-value {
+  font-family: "Syne", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.vui-v2 .section-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ds-on-muted);
+}
+
+.vui-v2 .metric-strip {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* ─── Overview bento (dashh hero row feel) ────────────────────────────────── */
+.vui-v2 #page-overview .bento-grid {
+  gap: 20px;
+}
+
+.vui-v2 #page-overview .bento-live {
+  border-color: rgba(99, 220, 180, 0.15);
+}
+
+.vui-v2 #page-overview .metric-cell-action .metric-value {
+  color: var(--ds-mint-bright);
+}
+
+/* ─── Tables ──────────────────────────────────────────────────────────────── */
+.vui-v2 .table thead th {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ds-on-muted);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.vui-v2 .table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* ─── Buttons ─────────────────────────────────────────────────────────────── */
+.vui-v2 .btn-primary {
+  background: var(--ds-mint);
+  color: #003829;
+  font-weight: 700;
+  border: none;
+}
+
+.vui-v2 .btn-primary:hover {
+  background: var(--ds-mint-bright);
+  box-shadow: 0 0 16px var(--ds-mint-glow);
+}
+
+.vui-v2 .btn-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--ds-outline);
+  color: var(--ds-on-surface);
+}
+
+/* ─── Agents page (roster composer) ─────────────────────────────────────── */
+.vui-v2 .agents-composer {
+  border-radius: 20px;
+  border: 1px solid rgba(99, 220, 180, 0.12);
+  background: linear-gradient(160deg, var(--ds-glass), rgba(99, 220, 180, 0.04));
+}
+
+.vui-v2 .agents-btn-primary:not(.btn-speaksy) {
+  background: var(--ds-mint);
+  color: #003829;
+  font-weight: 700;
+}
+
+/* ─── Main agent zones ──────────────────────────────────────────────────── */
+.vui-v2 .ma-zone {
+  border-radius: 16px;
+  border: 1px solid var(--ds-outline);
+}
+
+.vui-v2 .ma-zone-head h4 {
+  font-family: "Syne", sans-serif;
+  font-weight: 700;
+}
+
+/* ─── Agent detail ────────────────────────────────────────────────────────── */
+.vui-v2 .page-agent-detail .agent-detail-header {
+  border-radius: 16px;
+  border: 1px solid var(--ds-outline);
+}
+
+.vui-v2 .tab-bar .tab.active {
+  color: var(--ds-mint-bright);
+  border-bottom-color: var(--ds-mint);
+}
+
+/* ─── Billing hero ────────────────────────────────────────────────────────── */
+.vui-v2 .billing-hero h2 {
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.vui-v2 .pricing-card-featured {
+  border-color: rgba(99, 220, 180, 0.35);
+  box-shadow: 0 0 40px var(--ds-mint-glow);
+}
+
+/* ─── Integrations / campaigns headers ────────────────────────────────────── */
+.vui-v2 .integrations-page-head,
+.vui-v2 .campaign-page-head {
+  border-radius: 16px;
+}
+
+/* ─── Bottom nav (mobile) ───────────────────────────────────────────────── */
+.vui-v2 .bottom-nav {
+  background: var(--ds-graphite);
+  border-top: 1px solid var(--ds-outline);
+  backdrop-filter: blur(12px);
+}
+
+.vui-v2 .bottom-nav-item.active {
+  color: var(--ds-mint-bright);
+}
+
+/* ─── Modals ──────────────────────────────────────────────────────────────── */
+.vui-v2 .modal-card {
+  border-radius: 20px;
+  border: 1px solid var(--ds-outline);
+  background: var(--ds-graphite);
+}
+
+.vui-v2 .make-call-card {
+  border: 1px solid rgba(99, 220, 180, 0.2);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 40px rgba(99, 220, 180, 0.08);
+}
+
+.vui-v2 .make-call-card h3 {
+  font-family: "Syne", sans-serif;
+  font-weight: 700;
+}
+
+.vui-v2 .make-call-input {
+  background: var(--ds-obsidian);
+  border-color: var(--ds-outline);
+}
+
+.vui-v2 .make-call-input:focus {
+  border-color: rgba(99, 220, 180, 0.55);
+  box-shadow: 0 0 0 3px rgba(99, 220, 180, 0.12);
+}
+
+.vui-v2 .make-call-recent-chip {
+  background: var(--ds-obsidian);
+  border-color: var(--ds-outline);
+}
+
+.vui-v2 .make-call-recent-chip:hover:not(:disabled) {
+  border-color: rgba(99, 220, 180, 0.55);
+  background: rgba(99, 220, 180, 0.08);
+}
+
+/* ma-make-call-btn typography → .btn-speaksy (Cy Grotesk) in vk-realty-dashboard.css */
+
+.vui-v2 .as-modal-card--advanced .as-modal-head h3 {
+  font-family: "Syne", sans-serif;
+}
+
+.vui-v2 .as-modal-card--advanced .as-ambient-volume {
+  border-top-color: var(--ds-outline);
+}
+
+/* ─── Collapsed sidebar overrides (vk-realty-dashboard.css owns rail sizing) ─ */
+.vui-v2 .vui-shell.sidebar-collapsed .sidebar-cta,
+.vui-v2 .vui-shell.sidebar-collapsed .sidebar-links,
+.vui-v2 .sidebar-links {
+  display: none !important;
+}
+
+.vui-v2 .vui-shell.sidebar-collapsed .sidebar-group-label {
+  display: none !important;
+}
+
+.vui-v2 .vui-shell.sidebar-collapsed .nav-item.active,
+.vui-v2 .vui-shell.sidebar-collapsed .nav-btn.active {
+  border-left: none !important;
+  background: var(--ds-mint-dim);
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .vui-v2 .vui-topbar {
+    padding: 12px 16px;
+  }
+
+  .vui-v2 .page {
+    padding: 20px 16px 80px;
+  }
+
+  .vui-v2 .main::before {
+    left: 0;
+  }
+}
+
+/* ─── Language Presets page ───────────────────────────────────────────────── */
+.vui-v2 .lp-presets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.vui-v2 .lp-preset-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid var(--ds-outline);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.vui-v2 .lp-preset-card--active {
+  border-color: var(--ds-mint);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--ds-mint) 35%, transparent);
+}
+
+.vui-v2 .lp-preset-card--disabled {
+  opacity: 0.72;
+}
+
+.vui-v2 .lp-preset-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.vui-v2 .lp-preset-head h4 {
+  margin: 0 0 4px;
+  font-size: 1.05rem;
+}
+
+.vui-v2 .lp-preset-desc {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.vui-v2 .lp-preset-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.vui-v2 .lp-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+.vui-v2 .lp-badge--active {
+  background: var(--ds-mint-dim);
+  color: var(--ds-mint);
+}
+
+.vui-v2 .lp-badge--off {
+  background: color-mix(in srgb, var(--ds-muted) 20%, transparent);
+  color: var(--ds-muted);
+}
+
+.vui-v2 .lp-preset-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 12px;
+  margin: 0;
+  font-size: 0.82rem;
+}
+
+.vui-v2 .lp-preset-meta dt {
+  margin: 0;
+  color: var(--ds-muted);
+  font-weight: 500;
+}
+
+.vui-v2 .lp-preset-meta dd {
+  margin: 2px 0 0;
+}
+
+.vui-v2 .lp-preset-greeting {
+  margin: 0;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.vui-v2 .lp-preset-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid var(--ds-outline);
+}
+
+.vui-v2 .lp-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.vui-v2 .lp-action-btns {
+  display: flex;
+  gap: 8px;
+}
+
+.vui-v2 .lp-modal-card {
+  max-width: 720px;
+  width: min(96vw, 720px);
+}
+
+.vui-v2 .lp-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 65vh;
+  overflow-y: auto;
+}

@@ -1,0 +1,2016 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VK Realty — Dashboard</title>
+  <script>try{if(localStorage.getItem("speaksy-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+  <link rel="icon" type="image/png" href="/static/favicon.png">
+  <link rel="apple-touch-icon" href="/static/favicon.png">
+  <link rel="preload" as="font" type="font/ttf" href="/static/vendor/fonts/cy-grotesk-wide-light.ttf" crossorigin>
+  <link rel="stylesheet" href="/static/styles.css?v=20260701">
+  <link rel="stylesheet" href="/static/vercel-ui.css?v=20260730">
+  <link rel="stylesheet" href="/static/dashboard-v2.css?v=20260705b">
+  <link rel="stylesheet" href="/static/vk-realty-hme/vk-realty-dashboard.css?v=20260705h">
+  <link rel="stylesheet" href="/static/vk-realty-hme/vk-realty-organisation.css?v=20260704">
+  <link rel="stylesheet" href="/static/apple-grade.css?v=20260702">
+</head>
+<body class="vui vui-v2">
+  <div id="sidebar-backdrop" class="sidebar-backdrop" hidden></div>
+
+  <div class="app-shell vui-shell" id="app-shell">
+    <!-- ── Sidebar (Studio v2 — dashh-inspired) ── -->
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <div class="sidebar-inner">
+        <div class="sidebar-top">
+          <a class="brand" href="/vk-realty-hme" aria-label="VK Realty home">
+            <div class="icon-mark vk-brand-collapsed-mark" aria-hidden="true">
+              <img
+                class="icon-mark-img"
+                src="/static/vendor/images/speaksy-logo-powered.png?v=20260725"
+                alt=""
+                width="48"
+                height="14"
+                loading="eager"
+                decoding="async"
+              >
+            </div>
+            <div class="brand-copy">
+              <h1 class="brand-wordmark" aria-label="VK Realty">
+                <span class="brand-wordmark-line brand-wordmark-vk">VK</span>
+                <span class="brand-wordmark-line brand-wordmark-realty">Realty</span>
+              </h1>
+              <span class="vk-brand-live vk-brand-live--sidebar">
+                <span class="vk-brand-live-dot" aria-hidden="true"></span>
+                Live
+              </span>
+            </div>
+          </a>
+          <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch theme" title="Switch theme">
+            <span id="theme-icon" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="sidebar-close-btn" id="sidebar-close" aria-label="Close menu">✕</button>
+        </div>
+
+        <div class="search-wrap" hidden aria-hidden="true">
+          <input id="global-search" type="search" placeholder="Search calls, contacts, agents…" aria-label="Search dashboard" tabindex="-1">
+        </div>
+
+        <nav class="section-nav" id="nav" aria-label="Primary">
+          <div class="sidebar-group-label">Your dashboard</div>
+          <button type="button" class="nav-item nav-btn active" data-page="overview" title="Today">
+            <span class="nav-icon" data-lucide="house" aria-hidden="true"></span>
+            <span class="nav-label">Today</span>
+          </button>
+          <button type="button" class="nav-item nav-btn" data-page="leads" title="All Leads">
+            <span class="nav-icon" data-lucide="users" aria-hidden="true"></span>
+            <span class="nav-label">All Leads</span>
+          </button>
+          <button type="button" class="nav-item nav-btn" data-page="hot-leads" title="Priority Leads">
+            <span class="nav-icon" data-lucide="flame" aria-hidden="true"></span>
+            <span class="nav-label">Priority Leads</span>
+          </button>
+          <button type="button" class="nav-item nav-btn" data-page="crm" title="CRM">
+            <span class="nav-icon" data-lucide="activity" aria-hidden="true"></span>
+            <span class="nav-label">CRM</span>
+          </button>
+          <button type="button" class="nav-item nav-btn vk-ops-only" data-page="performance" title="Performance">
+            <span class="nav-icon" data-lucide="trending-up" aria-hidden="true"></span>
+            <span class="nav-label">Performance</span>
+          </button>
+          <button type="button" class="nav-item nav-btn vk-ops-only" data-page="listing-performance" title="Listings">
+            <span class="nav-icon" data-lucide="list" aria-hidden="true"></span>
+            <span class="nav-label">Listings</span>
+          </button>
+          <button type="button" class="nav-item nav-btn" data-page="call-logs" title="Call History">
+            <span class="nav-icon" data-lucide="phone" aria-hidden="true"></span>
+            <span class="nav-label">Call History</span>
+          </button>
+          <button type="button" class="nav-item nav-btn" data-page="calendar" title="Site Visits">
+            <span class="nav-icon" data-lucide="calendar" aria-hidden="true"></span>
+            <span class="nav-label">Site Visits</span>
+          </button>
+          <button type="button" class="nav-item nav-btn" data-page="reports" title="Reports">
+            <span class="nav-icon" data-lucide="file-text" aria-hidden="true"></span>
+            <span class="nav-label">Reports</span>
+          </button>
+
+          <div class="sidebar-group-label vk-ops-only">Operations</div>
+          <button type="button" class="nav-item nav-btn vk-ops-only" data-page="main-agent" title="Arjun">
+            <span class="nav-icon" data-lucide="bot" aria-hidden="true"></span>
+            <span class="nav-label">Arjun</span>
+          </button>
+          <button type="button" class="nav-item nav-btn vk-ops-only" data-page="lang-presets" title="How Arjun speaks">
+            <span class="nav-icon" data-lucide="languages" aria-hidden="true"></span>
+            <span class="nav-label">How Arjun speaks</span>
+          </button>
+          <button type="button" class="nav-item nav-btn vk-ops-only" data-page="assistants" title="AI assistants">
+            <span class="nav-icon" data-lucide="mic" aria-hidden="true"></span>
+            <span class="nav-label">AI assistants</span>
+          </button>
+          <button type="button" class="nav-item nav-btn vk-ops-only" data-page="analytics" title="Numbers &amp; trends">
+            <span class="nav-icon" data-lucide="chart-column" aria-hidden="true"></span>
+            <span class="nav-label">Numbers &amp; trends</span>
+          </button>
+          <button type="button" class="nav-item nav-btn vk-ops-only" data-page="campaigns" title="Outbound lists">
+            <span class="nav-icon" data-lucide="megaphone" aria-hidden="true"></span>
+            <span class="nav-label">Outbound lists</span>
+          </button>
+          <a class="nav-item nav-btn vk-ops-only" href="/platform" title="Speaksy Platform — client compiler">
+            <span class="nav-icon" data-lucide="factory" aria-hidden="true"></span>
+            <span class="nav-label">Platform</span>
+          </a>
+
+          <div class="sidebar-group-label">More</div>
+          <button type="button" class="nav-item nav-btn" data-page="settings" title="Settings">
+            <span class="nav-icon" data-lucide="settings" aria-hidden="true"></span>
+            <span class="nav-label">Settings</span>
+          </button>
+          <button type="button" class="nav-item nav-btn vk-ops-only" data-page="knowledge" title="Property information">
+            <span class="nav-icon" data-lucide="book-open" aria-hidden="true"></span>
+            <span class="nav-label">Property info</span>
+          </button>
+          <button type="button" class="nav-item nav-btn" data-page="integrations" title="Connections">
+            <span class="nav-icon" data-lucide="plug" aria-hidden="true"></span>
+            <span class="nav-label">Connections</span>
+          </button>
+          <button type="button" class="nav-item nav-btn vk-ops-only" data-page="billing" title="Billing">
+            <span class="nav-icon" data-lucide="credit-card" aria-hidden="true"></span>
+            <span class="nav-label">Billing</span>
+          </button>
+          <button type="button" class="nav-item nav-btn vk-ops-only" data-page="organisation" title="Organisation">
+            <span class="nav-icon" data-lucide="building-2" aria-hidden="true"></span>
+            <span class="nav-label">Organisation</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-cta vk-ops-only">
+          <button type="button" class="btn btn-primary btn-speaksy btn-speaksy--soft vk-brief-btn btn-deploy" id="v2-deploy-btn">
+            <span class="vk-brief-btn-icon" aria-hidden="true">+</span> Add AI assistant
+          </button>
+        </div>
+
+        <div class="sidebar-footer vk-sidebar-footer">
+          <div class="sidebar-footer-actions">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="sidebar-status-text">Arjun is answering calls</span>
+            <button type="button" class="btn btn-ghost btn-sm sidebar-logout-btn" id="logout-btn" title="Sign out">
+              <span class="sidebar-logout-icon" data-lucide="log-out" aria-hidden="true"></span>
+              <span class="sidebar-logout-label">Sign out</span>
+            </button>
+          </div>
+          <a class="vk-support-link" href="mailto:support@outpero.com?subject=VK%20Realty%20dashboard%20help" title="Email OUTPERO support">
+            <span class="nav-icon" data-lucide="help-circle" aria-hidden="true"></span>
+            <span>Help &amp; support</span>
+          </a>
+          <div class="vk-sidebar-powered" aria-label="Powered by Speaksy">
+            <span class="vk-powered-label">Powered by</span>
+            <img
+              class="vk-powered-logo vk-powered-logo--sidebar"
+              src="/static/vendor/images/speaksy-logo-powered.png?v=20260725"
+              alt="Speaksy"
+              width="395"
+              height="112"
+              title="Powered by Speaksy"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ── Main content ── -->
+    <main class="main" id="content">
+      <header class="topbar vui-topbar">
+        <div class="topbar-left">
+          <button type="button" class="icon-btn vui-icon-btn" id="sidebar-toggle" aria-label="Toggle sidebar" aria-expanded="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+          <div class="topbar-titles">
+            <h2 id="page-title">Today</h2>
+            <p id="page-subtitle" class="page-subtitle">Every call Arjun handles — leads, recordings, and site visits in one place</p>
+          </div>
+          <div class="v2-topbar-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"></circle>
+              <path d="m20 20-3.5-3.5"></path>
+            </svg>
+            <input id="v2-global-search" type="search" placeholder="Search interactions, agents, or leads…" aria-label="Search dashboard">
+          </div>
+        </div>
+        <div class="top-actions">
+          <select id="org-switcher" class="input input-sm org-switcher" aria-label="Switch organisation" hidden></select>
+
+          <span class="pill pill-live vui-badge" id="active-calls-pill">0 active</span>
+          <button type="button" class="btn btn-secondary btn-sm" id="refresh-btn">Update</button>
+        </div>
+      </header>
+
+      <!-- Agent detail -->
+      <section id="page-agent-detail" class="page vui-page page-agent-detail">
+        <div class="agent-detail-header card">
+          <button type="button" class="btn btn-ghost btn-sm" id="agent-back-btn">← Agents</button>
+          <div class="agent-detail-meta">
+            <h2 id="agent-detail-name">Agent Name</h2>
+            <p id="agent-detail-purpose" class="muted">Purpose</p>
+          </div>
+          <div class="agent-detail-actions">
+            <button type="button" class="btn btn-primary btn-sm btn-speaksy" id="agent-activate-btn">▶ Run Agent</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="agent-test-call-btn">Test Call</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="agent-save-btn">Save Changes</button>
+            <button type="button" class="btn btn-ghost btn-sm btn-danger" id="agent-delete-btn">Delete Agent</button>
+          </div>
+        </div>
+        <nav class="tab-bar" id="agent-tabs" aria-label="Agent configuration tabs">
+          <button type="button" class="tab active" data-tab="assistant-details">Assistant Details</button>
+          <button type="button" class="tab" data-tab="ai-edit">AI Edit</button>
+          <button type="button" class="tab" data-tab="call-configuration">Call Configuration</button>
+          <button type="button" class="tab" data-tab="knowledge-base">Knowledge Base</button>
+          <button type="button" class="tab" data-tab="integrations">Integrations</button>
+          <button type="button" class="tab" data-tab="post-call">Post-Call</button>
+          <button type="button" class="tab" data-tab="recent-calls">Recent Calls</button>
+        </nav>
+        <div class="tab-panels" id="agent-tab-panels">
+          <div class="tab-panel active" id="tab-assistant-details"></div>
+          <div class="tab-panel" id="tab-ai-edit"></div>
+          <div class="tab-panel" id="tab-call-configuration"></div>
+          <div class="tab-panel" id="tab-knowledge-base"></div>
+          <div class="tab-panel" id="tab-integrations"></div>
+          <div class="tab-panel" id="tab-post-call"></div>
+          <div class="tab-panel" id="tab-recent-calls"></div>
+        </div>
+      </section>
+
+      <!-- Main Agent (VK Realty) -->
+      <section id="page-main-agent" class="page vui-page main-agent-page">
+        <header class="main-agent-hero card">
+          <div class="main-agent-hero-copy">
+            <p class="main-agent-eyebrow">Live inbound agent</p>
+            <h3>VK Realty — Arjun</h3>
+            <p class="muted">Configure your assistant's voice, language and how it greets callers. Changes apply instantly.</p>
+          </div>
+          <div class="main-agent-hero-actions">
+            <p id="as-status" class="main-agent-status main-agent-status--muted vk-skeleton">Loading…</p>
+            <div class="main-agent-actions">
+              <button type="button" class="btn btn-primary btn-sm btn-speaksy ma-make-call-btn" id="ma-make-call-btn">
+                <span class="ma-make-call-icon" data-lucide="phone-outgoing" aria-hidden="true"></span>
+                Make Call
+              </button>
+              <button type="button" class="btn btn-ghost btn-sm" id="as-reload-btn">Reload</button>
+              <button type="button" class="btn btn-secondary btn-sm" id="as-apply-btn">Apply only</button>
+              <button type="button" class="btn btn-primary btn-sm" id="as-save-btn">Save &amp; Apply</button>
+            </div>
+          </div>
+        </header>
+
+        <article class="ma-zone ma-zone--ops card">
+          <header class="ma-zone-head ma-zone-head--compact">
+            <div class="ma-zone-head-copy">
+              <span class="ma-zone-eyebrow">Runtime</span>
+              <h4>Agent control</h4>
+              <p class="muted">Process status, kill switch, dev runner</p>
+            </div>
+            <span id="ac-state-pill" class="ac-state-pill ac-state-pill--muted">—</span>
+          </header>
+          <div class="ma-zone-body ma-ops-grid">
+            <div class="ma-subpanel ma-ops-actions">
+              <div class="ac-actions">
+                <button type="button" class="btn btn-danger btn-sm" id="ac-kill-btn">Kill Agent</button>
+                <button type="button" class="btn btn-primary btn-sm" id="ac-dev-btn">Run in Dev Mode</button>
+                <button type="button" class="btn btn-ghost btn-sm" id="ac-refresh-btn">Refresh</button>
+              </div>
+              <div id="ac-status-body" class="ac-status-body"></div>
+            </div>
+            <details class="ma-subpanel main-agent-logs">
+              <summary>Live logs</summary>
+              <pre id="ac-log-output" class="ac-log-output" aria-label="Agent logs"></pre>
+            </details>
+          </div>
+        </article>
+
+        <div class="main-agent-workspace ma-layout">
+          <section class="ma-zone ma-zone--pipeline" aria-labelledby="ma-zone-pipeline-title">
+            <header class="ma-zone-head">
+              <div class="ma-zone-head-copy">
+                <span class="ma-zone-eyebrow">Configuration</span>
+                <h4 id="ma-zone-pipeline-title">Voice &amp; model pipeline</h4>
+                <p class="muted">Tap a card to open language, voice, LLM, STT, or advanced settings (interruption, VAD, ambient)</p>
+              </div>
+            </header>
+            <div class="ma-zone-body ma-zone-body--flush">
+              <div class="settings-grid as-quick-grid" id="as-settings-cards"></div>
+            </div>
+          </section>
+
+          <div class="ma-editor-row">
+            <section class="ma-zone ma-zone--identity" aria-labelledby="ma-zone-identity-title">
+              <header class="ma-zone-head">
+                <div class="ma-zone-head-copy">
+                  <span class="ma-zone-eyebrow">Persona</span>
+                  <h4 id="ma-zone-identity-title">Identity &amp; instructions</h4>
+                  <p class="muted">Name and system prompt the agent follows on every call</p>
+                </div>
+              </header>
+              <div class="ma-zone-body ma-field-stack">
+                <label class="field ma-field"><span>Assistant name</span><input class="input ma-input-outline" id="as-name" placeholder="UrbanNest Realty Lead Qualifier"></label>
+                <label class="field ma-field ma-field--grow"><span>System prompt</span><textarea class="textarea ma-input-outline" id="as-system-prompt" rows="12" placeholder="You are Arjun, a VK Realty consultant in Hyderabad…"></textarea></label>
+              </div>
+            </section>
+
+            <section class="ma-zone ma-zone--welcome" aria-labelledby="ma-zone-welcome-title">
+              <header class="ma-zone-head">
+                <div class="ma-zone-head-copy">
+                  <span class="ma-zone-eyebrow">First impression</span>
+                  <h4 id="ma-zone-welcome-title">Welcome message</h4>
+                  <p class="muted">First audio callers hear — supports <code>[user_name]</code></p>
+                </div>
+                <span class="ma-zone-badge ma-zone-badge--live">On connect</span>
+              </header>
+              <div class="ma-zone-body ma-field-stack">
+                <label class="field ma-field">
+                  <span class="as-welcome-label-row">
+                    <span>Greeting text</span>
+                    <span id="as-welcome-count" class="as-char-count">0 / 600</span>
+                  </span>
+                  <textarea class="textarea ma-input-outline ma-input-outline--greeting" id="as-welcome-text" rows="5" maxlength="600" placeholder="Namaskaram andi! Nenu Arjun, VK Realty nunchi matladuthunnanu."></textarea>
+                </label>
+                <div class="as-settings-group as-welcome-options as-setting-list" role="group" aria-label="Welcome message options">
+                  <label class="as-setting-row" for="as-welcome-dynamic">
+                    <span class="as-setting-copy">
+                      <strong class="as-setting-title">Dynamic</strong>
+                      <span class="as-setting-sub">Replace <code>[user_name]</code> with caller ID when known</span>
+                    </span>
+                    <span class="toggle as-setting-switch" aria-hidden="true">
+                      <input type="checkbox" id="as-welcome-dynamic" checked>
+                      <span class="toggle-slider"></span>
+                    </span>
+                  </label>
+                  <label class="as-setting-row" for="as-welcome-interrupt">
+                    <span class="as-setting-copy">
+                      <strong class="as-setting-title">Interruptable</strong>
+                      <span class="as-setting-sub">Let callers speak over the greeting instead of waiting</span>
+                    </span>
+                    <span class="toggle as-setting-switch" aria-hidden="true">
+                      <input type="checkbox" id="as-welcome-interrupt" checked>
+                      <span class="toggle-slider"></span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <section class="ma-zone ma-zone--flow" aria-labelledby="ma-zone-flow-title">
+            <header class="ma-zone-head">
+              <div class="ma-zone-head-copy">
+                <span class="ma-zone-eyebrow">Prompt modules</span>
+                <h4 id="ma-zone-flow-title">Conversational flow</h4>
+                <p class="muted">Optional sections appended to the system prompt when enabled</p>
+              </div>
+            </header>
+            <div class="ma-zone-body ma-zone-body--flush">
+              <div id="as-flow-sections" class="as-flow-sections"></div>
+            </div>
+          </section>
+
+          <footer class="ma-zone ma-zone--save ma-save-bar">
+            <label class="check-row as-restart-row ma-restart-check">
+              <input type="checkbox" id="as-restart" checked>
+              <span>Restart voice agent after save</span>
+            </label>
+            <div class="main-agent-footer-actions">
+              <button type="button" class="btn btn-secondary btn-sm" id="as-apply-footer-btn">Apply only</button>
+              <button type="button" class="btn btn-primary" id="as-save-footer-btn">Save &amp; Apply</button>
+            </div>
+          </footer>
+        </div>
+
+        <div id="as-modal" class="modal as-sheet-modal" hidden role="dialog" aria-modal="true" aria-labelledby="as-modal-title" aria-describedby="as-modal-subtitle">
+          <div class="modal-backdrop as-sheet-backdrop" data-as-dismiss></div>
+          <article class="modal-card glass-card as-modal-card">
+            <div class="as-modal-accent" aria-hidden="true"></div>
+            <header class="as-modal-head">
+              <div class="as-modal-head-main">
+                <span id="as-modal-mark" class="as-modal-mark" aria-hidden="true">Set</span>
+                <div class="as-modal-head-text">
+                  <h3 id="as-modal-title">Settings</h3>
+                  <p id="as-modal-subtitle" class="as-modal-subtitle">Configure your agent</p>
+                </div>
+              </div>
+              <button type="button" class="as-modal-close" id="as-modal-close" aria-label="Close">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+              </button>
+            </header>
+            <div id="as-modal-body" class="as-modal-body"></div>
+            <footer class="as-modal-foot">
+              <p id="as-modal-foot-hint" class="as-modal-foot-hint">Changes apply when you confirm.</p>
+              <div class="as-modal-foot-actions">
+                <button type="button" class="btn btn-ghost btn-sm" id="as-modal-cancel">Cancel</button>
+                <button type="button" class="btn btn-primary" id="as-modal-confirm">Save</button>
+              </div>
+            </footer>
+          </article>
+        </div>
+      </section>
+
+      <!-- Language Presets -->
+      <section id="page-lang-presets" class="page vui-page lp-page">
+        <header class="main-agent-hero card">
+          <div class="main-agent-hero-copy">
+            <p class="main-agent-eyebrow">Runtime language packs</p>
+            <h3>Language Presets</h3>
+            <p class="muted">Telugish, Hinglish+Marathi, and English packs. Edit directives, activate live, or disable presets. Changes apply to <code>config.json</code> instantly.</p>
+          </div>
+          <div class="main-agent-hero-actions">
+            <p id="lp-status" class="main-agent-status main-agent-status--muted vk-skeleton">Loading…</p>
+            <div class="main-agent-actions">
+              <button type="button" class="btn btn-ghost btn-sm" id="lp-reload-btn">Reload</button>
+            </div>
+          </div>
+        </header>
+        <div id="lp-presets-grid" class="lp-presets-grid" aria-live="polite"></div>
+        <div id="lp-modal" class="modal as-sheet-modal" hidden role="dialog" aria-modal="true" aria-labelledby="lp-modal-title">
+          <div class="modal-backdrop as-sheet-backdrop" data-lp-dismiss></div>
+          <article class="modal-card glass-card as-modal-card lp-modal-card">
+            <header class="as-modal-head">
+              <div class="as-modal-head-main">
+                <span class="as-modal-mark as-modal-mark--lang" aria-hidden="true">Lang</span>
+                <div class="as-modal-head-text">
+                  <h3 id="lp-modal-title">Edit preset</h3>
+                  <p class="as-modal-subtitle">Language directive, greeting, idle prompts, and voice</p>
+                </div>
+              </div>
+              <button type="button" class="as-modal-close" id="lp-modal-close" aria-label="Close">✕</button>
+            </header>
+            <div class="as-modal-body lp-modal-body">
+              <label class="field"><span>Label</span><input class="input" id="lp-edit-label" type="text"></label>
+              <label class="field"><span>Description</span><input class="input" id="lp-edit-description" type="text"></label>
+              <label class="field"><span>Welcome line (first_line)</span><textarea class="textarea" id="lp-edit-first-line" rows="2"></textarea></label>
+              <label class="field"><span>Interrupt ack</span><input class="input" id="lp-edit-interrupt-ack" type="text" placeholder="avunu andi or sare"></label>
+              <label class="field"><span>Idle prompt</span><input class="input" id="lp-edit-idle-prompt" type="text"></label>
+              <label class="field"><span>Idle goodbye</span><input class="input" id="lp-edit-idle-last" type="text"></label>
+              <label class="field"><span>Cartesia voice ID</span><input class="input" id="lp-edit-voice" type="text"></label>
+              <label class="field ma-field--grow"><span>Language directive</span><textarea class="textarea" id="lp-edit-directive" rows="10"></textarea></label>
+              <label class="field ma-field--grow"><span>Agent instructions (applied on activate)</span><textarea class="textarea" id="lp-edit-instructions" rows="8"></textarea></label>
+            </div>
+            <footer class="as-modal-foot">
+              <div class="as-modal-foot-actions">
+                <button type="button" class="btn btn-ghost btn-sm" data-lp-dismiss>Cancel</button>
+                <button type="button" class="btn btn-primary" id="lp-modal-save">Save preset</button>
+              </div>
+            </footer>
+          </article>
+        </div>
+      </section>
+
+      <!-- Agents -->
+      <section id="page-assistants" class="page vui-page agents-page">
+        <div class="agents-shell">
+          <section class="agents-composer" aria-label="Create agent">
+            <header class="agents-composer-header">
+              <div class="agents-composer-intro">
+                <p class="agents-eyebrow">New agent</p>
+                <h2 class="agents-composer-title">Describe your voice agent</h2>
+                <p class="agents-composer-lead">Plain-language brief. We generate prompts, flows, voice, and model settings.</p>
+              </div>
+            </header>
+            <label class="agents-prompt-wrap">
+              <span class="visually-hidden">Agent description</span>
+              <textarea
+                id="assistant-description"
+                class="agents-prompt-input"
+                rows="5"
+                placeholder="Example: VK Realty consultant for Hyderabad. Multilingual, qualifies leads, books site visits, never guesses pricing."
+              ></textarea>
+            </label>
+            <div class="agents-use-cases">
+              <span class="agents-use-cases-label">Focus areas</span>
+              <div class="agents-pill-group" id="use-case-chips">
+                <button type="button" class="agents-pill chip btn-speaksy btn-speaksy--soft" data-use-case="lead_generation">Leads</button>
+                <button type="button" class="agents-pill chip btn-speaksy btn-speaksy--soft" data-use-case="appointments">Appointments</button>
+                <button type="button" class="agents-pill chip btn-speaksy btn-speaksy--soft" data-use-case="support">Support</button>
+                <button type="button" class="agents-pill chip btn-speaksy btn-speaksy--soft" data-use-case="admissions">Admissions</button>
+                <button type="button" class="agents-pill chip btn-speaksy btn-speaksy--soft" data-use-case="sales">Sales</button>
+                <button type="button" class="agents-pill chip btn-speaksy btn-speaksy--soft" data-use-case="onboarding">Onboarding</button>
+                <button type="button" class="agents-pill chip btn-speaksy btn-speaksy--soft" data-use-case="negotiation">Negotiation</button>
+                <button type="button" class="agents-pill chip btn-speaksy btn-speaksy--soft" data-use-case="collections">Collections</button>
+                <button type="button" class="agents-pill chip btn-speaksy btn-speaksy--soft" data-use-case="surveys">Surveys</button>
+              </div>
+            </div>
+            <footer class="agents-composer-footer">
+              <div class="agents-composer-actions">
+                <button type="button" class="agents-btn-primary btn-speaksy btn-speaksy--soft" id="create-assistant-btn">
+                  <span id="create-assistant-btn-label">Generate</span>
+                </button>
+                <button type="button" class="agents-btn-ghost" id="create-blank-agent-btn" title="Create a minimal agent without AI generation">
+                  Blank
+                </button>
+              </div>
+            </footer>
+          </section>
+
+          <section class="agents-roster" aria-label="Your agents">
+            <header class="agents-roster-header">
+              <h2 class="agents-roster-title">Your agents</h2>
+              <span class="agents-count-badge" id="assistants-count" aria-label="0 agents">0</span>
+            </header>
+            <div id="assistants-grid" class="agents-list">
+              <div class="agents-empty" id="assistants-empty">
+                <h3>No agents yet</h3>
+                <p>Add a brief above and tap Generate, or start with a blank preset.</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <!-- Home / Today's Summary -->
+      <section id="page-overview" class="page vui-page active">
+        <div id="overview-alerts" class="alerts-row"></div>
+
+        <!-- Daily briefing — plain-language summary for non-technical users -->
+        <section id="vk-briefing" class="vk-briefing" aria-live="polite">
+          <div class="vk-briefing-glow" aria-hidden="true"></div>
+          <p class="vk-briefing-greeting" id="vk-briefing-greeting">Good evening</p>
+          <h2 class="vk-briefing-line" id="vk-briefing-line">Loading your day&hellip;</h2>
+          <p class="vk-briefing-sub" id="vk-briefing-sub"></p>
+          <div class="vk-briefing-actions" id="vk-briefing-actions"></div>
+          <div class="vk-briefing-player" id="vk-briefing-player" hidden></div>
+        </section>
+
+        <div class="metric-strip card">
+          <div class="metric-cell">
+            <span class="section-label">Calls</span>
+            <strong class="metric-value" id="kpi-today-calls-val">—</strong>
+            <span class="metric-meta" id="kpi-week-calls-val">0 this week</span>
+          </div>
+          <div class="metric-cell">
+            <span class="section-label">Conversion</span>
+            <strong class="metric-value" id="kpi-conversion-val">—%</strong>
+            <span class="metric-meta"><span id="kpi-successful-val">—</span> successful</span>
+          </div>
+          <div class="metric-cell">
+            <span class="section-label">Pipeline</span>
+            <strong class="metric-value" id="kpi-money-val">—</strong>
+            <span class="metric-meta" id="kpi-top-agent-val">—</span>
+          </div>
+          <div class="metric-cell metric-cell-action">
+            <span class="section-label">Hot leads</span>
+            <strong class="metric-value" id="kpi-hot-leads-val">—</strong>
+            <button type="button" class="btn btn-ghost btn-sm view-all-pill" onclick="navigateTo('hot-leads')">View all</button>
+          </div>
+        </div>
+
+        <div class="bento-grid">
+          <article class="bento-card card bento-live">
+            <div class="card-head-brand">
+              <span class="section-label">Arjun</span>
+              <h3>Call activity</h3>
+            </div>
+            <p class="live-status-text" id="hero-status-text">Checking today's calls…</p>
+            <div class="agent-status-list" id="agent-status-list"></div>
+          </article>
+          <article class="bento-card card bento-chart">
+            <div class="card-head-brand">
+              <span class="section-label">Activity</span>
+              <h3>Calls today</h3>
+              <span class="metric-meta" id="overview-chart-date"></span>
+            </div>
+            <div class="chart-wrap">
+              <canvas id="overview-hourly-chart" height="180"></canvas>
+            </div>
+          </article>
+          <article class="bento-card card bento-wide">
+            <div class="card-head-brand row-head">
+              <div>
+                <span class="section-label">Recent</span>
+                <h3>Calls</h3>
+              </div>
+              <button type="button" class="btn btn-ghost btn-sm" onclick="navigateTo('leads')">All calls</button>
+            </div>
+            <div id="overview-recent-calls" class="compact-table"></div>
+          </article>
+          <article class="bento-card card">
+            <div class="card-head-brand row-head">
+              <div>
+                <span class="section-label">Priority</span>
+                <h3>Hot leads</h3>
+              </div>
+              <button type="button" class="btn btn-ghost btn-sm" onclick="navigateTo('hot-leads')">See all</button>
+            </div>
+            <div id="overview-hot-leads-list" class="mini-leads-list"></div>
+          </article>
+          <article class="bento-card card">
+            <div class="card-head-brand">
+              <span class="section-label">Schedule</span>
+              <h3>Appointments</h3>
+            </div>
+            <div class="table-wrap table-compact">
+              <table class="table">
+                <thead><tr><th>Contact</th><th>Time</th><th>Status</th></tr></thead>
+                <tbody id="overview-appointments"></tbody>
+              </table>
+            </div>
+          </article>
+        </div>
+
+        <article id="vk-needs-action" class="card vk-needs-action">
+          <div class="card-head-brand row-head">
+            <div>
+              <span class="section-label">Action needed</span>
+              <h3>Follow up with these leads</h3>
+            </div>
+            <button type="button" class="btn btn-ghost btn-sm view-all-pill" onclick="navigateTo('hot-leads')">View all</button>
+          </div>
+          <div id="vk-needs-action-list" class="vk-needs-action-list">
+            <p class="muted vk-skeleton">Loading priority leads…</p>
+          </div>
+        </article>
+
+        <article id="vk-overview-roles" class="card vk-overview-roles vk-ops-only" hidden>
+          <div class="card-head-brand row-head">
+            <div>
+              <span class="section-label">Organisation</span>
+              <h3>Role dashboards</h3>
+            </div>
+            <button type="button" class="btn btn-ghost btn-sm" onclick="navigateTo('organisation')">Manage</button>
+          </div>
+          <div id="vk-overview-roles-list" class="vk-overview-roles-list"></div>
+        </article>
+      </section>
+
+      <!-- Leads & Calls -->
+      <section id="page-leads" class="page vui-page">
+        <div class="page-header vui-page-header">
+          <div class="page-header-left">
+            <span class="section-label">Pipeline</span>
+            <p class="muted vk-skeleton" id="leads-count-label">Loading…</p>
+          </div>
+          <div class="page-header-actions">
+            <input id="leads-search" type="search" placeholder="Search by name or phone…" class="input search-input-inline">
+            <select id="leads-outcome-filter" class="input input-sm">
+              <option value="">All outcomes</option>
+              <option value="booked">Booked</option>
+              <option value="interested">Interested</option>
+              <option value="follow_up">Follow-up</option>
+              <option value="not_interested">Not interested</option>
+            </select>
+            <button type="button" class="btn btn-secondary btn-sm" id="leads-export-btn">Export CSV</button>
+          </div>
+        </div>
+        <div id="leads-list" class="leads-table-wrap"></div>
+        <div id="leads-pagination" class="pagination-row"></div>
+      </section>
+
+      <!-- Hot Leads -->
+      <section id="page-hot-leads" class="page vui-page">
+        <div class="page-header vui-page-header">
+          <div>
+            <span class="section-label">Priority</span>
+            <p class="muted vk-skeleton" id="hot-leads-count">Loading…</p>
+          </div>
+        </div>
+        <div id="hot-leads-list" class="hot-leads-list"></div>
+      </section>
+
+      <!-- Performance Overview -->
+      <section id="page-performance" class="page vui-page">
+        <div class="stat-grid kpi-grid">
+          <article class="stat card kpi-card"><strong class="kpi-value" id="perf-site-visits">0</strong><span class="kpi-label">Site Visits (Month)</span></article>
+          <article class="stat card kpi-card"><strong class="kpi-value" id="perf-offers">0</strong><span class="kpi-label">Offers Received</span></article>
+          <article class="stat card kpi-card"><strong class="kpi-value" id="perf-avg-duration">0s</strong><span class="kpi-label">Avg Duration</span></article>
+          <article class="stat card kpi-card"><strong class="kpi-value" id="perf-success-rate">0%</strong><span class="kpi-label">Success Rate</span></article>
+        </div>
+        <div class="split">
+          <article class="panel card query-card">
+            <div class="panel-head section-head-inline"><h3>Weekly Conversion</h3></div>
+            <canvas id="performance-conversion-chart" height="200" class="chart-canvas"></canvas>
+          </article>
+          <article class="panel card query-card">
+            <div class="panel-head section-head-inline"><h3>Best Days & Times</h3></div>
+            <p><strong>Best days:</strong> <span id="perf-best-days">—</span></p>
+            <p><strong>Best hours (IST):</strong> <span id="perf-best-hours">—</span></p>
+          </article>
+        </div>
+        <article class="panel card query-card" id="perf-outcomes-panel" hidden style="margin-top:var(--space-5)">
+          <div class="panel-head section-head-inline"><h3>Outcome Breakdown</h3></div>
+          <div id="perf-outcomes-grid" class="perf-outcomes-grid"></div>
+        </article>
+      </section>
+
+      <!-- Listing Performance -->
+      <section id="page-listing-performance" class="page vui-page">
+        <div class="split">
+          <article class="panel card query-card">
+            <div class="panel-head section-head-inline"><h3>Top Listings</h3></div>
+            <div id="listing-performance-list"></div>
+          </article>
+          <article class="panel card query-card">
+            <div class="panel-head section-head-inline"><h3>Top Areas</h3></div>
+            <div id="area-performance-list" class="area-chips"></div>
+          </article>
+        </div>
+        <article class="panel card query-card" style="margin-top:var(--space-5)">
+          <div class="panel-head section-head-inline"><h3>A/B Tone Results</h3></div>
+          <div id="ab-test-results"></div>
+        </article>
+        <article class="panel card query-card" style="margin-top:var(--space-5)">
+          <div class="panel-head section-head-inline"><h3>Outbound Campaigns</h3></div>
+          <p class="muted">Bulk dispatch is available on the Campaigns page.</p>
+          <button type="button" class="btn btn-secondary btn-sm" data-page="campaigns" onclick="navigateTo('campaigns')">Open Campaigns →</button>
+        </article>
+      </section>
+
+      <!-- Reports -->
+      <section id="page-reports" class="page vui-page">
+        <div class="reports-grid">
+          <article class="card query-card">
+            <div class="panel-head section-head-inline"><h3>Weekly Summary</h3></div>
+            <div id="weekly-report-kpis" class="metric-strip metric-strip-inline"></div>
+            <p id="weekly-report-text" class="report-body"></p>
+            <div class="report-actions">
+              <button type="button" class="btn btn-primary btn-sm" id="print-weekly-btn">Download / Print PDF</button>
+              <button type="button" class="btn btn-secondary btn-sm" id="send-weekly-email-btn">Email Summary</button>
+            </div>
+            <label class="field" style="margin-top:12px">
+              <span>Email override (optional)</span>
+              <input class="input" id="report-email" type="email" placeholder="you@company.com">
+            </label>
+          </article>
+          <article class="card query-card">
+            <div class="panel-head section-head-inline"><h3>Monthly Performance</h3></div>
+            <div id="monthly-report-kpis" class="metric-strip metric-strip-inline"></div>
+            <p id="monthly-report-text" class="report-body"></p>
+          </article>
+          <article class="card query-card">
+            <div class="panel-head section-head-inline"><h3>Export Data</h3></div>
+            <div class="report-actions stack report-export-actions">
+              <button type="button" class="btn btn-secondary" id="export-leads-btn">Export Leads (CSV)</button>
+              <button type="button" class="btn btn-secondary" id="export-booked-calls-btn">Export Booked Calls (CSV)</button>
+              <button type="button" class="btn btn-secondary" id="export-missed-calls-btn">Export Missed Calls (CSV)</button>
+              <button type="button" class="btn btn-ghost" id="export-calls-btn">Export All Calls (CSV)</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Call Logs -->
+      <section id="page-call-logs" class="page vui-page">
+        <div class="section-head call-logs-header">
+          <div class="call-logs-header-actions">
+            <button type="button" class="btn btn-ghost btn-sm" id="call-logs-toggle-filters">Filters</button>
+            <button type="button" class="btn btn-secondary btn-sm" id="call-logs-export-btn">Export CSV</button>
+          </div>
+        </div>
+
+        <article id="call-logs-filters" class="panel card call-logs-filters">
+          <div class="call-logs-filters-grid">
+            <label class="field">
+              <span>Assistant</span>
+              <select id="cl-filter-agent" class="input">
+                <option value="">All assistants</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Status</span>
+              <select id="cl-filter-status" class="input">
+                <option value="">Any status</option>
+                <option value="completed">Completed</option>
+                <option value="answered">Answered</option>
+                <option value="failed">Failed</option>
+                <option value="no_answer">No answer</option>
+                <option value="busy">Busy</option>
+                <option value="cancelled">Cancelled</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Direction</span>
+              <select id="cl-filter-direction" class="input">
+                <option value="">Any direction</option>
+                <option value="outbound">Outbound</option>
+                <option value="inbound">Inbound</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Channel</span>
+              <select id="cl-filter-channel" class="input">
+                <option value="">Any channel</option>
+                <option value="phone">Phone</option>
+                <option value="web">Web</option>
+                <option value="sip">SIP</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Transferred</span>
+              <select id="cl-filter-transferred" class="input">
+                <option value="">Any</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Call ID</span>
+              <input id="cl-filter-call-id" class="input" placeholder="UUID">
+            </label>
+            <label class="field">
+              <span>From number</span>
+              <input id="cl-filter-from" class="input" placeholder="+91…">
+            </label>
+            <label class="field">
+              <span>To number</span>
+              <input id="cl-filter-to" class="input" placeholder="+91…">
+            </label>
+            <label class="field">
+              <span>Phone (any)</span>
+              <input id="cl-filter-phone" class="input" placeholder="Search any phone field">
+            </label>
+            <label class="field">
+              <span>Bulk call ID</span>
+              <input id="cl-filter-bulk-id" class="input" placeholder="UUID">
+            </label>
+            <label class="field field-check">
+              <input type="checkbox" id="cl-filter-bulk-only">
+              <span>Bulk calls only</span>
+            </label>
+            <label class="field">
+              <span>Min duration (s)</span>
+              <input id="cl-filter-dur-min" class="input" type="number" min="0" placeholder="0">
+            </label>
+            <label class="field">
+              <span>Max duration (s)</span>
+              <input id="cl-filter-dur-max" class="input" type="number" min="0" placeholder="3600">
+            </label>
+            <label class="field">
+              <span>Date from</span>
+              <input id="cl-filter-date-from" class="input" type="date">
+            </label>
+            <label class="field">
+              <span>Date to</span>
+              <input id="cl-filter-date-to" class="input" type="date">
+            </label>
+          </div>
+          <div class="call-logs-filters-actions">
+            <button type="button" class="btn btn-primary btn-sm" id="call-logs-apply-btn">Apply filters</button>
+            <button type="button" class="btn btn-ghost btn-sm" id="call-logs-reset-btn">Reset</button>
+          </div>
+        </article>
+
+        <article class="panel card query-card">
+          <div class="panel-head section-head-inline">
+            <h3 id="call-logs-results-label">Calls</h3>
+            <div class="call-logs-pagination" id="call-logs-pagination"></div>
+          </div>
+          <div class="table-wrap">
+            <table class="table call-logs-table">
+              <thead>
+                <tr>
+                  <th>Call Date</th>
+                  <th>Bot Name</th>
+                  <th>From</th>
+                  <th>To</th>
+                  <th>Duration</th>
+                  <th>Call Type</th>
+                  <th>Status</th>
+                  <th>Ended By</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="call-logs-body"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <!-- CRM -->
+      <section id="page-crm" class="page vui-page">
+        <div class="crm-toolbar card">
+          <div class="crm-view-settings">
+            <span class="crm-view-label">View</span>
+            <div class="crm-view-filters" id="crm-view-filters" role="tablist" aria-label="CRM pipeline view">
+              <button type="button" class="crm-view-chip is-active" data-crm-view="all" role="tab" aria-selected="true">All leads</button>
+              <button type="button" class="crm-view-chip" data-crm-view="booked" role="tab" aria-selected="false">Booked</button>
+              <button type="button" class="crm-view-chip" data-crm-view="completed" role="tab" aria-selected="false">Completed</button>
+            </div>
+          </div>
+          <div class="crm-toolbar-stats" id="crm-toolbar-stats" aria-live="polite"></div>
+        </div>
+        <div class="crm-grid">
+          <article class="panel card query-card">
+            <div class="panel-head section-head-inline">
+              <h3>Lead pipeline</h3>
+              <input id="crm-search" class="input search-input-inline" placeholder="Search by name or phone">
+            </div>
+            <div class="table-wrap">
+              <table class="table">
+                <thead><tr><th>Name</th><th>Phone</th><th>Total Calls</th><th>Last Seen</th><th>Status</th></tr></thead>
+                <tbody id="crm-body"></tbody>
+              </table>
+            </div>
+          </article>
+          <article class="panel card query-card crm-insights-panel" id="crm-details-panel">
+            <div class="panel-head section-head-inline crm-insights-head">
+              <h3>Caller Insights</h3>
+            </div>
+            <div id="crm-details" class="crm-insights-body crm-details-empty">
+              <div class="crm-insights-placeholder">
+                <div class="crm-insights-placeholder-icon" aria-hidden="true">◎</div>
+                <p>Select a contact from the pipeline to view their call history, summaries, and recordings.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+        <article class="panel card query-card crm-site-visits-panel">
+          <div class="panel-head section-head-inline crm-site-visits-head">
+            <div>
+              <h3>Site visits</h3>
+              <p class="muted">People who booked or completed property visits</p>
+            </div>
+            <div class="crm-site-visit-tabs" id="crm-site-visit-tabs" role="tablist" aria-label="Site visit status">
+              <button type="button" class="crm-site-visit-tab is-active" data-sv-tab="booked" role="tab" aria-selected="true">Booked</button>
+              <button type="button" class="crm-site-visit-tab" data-sv-tab="completed" role="tab" aria-selected="false">Completed</button>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="table crm-site-visits-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Phone</th>
+                  <th>Property</th>
+                  <th>Visit time</th>
+                  <th>Status</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="crm-site-visits-body"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <!-- Analytics (TailAdmin-inspired + Chart.js) -->
+      <section id="page-analytics" class="page vui-page">
+        <div class="ta-analytics">
+          <div class="ta-metrics-grid" id="ta-metrics" aria-label="Key metrics"></div>
+          <div class="ta-charts-grid">
+            <article class="ta-chart-card card ta-chart-wide">
+              <div class="ta-chart-head">
+                <div>
+                  <h3 class="ta-chart-title">Daily Call Volume</h3>
+                  <p class="ta-chart-sub">Last 14 days of inbound voice traffic</p>
+                </div>
+              </div>
+              <div class="ta-chart-canvas-wrap">
+                <canvas id="ana-daily-chart" aria-label="Daily call volume chart"></canvas>
+                <p id="ana-daily-empty" class="ta-chart-empty" hidden>No call data yet — charts appear after your first calls.</p>
+              </div>
+            </article>
+            <article class="ta-chart-card card">
+              <div class="ta-chart-head">
+                <div>
+                  <h3 class="ta-chart-title">Call Outcomes</h3>
+                  <p class="ta-chart-sub">Booked vs completed vs other</p>
+                </div>
+              </div>
+              <div class="ta-chart-canvas-wrap ta-chart-canvas-donut">
+                <canvas id="ana-outcomes-chart" aria-label="Call outcomes chart"></canvas>
+              </div>
+              <div class="ta-outcomes-summary" id="ana-outcomes-summary"></div>
+            </article>
+            <article class="ta-chart-card card ta-chart-wide">
+              <div class="ta-chart-head">
+                <div>
+                  <h3 class="ta-chart-title">Hourly Distribution</h3>
+                  <p class="ta-chart-sub">When callers reach your agents (24h)</p>
+                </div>
+              </div>
+              <div class="ta-chart-canvas-wrap">
+                <canvas id="ana-hourly-chart" aria-label="Hourly call distribution chart"></canvas>
+                <p id="ana-hourly-empty" class="ta-chart-empty" hidden>No hourly data yet.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Calendar -->
+      <section id="page-calendar" class="page vui-page">
+        <div class="cal-page">
+          <div class="cal-metrics metric-strip" id="cal-metrics" aria-label="Booking summary"></div>
+          <div class="cal-toolbar card">
+            <div class="cal-toolbar-group">
+              <span class="cal-toolbar-label">View</span>
+              <div class="cal-segmented" role="tablist" aria-label="Calendar view">
+                <button type="button" class="cal-seg-btn active" data-cal-view="agenda" role="tab">Agenda</button>
+                <button type="button" class="cal-seg-btn" data-cal-view="week" role="tab">Week</button>
+                <button type="button" class="cal-seg-btn" data-cal-view="month" role="tab">Month</button>
+              </div>
+            </div>
+            <div class="cal-toolbar-group">
+              <span class="cal-toolbar-label">Show</span>
+              <div class="cal-segmented cal-segmented-sm" role="tablist" aria-label="Booking filter">
+                <button type="button" class="cal-seg-btn active" data-cal-filter="all" role="tab">All</button>
+                <button type="button" class="cal-seg-btn" data-cal-filter="today" role="tab">Today</button>
+                <button type="button" class="cal-seg-btn" data-cal-filter="upcoming" role="tab">Upcoming</button>
+                <button type="button" class="cal-seg-btn" data-cal-filter="past" role="tab">Past</button>
+              </div>
+            </div>
+          </div>
+          <div class="cal-layout">
+            <div class="cal-main-wrap">
+              <div id="cal-main" class="cal-main" aria-live="polite"></div>
+            </div>
+            <aside id="cal-detail" class="cal-detail card" hidden aria-label="Appointment details"></aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- Settings -->
+      <section id="page-settings" class="page vui-page">
+        <article class="card vk-platform-powered">
+          <div class="vk-powered-inline">
+            <span class="vk-powered-label">Platform powered by</span>
+            <img
+              class="vk-powered-logo"
+              src="/static/vendor/images/speaksy-logo-powered.png?v=20260725"
+              alt="Speaksy"
+              width="141"
+              height="40"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+          <p class="muted vk-platform-powered-copy">VK Realty is your brand on the front. Speaksy provides the voice AI platform underneath.</p>
+        </article>
+
+        <nav class="tab-bar" id="settings-tabs" aria-label="Settings tabs">
+          <button type="button" class="tab active" data-tab="settings-main-agent">Main Agent</button>
+          <button type="button" class="tab" data-tab="settings-agents">Agents</button>
+          <button type="button" class="tab" data-tab="settings-hours">Business Hours</button>
+          <button type="button" class="tab" data-tab="settings-tone">Tone</button>
+          <button type="button" class="tab" data-tab="settings-notifications">Notifications</button>
+          <button type="button" class="tab" data-tab="settings-phone">Phone Numbers</button>
+          <button type="button" class="tab" data-tab="settings-api-keys">API Keys</button>
+          <button type="button" class="tab" data-tab="settings-knowledge">Knowledge</button>
+          <button type="button" class="tab" data-tab="settings-config">Advanced Config</button>
+        </nav>
+
+        <div class="tab-panel-settings active" id="settings-main-agent">
+          <h3>Main Agent (VK Realty)</h3>
+          <p class="muted">Edit the live inbound agent preset. Saves <code>config.json</code> and restarts <code>agent.py</code> via supervisord.</p>
+          <button type="button" class="btn btn-primary" onclick="navigateTo('main-agent')">Open Main Agent Editor →</button>
+        </div>
+
+        <div class="tab-panel-settings" id="settings-agents">
+          <div class="settings-section-header">
+            <h3>Manage Agents</h3>
+            <button type="button" class="btn btn-primary btn-sm" onclick="navigateTo('assistants')">+ New Agent</button>
+          </div>
+          <p class="muted">Turn agents on/off. Paused agents won't receive new calls.</p>
+          <div id="settings-agents-list" class="agents-settings-list"></div>
+        </div>
+
+        <div class="tab-panel-settings" id="settings-hours">
+          <h3>Business Hours</h3>
+          <p class="muted">Agent handles calls during these hours (IST by default).</p>
+          <form id="hours-form" class="settings-form">
+            <div class="form-grid-2">
+              <label class="field"><span>Open Time</span><input class="input" type="time" id="hours-open" value="09:00"></label>
+              <label class="field"><span>Close Time</span><input class="input" type="time" id="hours-close" value="20:00"></label>
+              <label class="field">
+                <span>Timezone</span>
+                <select class="input" id="hours-timezone">
+                  <option value="Asia/Kolkata">India (IST)</option>
+                  <option value="Asia/Dubai">Dubai (GST)</option>
+                  <option value="Europe/London">London (BST)</option>
+                  <option value="America/New_York">New York (EST)</option>
+                </select>
+              </label>
+            </div>
+            <div class="days-selector">
+              <span class="field-label">Working Days</span>
+              <div class="day-toggles">
+                <label class="day-toggle"><input type="checkbox" value="Monday" checked><span>Mon</span></label>
+                <label class="day-toggle"><input type="checkbox" value="Tuesday" checked><span>Tue</span></label>
+                <label class="day-toggle"><input type="checkbox" value="Wednesday" checked><span>Wed</span></label>
+                <label class="day-toggle"><input type="checkbox" value="Thursday" checked><span>Thu</span></label>
+                <label class="day-toggle"><input type="checkbox" value="Friday" checked><span>Fri</span></label>
+                <label class="day-toggle"><input type="checkbox" value="Saturday" checked><span>Sat</span></label>
+                <label class="day-toggle"><input type="checkbox" value="Sunday"><span>Sun</span></label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Business Hours</button>
+          </form>
+        </div>
+
+        <div class="tab-panel-settings" id="settings-tone">
+          <h3>Agent Tone</h3>
+          <p class="muted">Conversation style applied to all active agents.</p>
+          <div class="tone-selector" id="tone-selector">
+            <div class="tone-card card" data-tone="professional">
+              <span class="section-label">Tone A</span>
+              <h4>Professional</h4>
+              <p class="muted">Formal, trust-building. Ideal for high-value properties.</p>
+              <button type="button" class="btn btn-secondary btn-sm tone-select-btn">Select</button>
+            </div>
+            <div class="tone-card card" data-tone="friendly">
+              <span class="section-label">Tone B</span>
+              <h4>Friendly</h4>
+              <p class="muted">Warm and conversational.</p>
+              <button type="button" class="btn btn-secondary btn-sm tone-select-btn">Select</button>
+            </div>
+            <div class="tone-card card" data-tone="aggressive_closer">
+              <span class="section-label">Tone C</span>
+              <h4>Aggressive Closer</h4>
+              <p class="muted">High-urgency sales approach.</p>
+              <button type="button" class="btn btn-secondary btn-sm tone-select-btn">Select</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel-settings" id="settings-notifications">
+          <h3>Notification Preferences</h3>
+          <form id="notifications-form" class="settings-form">
+            <label class="field field-check"><input type="checkbox" id="notif-whatsapp" checked><span>WhatsApp alerts for hot leads</span></label>
+            <label class="field field-check"><input type="checkbox" id="notif-email"><span>Email alerts</span></label>
+            <label class="field field-check"><input type="checkbox" id="notif-hot" checked><span>Alert on hot lead</span></label>
+            <label class="field field-check"><input type="checkbox" id="notif-booking" checked><span>Alert on booking</span></label>
+            <label class="field"><span>Alert phone (WhatsApp)</span><input class="input" id="notif-phone" type="tel" placeholder="+91…"></label>
+            <label class="field"><span>Alert email</span><input class="input" id="notif-email-addr" type="email" placeholder="you@company.com"></label>
+            <button type="submit" class="btn btn-primary">Save Notifications</button>
+          </form>
+        </div>
+
+        <div class="tab-panel-settings" id="settings-phone">
+          <h3>Inbound Phone Numbers</h3>
+          <div id="settings-phone-list" class="phone-config-list"></div>
+        </div>
+
+        <div class="tab-panel-settings" id="settings-api-keys">
+          <div id="api-keys-lock" class="api-keys-lock card">
+            <h3>API Settings</h3>
+            <p class="muted">Enter the panel password to view and manage API keys stored in <code>.env</code>.</p>
+            <form id="api-keys-unlock-form" class="settings-form api-keys-unlock-form">
+              <label class="field">
+                <span>Panel password</span>
+                <input class="input" type="password" id="api-keys-password" autocomplete="current-password" placeholder="Enter password">
+              </label>
+              <button type="submit" class="btn btn-primary">Unlock</button>
+            </form>
+          </div>
+          <div id="api-keys-panel" class="api-keys-panel" hidden>
+            <div class="settings-section-header">
+              <div>
+                <h3>API Keys &amp; Voice</h3>
+                <p class="muted">Saved to <span id="api-keys-env-file">.env</span> and <code>config.json</code>. Saving restarts the voice agent and clears old worker processes.</p>
+              </div>
+              <div class="api-keys-actions">
+                <label class="api-keys-restart-toggle">
+                  <input type="checkbox" id="api-keys-restart-agent" checked>
+                  <span>Restart agent on save</span>
+                </label>
+                <button type="button" class="btn btn-ghost btn-sm" id="api-keys-lock-btn">Lock panel</button>
+                <button type="button" class="btn btn-primary btn-sm" id="api-keys-save-btn">Save &amp; apply</button>
+              </div>
+            </div>
+            <article class="api-keys-group card" id="cartesia-voice-panel">
+              <h4 class="api-keys-group-title">Cartesia Voice (Arjun)</h4>
+              <p class="muted" style="margin: 0 0 12px;">Voice ID and model are written to <code>config.json</code> and picked up on agent restart.</p>
+              <div class="api-keys-grid">
+                <label class="api-key-field">
+                  <span class="api-key-field-label"><span>Cartesia Voice ID</span><code>tts_voice</code></span>
+                  <input class="input" type="text" id="voice-tts-id" placeholder="4b732050-eaed-49f0-ae76-a6281a20e303" autocomplete="off">
+                </label>
+                <label class="api-key-field">
+                  <span class="api-key-field-label"><span>Voice display name</span><code>tts_voice_display</code></span>
+                  <input class="input" type="text" id="voice-tts-display" placeholder="Nivas Telugu/EN" autocomplete="off">
+                </label>
+                <label class="api-key-field">
+                  <span class="api-key-field-label"><span>Cartesia model</span><code>cartesia_tts_model</code></span>
+                  <input class="input" type="text" id="voice-cartesia-model" placeholder="sonic-3.5" autocomplete="off">
+                </label>
+                <label class="api-key-field">
+                  <span class="api-key-field-label"><span>TTS provider</span><code>tts_provider</code></span>
+                  <input class="input" type="text" id="voice-tts-provider" placeholder="cartesia" autocomplete="off">
+                </label>
+                <label class="api-key-field">
+                  <span class="api-key-field-label"><span>TTS language</span><code>tts_language</code></span>
+                  <input class="input" type="text" id="voice-tts-language" placeholder="te-IN" autocomplete="off">
+                </label>
+              </div>
+            </article>
+            <div id="api-keys-groups" class="api-keys-groups"></div>
+          </div>
+        </div>
+
+        <div class="tab-panel-settings" id="settings-knowledge">
+          <h3>Assign Knowledge to Agent</h3>
+          <p class="muted">Link a knowledge JSON file and config preset per agent.</p>
+          <form id="assign-knowledge-form" class="settings-form">
+            <label class="field">
+              <span>Agent</span>
+              <select class="input" id="knowledge-agent-select"><option value="">Select agent…</option></select>
+            </label>
+            <label class="field">
+              <span>Knowledge data path</span>
+              <input class="input" id="knowledge-path" placeholder="knowledge_data/company_knowledge.json">
+            </label>
+            <label class="field">
+              <span>Config preset</span>
+              <input class="input" id="knowledge-config-preset" value="config.json">
+            </label>
+            <button type="submit" class="btn btn-primary">Assign Knowledge</button>
+          </form>
+        </div>
+
+        <div class="tab-panel-settings" id="settings-config">
+        <article class="panel card query-card settings-config-panel">
+          <div class="panel-head section-head-inline">
+            <div>
+              <h3>Platform Configuration</h3>
+              <p class="muted">Default voice agent settings applied when no per-agent DB config overrides.</p>
+            </div>
+            <button type="button" class="btn btn-primary btn-sm" id="settings-save-btn">Save Configuration</button>
+          </div>
+          <form id="settings-config-form" class="settings-form">
+            <div class="form-grid-2">
+              <label class="field">
+                <span>Greeting (first line)</span>
+                <input class="input" id="cfg-first-line" name="first_line" placeholder="Namaste! How can I help you?">
+              </label>
+              <label class="field">
+                <span>Language preset</span>
+                <select class="input" id="cfg-lang-preset" name="lang_preset">
+                  <option value="tinglish" selected>Telugu + English (Tinglish)</option>
+                  <option value="hme">Hindi + English + Marathi (HME)</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Language override</span>
+                <select class="input" id="cfg-language" name="language">
+                  <option value="">Auto-detect</option>
+                  <option value="hi-en">Hinglish (hi-en)</option>
+                  <option value="hi">Hindi</option>
+                  <option value="ta">Tamil</option>
+                  <option value="te">Telugu</option>
+                  <option value="en">English</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>Max turns per call</span>
+                <input class="input" type="number" min="5" max="60" id="cfg-max-turns" name="max_turns">
+              </label>
+            </div>
+            <label class="field">
+              <span>Agent instructions (system prompt)</span>
+              <textarea class="textarea" id="cfg-agent-instructions" name="agent_instructions" rows="6" placeholder="Business context and behavior guidelines…"></textarea>
+            </label>
+            <div class="settings-form-section">
+              <h4 class="settings-form-section-title">Speech &amp; Language</h4>
+              <div class="form-grid-2">
+                <label class="field">
+                  <span>STT provider</span>
+                  <select class="input" id="cfg-stt-provider" name="stt_provider">
+                    <option value="sarvam">Sarvam (Saarika)</option>
+                    <option value="deepgram">Deepgram</option>
+                    <option value="soniox">Soniox</option>
+                  </select>
+                </label>
+                <label class="field">
+                  <span>STT language</span>
+                  <input class="input" id="cfg-stt-language" name="stt_language" placeholder="unknown = auto">
+                </label>
+                <label class="field">
+                  <span>TTS provider</span>
+                  <select class="input" id="cfg-tts-provider" name="tts_provider">
+                    <option value="cartesia">Cartesia (Sonic)</option>
+                    <option value="gemini">Gemini Flash TTS</option>
+                    <option value="sarvam">Sarvam (Bulbul)</option>
+                    <option value="elevenlabs">ElevenLabs</option>
+                  </select>
+                </label>
+                <label class="field">
+                  <span>TTS voice</span>
+                  <input class="input" id="cfg-tts-voice" name="tts_voice" placeholder="nivas, Rasalgethi, kavya…">
+                </label>
+                <label class="field">
+                  <span>TTS language</span>
+                  <input class="input" id="cfg-tts-language" name="tts_language" placeholder="hi-IN, en-IN…">
+                </label>
+                <label class="field">
+                  <span>Min endpointing delay (s)</span>
+                  <input class="input" type="number" step="0.05" min="0.1" max="2" id="cfg-stt-min-delay" name="stt_min_endpointing_delay">
+                </label>
+                <label class="field">
+                  <span>Max endpointing delay (s)</span>
+                  <input class="input" type="number" step="0.1" min="1" max="10" id="cfg-stt-max-delay" name="stt_max_endpointing_delay">
+                </label>
+              </div>
+            </div>
+            <div class="settings-form-section">
+              <h4 class="settings-form-section-title">LLM</h4>
+              <div class="form-grid-2">
+                <label class="field">
+                  <span>LLM provider</span>
+                  <select class="input" id="cfg-llm-provider" name="llm_provider">
+                    <option value="gemini">Gemini</option>
+                    <option value="openai">OpenAI</option>
+                    <option value="groq">Groq</option>
+                    <option value="claude">Claude</option>
+                  </select>
+                </label>
+                <label class="field">
+                  <span>LLM model</span>
+                  <input class="input" id="cfg-llm-model" name="llm_model" placeholder="gpt-4o-mini">
+                </label>
+                <label class="field">
+                  <span>Gemini model</span>
+                  <input class="input" id="cfg-gemini-model" name="gemini_model" placeholder="gemini-2.0-flash">
+                </label>
+                <label class="field">
+                  <span>Max completion tokens</span>
+                  <input class="input" type="number" min="40" max="500" id="cfg-llm-max-tokens" name="llm_max_completion_tokens">
+                </label>
+                <label class="field">
+                  <span>Campaign ID</span>
+                  <input class="input" id="cfg-campaign-id" name="campaign_id" placeholder="Optional RE campaign">
+                </label>
+                <label class="field">
+                  <span>Timezone</span>
+                  <input class="input" id="cfg-timezone" name="timezone" value="Asia/Kolkata">
+                </label>
+              </div>
+            </div>
+          </form>
+        </article>
+
+        <div class="settings-grid query-grid" style="margin-top: var(--space-5);">
+          <button type="button" class="settings-card query-card" data-page="crm">
+            <div class="eyebrow">Pipeline</div>
+            <h4>CRM</h4>
+            <p class="muted">Contact pipeline and caller insights.</p>
+          </button>
+
+          <button type="button" class="settings-card query-card" data-page="campaigns">
+            <div class="eyebrow">Outbound</div>
+            <h4>Campaigns</h4>
+            <p class="muted">Bulk outbound calling.</p>
+          </button>
+          <button type="button" class="settings-card query-card" data-page="call-logs">
+            <div class="eyebrow">History</div>
+            <h4>Call Logs</h4>
+            <p class="muted">Search and export conversations.</p>
+          </button>
+        </div>
+        </div>
+      </section>
+
+      <section id="page-knowledge" class="page vui-page">
+        <div class="card" style="max-width: 520px; padding: 2rem;">
+          <h3>Knowledge Base</h3>
+          <p class="muted">Assign project FAQs and inventory to Arjun from Settings → Knowledge.</p>
+          <button type="button" class="btn btn-primary btn-sm" id="vk-knowledge-go-settings">Open Knowledge Settings</button>
+        </div>
+      </section>
+      <section id="page-integrations" class="page vui-page">
+        <div class="integrations-page">
+          <header class="integrations-page-head card">
+            <div>
+              <h3>Integrations</h3>
+              <p class="muted">Link WhatsApp and other channels. Use <strong>Add Number</strong> to connect Phone WhatsApp via QR scan.</p>
+            </div>
+            <button type="button" class="btn btn-primary btn-speaksy btn-speaksy--soft" id="integrations-add-number-btn">
+              <span data-lucide="smartphone" aria-hidden="true"></span>
+              Add Number
+            </button>
+          </header>
+
+          <div class="integrations-toolbar card">
+            <div class="integrations-filters" id="integrations-filters" role="group" aria-label="Filter by category"></div>
+            <label class="integrations-search-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+              <input type="search" class="input" id="integrations-search" placeholder="Search integrations" aria-label="Search integrations">
+            </label>
+          </div>
+
+          <div class="integrations-tabs" role="tablist" aria-label="Integration views">
+            <button type="button" class="integrations-tab is-active" data-tab="all" role="tab" aria-selected="true">All Integrations</button>
+            <button type="button" class="integrations-tab" data-tab="connected" role="tab" aria-selected="false">Connected</button>
+          </div>
+
+          <div class="card wa-numbers-panel-wrap" id="whatsapp-numbers-panel" hidden></div>
+
+          <div class="integrations-grid" id="integrations-grid"></div>
+          <div class="integrations-empty card" id="integrations-empty" hidden>
+            <div class="empty-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg></div>
+            <h3>No integrations found</h3>
+            <p class="muted">Try a different search or category filter.</p>
+          </div>
+        </div>
+      </section>
+      <section id="page-whatsapp-chat" class="page vui-page" hidden>
+        <div class="wa-chat-page">
+          <header class="wa-chat-page-head">
+            <button type="button" class="btn btn-ghost btn-icon wa-chat-back-btn" id="wa-chat-back-btn" aria-label="Back to Connections">
+              <span data-lucide="arrow-left" aria-hidden="true"></span>
+            </button>
+            <div>
+              <h2 class="wa-chat-page-title">Chat history</h2>
+              <p class="muted wa-chat-page-sub" id="wa-chat-page-sub">Every message sent and received on your linked WhatsApp number.</p>
+            </div>
+            <button type="button" class="btn btn-ghost btn-sm" id="wa-chat-new-btn" style="margin-left:auto">Message new number</button>
+          </header>
+          <div class="wa-chat-layout card">
+            <aside class="wa-chat-sidebar">
+              <label class="wa-chat-search-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                <input type="search" class="input" id="wa-chat-search" placeholder="Search by number..." aria-label="Search by number">
+              </label>
+              <div class="wa-chat-conv-list" id="wa-chat-conv-list" role="list"></div>
+              <div class="wa-chat-panel-empty" id="wa-chat-conv-empty">
+                <div class="wa-chat-empty-icon" aria-hidden="true">💬</div>
+                <p>No conversations yet</p>
+              </div>
+            </aside>
+            <div class="wa-chat-main">
+              <div class="wa-chat-thread-head" id="wa-chat-thread-head"></div>
+              <div class="wa-chat-thread" id="wa-chat-thread" role="log" aria-live="polite"></div>
+              <div class="wa-chat-panel-empty wa-chat-panel-empty--thread" id="wa-chat-thread-empty">
+                <div class="wa-chat-empty-icon" aria-hidden="true">💬</div>
+                <p>Select a conversation to view messages</p>
+              </div>
+              <footer class="wa-chat-composer" id="wa-chat-composer" hidden>
+                <textarea class="input wa-chat-composer-input" id="wa-chat-composer-input" rows="2" placeholder="Type a message…" aria-label="Message"></textarea>
+                <button type="button" class="btn btn-primary btn-speaksy btn-speaksy--soft" id="wa-chat-send-btn">Send</button>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="page-campaigns" class="page vui-page">
+        <div class="campaign-page">
+          <header class="campaign-page-head card">
+            <div>
+              <h3>Outbound Campaigns</h3>
+              <p class="muted">Upload a contact list, configure calling windows, and dispatch AI voice calls at scale.</p>
+            </div>
+            <div class="campaign-head-stats">
+              <div class="campaign-stat-pill">
+                <span class="campaign-stat-label">Contacts loaded</span>
+                <strong id="campaign-count">0</strong>
+              </div>
+              <div class="campaign-stat-pill">
+                <span class="campaign-stat-label">Est. duration</span>
+                <strong id="campaign-estimate">—</strong>
+              </div>
+            </div>
+          </header>
+
+          <div class="campaign-layout">
+            <article class="campaign-panel card">
+              <h4 class="campaign-panel-title">Audience</h4>
+              <p class="campaign-panel-sub muted">Drop a CSV or paste numbers manually. We detect phone columns automatically.</p>
+
+              <div id="campaign-dropzone" class="campaign-dropzone" tabindex="0" role="button" aria-label="Upload CSV file">
+                <input type="file" id="campaign-csv-input" class="campaign-file-input" accept=".csv,.txt,text/csv">
+                <div class="campaign-dropzone-icon" aria-hidden="true">↑</div>
+                <div class="campaign-dropzone-title">Drag &amp; drop CSV here</div>
+                <p class="campaign-dropzone-hint muted">or <label for="campaign-csv-input" class="campaign-browse-link" id="campaign-browse-btn">browse files</label></p>
+                <p class="campaign-dropzone-meta muted">Supports .csv with phone / mobile / number columns</p>
+              </div>
+
+              <div class="campaign-upload-meta" id="campaign-upload-meta" hidden>
+                <span id="campaign-upload-name"></span>
+                <button type="button" class="btn btn-ghost btn-sm" id="campaign-clear-file">Clear file</button>
+              </div>
+
+              <label class="field">
+                <span>Phone numbers</span>
+                <textarea class="textarea" id="campaign-numbers" rows="7" placeholder="+919876543210&#10;919876543211&#10;9876543212"></textarea>
+              </label>
+
+              <div class="campaign-preview" id="campaign-preview" hidden>
+                <div class="campaign-preview-head">
+                  <span>Preview</span>
+                  <span class="muted" id="campaign-preview-count"></span>
+                </div>
+                <div class="campaign-preview-list" id="campaign-preview-list"></div>
+              </div>
+            </article>
+
+            <article class="campaign-panel card">
+              <h4 class="campaign-panel-title">Campaign settings</h4>
+              <p class="campaign-panel-sub muted">Control agent, timing, and pacing for compliant outbound dialing.</p>
+
+              <div class="campaign-form">
+                <label class="field">
+                  <span>Campaign name</span>
+                  <input class="input" id="campaign-name" type="text" placeholder="e.g. Hyderabad site-visit follow-ups">
+                </label>
+                <label class="field">
+                  <span>Voice agent</span>
+                  <select class="input" id="campaign-agent-select">
+                    <option value="">Default agent</option>
+                  </select>
+                </label>
+
+                <div class="campaign-settings-section">
+                  <h5 class="campaign-settings-label">Calling window</h5>
+                  <div class="form-grid-2">
+                    <label class="field">
+                      <span>Start time</span>
+                      <input class="input" id="campaign-window-start" type="time" value="09:00">
+                    </label>
+                    <label class="field">
+                      <span>End time</span>
+                      <input class="input" id="campaign-window-end" type="time" value="20:00">
+                    </label>
+                    <label class="field">
+                      <span>Timezone</span>
+                      <select class="input" id="campaign-timezone">
+                        <option value="Asia/Kolkata">India (IST)</option>
+                        <option value="Asia/Dubai">Dubai (GST)</option>
+                        <option value="Europe/London">London (GMT/BST)</option>
+                        <option value="America/New_York">New York (EST)</option>
+                      </select>
+                    </label>
+                    <label class="field field-check campaign-respect-window">
+                      <input type="checkbox" id="campaign-respect-window" checked>
+                      <span>Only dispatch inside window</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="campaign-settings-section">
+                  <h5 class="campaign-settings-label">Pacing</h5>
+                  <div class="form-grid-2">
+                    <label class="field">
+                      <span>Delay between calls (sec)</span>
+                      <input class="input" id="campaign-delay" type="number" min="0" max="120" step="1" value="3">
+                    </label>
+                    <label class="field">
+                      <span>Max concurrent lines</span>
+                      <input class="input" id="campaign-concurrency" type="number" min="1" max="20" step="1" value="5">
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="campaign-actions">
+                <button type="button" class="btn btn-primary btn-speaksy" id="campaign-dispatch-btn">Dispatch campaign</button>
+                <button type="button" class="btn btn-ghost" id="campaign-clear-btn">Clear list</button>
+                <span class="muted" id="campaign-status"></span>
+              </div>
+            </article>
+          </div>
+
+          <article class="campaign-panel card" id="campaign-results-panel" hidden>
+            <h4 class="campaign-panel-title">Dispatch results</h4>
+            <div id="campaign-results" class="campaign-results"></div>
+          </article>
+
+          <article class="campaign-panel card" id="campaign-not-lifted-panel" hidden>
+            <div class="campaign-preview-head">
+              <div>
+                <h4 class="campaign-panel-title" id="campaign-detail-title">Campaign details</h4>
+                <p class="muted campaign-panel-sub" id="campaign-detail-subtitle">Select a recent campaign below, or dispatch a new one.</p>
+              </div>
+              <div class="campaign-actions">
+                <button type="button" class="btn btn-secondary btn-sm" id="campaign-download-not-lifted">Download CSV</button>
+                <button type="button" class="btn btn-ghost btn-sm" id="campaign-refresh-not-lifted">Refresh</button>
+              </div>
+            </div>
+            <div class="campaign-head-stats" id="campaign-outcome-stats"></div>
+            <div class="table-wrap">
+              <table class="table" id="campaign-not-lifted-table">
+                <thead>
+                  <tr>
+                    <th>Phone</th>
+                    <th>Status</th>
+                    <th>Duration</th>
+                    <th>Updated</th>
+                  </tr>
+                </thead>
+                <tbody id="campaign-not-lifted-body">
+                  <tr><td colspan="4" class="muted">No data yet</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="campaign-panel card">
+            <h4 class="campaign-panel-title">Recent campaigns</h4>
+            <div class="table-wrap">
+              <table class="table" id="campaign-history-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Total</th>
+                    <th>Answered</th>
+                    <th>Not lifted</th>
+                    <th>Created</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="campaign-history-body">
+                  <tr><td colspan="6" class="muted">No campaigns yet</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section id="page-clients" class="page vui-page">
+        <div class="clients-layout">
+          <div id="clients-platform-panel" class="clients-sidebar" hidden>
+            <div class="card-header-row">
+              <h3>Client organisations</h3>
+              <button type="button" class="btn btn-primary btn-sm" id="clients-create-org-btn" hidden>New client</button>
+            </div>
+            <div id="clients-org-list" class="clients-org-list"></div>
+          </div>
+          <div id="clients-team-panel" class="clients-main" hidden>
+            <p class="muted">Your team workspace</p>
+          </div>
+          <div id="clients-detail" class="clients-main"></div>
+        </div>
+      </section>
+
+      <section id="page-organisation" class="page vui-page">
+        <div class="org-layout">
+          <header class="org-hero card">
+            <p class="eyebrow">VK Realty</p>
+            <h3>Team dashboards</h3>
+            <p class="muted">Give each person on your team their own sign-in that shows only what they need — nothing technical.</p>
+            <p id="org-child-note" class="muted" hidden>You are viewing a team dashboard (<code id="org-child-slug"></code>). To manage team dashboards, sign in with your main account.</p>
+            <p id="org-admin-note" class="muted" hidden>Only the account owner can create team dashboards.</p>
+            <ol class="org-steps" aria-label="How it works">
+              <li class="org-step"><span class="org-step-num">1</span><span><strong>Create a dashboard</strong> for a role — sales rep, coordinator, manager.</span></li>
+              <li class="org-step"><span class="org-step-num">2</span><span><strong>Share the link and team code</strong> — one tap on WhatsApp.</span></li>
+              <li class="org-step"><span class="org-step-num">3</span><span><strong>They sign in</strong> and see only their tabs.</span></li>
+            </ol>
+          </header>
+
+          <div class="org-main-grid">
+            <div class="org-side-col">
+              <div class="org-side-head">
+                <h4>Your team&rsquo;s dashboards</h4>
+                <span id="org-role-count" class="pill">0</span>
+              </div>
+              <div id="org-workspace-list" class="org-workspace-list"></div>
+
+              <div id="org-create-section" class="org-create-card card">
+                <h4>Create a dashboard</h4>
+                <form id="org-create-form" class="form-stack">
+                  <label class="field">
+                    <span>Who is it for?</span>
+                    <input class="input" id="org-role-name" name="name" required placeholder="e.g. Sales team">
+                  </label>
+                  <label class="field">
+                    <span>Team code <span class="org-field-hint-inline">— they type this to sign in</span></span>
+                    <input class="input" id="org-role-slug" name="role_slug" required placeholder="made for you from the name" pattern="[a-z0-9-]+">
+                  </label>
+                  <span class="field-label">What should they see?</span>
+                  <div id="org-preset-grid" class="org-preset-grid"></div>
+                  <details id="org-custom-tabs" class="org-custom-tabs">
+                    <summary>Choose tabs myself</summary>
+                    <div id="org-features-grid" class="org-features-grid"></div>
+                  </details>
+                  <button type="submit" class="btn btn-primary">Create dashboard</button>
+                </form>
+              </div>
+            </div>
+
+            <div id="org-workspace-detail" class="org-detail-col card">
+              <p class="muted org-detail-empty">Pick a dashboard on the left to see its sign-in details.</p>
+            </div>
+          </div>
+
+          <div id="org-team-panel" class="org-team-panel card"></div>
+        </div>
+      </section>
+
+      <section id="page-billing" class="page vui-page page-billing">
+        <header class="billing-hero">
+          <p class="billing-eyebrow">VK Realty · Voice Platform</p>
+          <h2>Voice AI that feels<br>completely human.</h2>
+          <p class="billing-hero-sub vk-billing-powered">
+            <span class="vk-powered-label">Powered by</span>
+            <img class="vk-powered-logo vk-powered-logo--billing" src="/static/vendor/images/speaksy-logo-powered.png?v=20260725" alt="Speaksy" width="155" height="44" loading="lazy" decoding="async">
+            — sub-40ms latency, studio-grade output, every Indian language. Built for sales teams that demand perfection.
+          </p>
+        </header>
+
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <div class="pricing-card-inner">
+              <p class="pricing-tier-label">Pro</p>
+              <p class="pricing-tier-desc">For small teams finding their voice.</p>
+              <div class="pricing-price">
+                <span class="pricing-currency">₹</span>
+                <span class="pricing-amount">10,455.22</span>
+              </div>
+              <p class="pricing-period">per month</p>
+              <div class="pricing-includes">
+                <span class="pricing-includes-value">1,500</span>
+                <span class="pricing-includes-label">minutes included / month</span>
+              </div>
+              <p class="pricing-effective">Effective rate: <strong>₹ 6.97</strong> / min</p>
+              <ul class="pricing-features">
+                <li><span data-lucide="check"></span> 1 voice agent</li>
+                <li><span data-lucide="check"></span> Sub-40ms Sonic TTS</li>
+                <li><span data-lucide="check"></span> 5 Indian languages</li>
+                <li><span data-lucide="check"></span> Call transcripts &amp; summaries</li>
+                <li><span data-lucide="check"></span> WhatsApp sharing</li>
+                <li><span data-lucide="check"></span> Email support</li>
+              </ul>
+              <button class="pricing-btn pricing-btn-outline">Get Started</button>
+            </div>
+          </div>
+
+          <div class="pricing-card pricing-card-featured">
+            <div class="pricing-card-inner">
+              <span class="pricing-popular">Most Popular</span>
+              <p class="pricing-tier-label">Super</p>
+              <p class="pricing-tier-desc">For teams scaling their pipeline.</p>
+              <div class="pricing-price">
+                <span class="pricing-currency">₹</span>
+                <span class="pricing-amount">56,119.40</span>
+              </div>
+              <p class="pricing-period">per month</p>
+              <div class="pricing-includes">
+                <span class="pricing-includes-value">10,000</span>
+                <span class="pricing-includes-label">minutes included / month</span>
+              </div>
+              <p class="pricing-effective">Effective rate: <strong>₹ 5.61</strong> / min</p>
+              <ul class="pricing-features">
+                <li><span data-lucide="check"></span> 5 voice agents</li>
+                <li><span data-lucide="check"></span> Sub-40ms Sonic TTS</li>
+                <li><span data-lucide="check"></span> All 10 Indian languages</li>
+                <li><span data-lucide="check"></span> Transcripts &amp; AI summaries</li>
+                <li><span data-lucide="check"></span> WhatsApp + Email outreach</li>
+                <li><span data-lucide="check"></span> 1 voice clone included</li>
+                <li><span data-lucide="check"></span> Advanced analytics</li>
+                <li><span data-lucide="check"></span> Priority Slack support</li>
+              </ul>
+              <button class="pricing-btn pricing-btn-filled">Get Started</button>
+            </div>
+          </div>
+
+          <div class="pricing-card">
+            <div class="pricing-card-inner">
+              <p class="pricing-tier-label">Voice Cloning</p>
+              <p class="pricing-tier-desc">Your brand voice, replicated with precision.</p>
+              <div class="pricing-price">
+                <span class="pricing-currency">₹</span>
+                <span class="pricing-amount">15,000</span>
+              </div>
+              <p class="pricing-period">one‑time setup fee</p>
+              <div class="pricing-includes">
+                <span class="pricing-includes-value">45 min</span>
+                <span class="pricing-includes-label">audio training required</span>
+              </div>
+              <p class="pricing-effective">Delivery time: <strong>48 hours</strong></p>
+              <ul class="pricing-features">
+                <li><span data-lucide="check"></span> Studio-grade fidelity</li>
+                <li><span data-lucide="check"></span> Exact tone &amp; pronunciation</li>
+                <li><span data-lucide="check"></span> Multiple language support</li>
+                <li><span data-lucide="check"></span> Secure encryption &amp; safety</li>
+                <li><span data-lucide="check"></span> Lifetime ownership</li>
+                <li><span data-lucide="check"></span> Unlimited streams</li>
+              </ul>
+              <button class="pricing-btn pricing-btn-outline">Request Voice Clone</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modals -->
+  <div id="modal-generic" class="modal" hidden role="dialog">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-card card">
+      <h3 id="modal-generic-title">Modal</h3>
+      <div id="modal-generic-body"></div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" data-close-modal>Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-whatsapp-connect" class="modal wa-connect-modal" hidden role="dialog" aria-labelledby="wa-connect-title" aria-modal="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-card card wa-connect-card">
+      <button type="button" class="wa-connect-close icon-btn" data-close-modal aria-label="Close">
+        <span data-lucide="x" aria-hidden="true"></span>
+      </button>
+      <h3 id="wa-connect-title">Add a number</h3>
+      <p class="wa-connect-sub muted">Choose how to connect WhatsApp or a phone channel to Speaksy.</p>
+
+      <div id="wa-connect-methods">
+        <div class="integrations-grid wa-connect-methods-grid" id="wa-connect-methods-grid"></div>
+      </div>
+
+      <div id="wa-connect-qr" hidden>
+        <div class="wa-connect-visual" aria-hidden="true">
+          <span class="make-call-ring"></span>
+          <span class="make-call-ring make-call-ring--delay"></span>
+        </div>
+        <p class="wa-connect-qr-label">Scan with WhatsApp on your phone</p>
+        <p class="muted wa-connect-qr-hint">Open WhatsApp → Settings → Linked devices → Link a device</p>
+        <div class="wa-connect-qr-frame">
+          <img id="wa-connect-qr-img" class="wa-connect-qr-img" alt="WhatsApp QR code" hidden>
+          <p id="wa-connect-qr-wait" class="muted">Generating QR code…</p>
+        </div>
+      </div>
+
+      <div id="wa-connect-connected" hidden>
+        <div class="wa-connect-success-icon" aria-hidden="true">✓</div>
+        <p class="wa-connect-connected-title">WhatsApp connected</p>
+        <p class="muted">Linked number: <strong id="wa-connect-connected-phone">—</strong></p>
+        <p class="muted">Inbound WhatsApp messages will get AI replies and appear in Call History.</p>
+        <div class="wa-connect-actions">
+          <button type="button" class="btn btn-ghost" id="wa-connect-disconnect-btn">Disconnect</button>
+          <button type="button" class="btn btn-primary btn-speaksy btn-speaksy--soft" id="wa-connect-done-btn">Done</button>
+        </div>
+      </div>
+
+      <div id="wa-connect-disconnected" hidden>
+        <p class="wa-connect-error-title">WhatsApp disconnected</p>
+        <p class="muted">This number was unlinked from your phone. Scan a new QR code to reconnect.</p>
+        <div class="wa-connect-actions">
+          <button type="button" class="btn btn-primary btn-speaksy btn-speaksy--soft" id="wa-connect-rescan-btn">Scan again</button>
+        </div>
+      </div>
+
+      <div id="wa-connect-error" hidden>
+        <p class="wa-connect-error-title">Could not connect</p>
+        <p class="muted" id="wa-connect-error-msg">Something went wrong.</p>
+        <div class="wa-connect-actions">
+          <button type="button" class="btn btn-primary btn-speaksy btn-speaksy--soft" id="wa-connect-retry-btn">Try again</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-make-call" class="modal make-call-modal" hidden role="dialog" aria-labelledby="make-call-title" aria-modal="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-card card make-call-card">
+      <button type="button" class="make-call-close icon-btn" data-close-modal aria-label="Close">
+        <span data-lucide="x" aria-hidden="true"></span>
+      </button>
+      <div class="make-call-visual" aria-hidden="true">
+        <span class="make-call-ring"></span>
+        <span class="make-call-ring make-call-ring--delay"></span>
+        <span class="make-call-glyph" data-lucide="phone-outgoing"></span>
+      </div>
+      <h3 id="make-call-title">Make a call</h3>
+      <p class="make-call-sub muted">Enter a number — Arjun will dial out immediately.</p>
+      <form id="make-call-form" class="make-call-form">
+        <label class="make-call-field">
+          <span class="make-call-label">Phone number</span>
+          <input
+            class="make-call-input input"
+            id="make-call-phone"
+            type="tel"
+            placeholder="+91 98765 43210"
+            autocomplete="tel"
+            inputmode="tel"
+            required
+          >
+        </label>
+        <div class="make-call-recent" id="make-call-recent" hidden>
+          <span class="make-call-recent-label">Recent</span>
+          <div class="make-call-recent-chips" id="make-call-recent-chips"></div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-speaksy make-call-submit" id="make-call-submit">
+          <span data-lucide="phone" aria-hidden="true"></span>
+          <span class="make-call-submit-text">Call now</span>
+        </button>
+      </form>
+      <p id="make-call-status" class="make-call-status muted" hidden></p>
+    </div>
+  </div>
+
+  <div id="modal-test-call" class="modal" hidden role="dialog" aria-labelledby="test-call-title">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-card card">
+      <h3 id="test-call-title">Test Call</h3>
+      <p class="muted">Dispatch an outbound call to a phone number using the selected agent configuration.</p>
+      <form id="test-call-form" class="form-stack">
+        <label class="field">
+          <span>Agent</span>
+          <select class="input" id="test-call-agent" required>
+            <option value="">Default agent</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Phone number</span>
+          <input class="input" id="test-call-phone" type="tel" placeholder="+91XXXXXXXXXX" required autocomplete="tel">
+        </label>
+        <div class="modal-actions" style="justify-content: flex-start; gap: 0.5rem; flex-wrap: wrap;">
+          <button type="submit" class="btn btn-primary btn-speaksy" id="test-call-submit">Call Now</button>
+          <button type="button" class="btn btn-ghost" data-close-modal>Cancel</button>
+        </div>
+        <div id="test-call-result" class="test-call-result muted"></div>
+      </form>
+    </div>
+  </div>
+
+  <div id="modal-call-detail" class="modal" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-card card modal-call-detail-card">
+      <div class="modal-call-detail-head">
+        <h3 id="modal-call-detail-title">Call Detail</h3>
+        <div class="modal-call-detail-head-actions">
+          <button type="button" class="call-thinking-btn" id="btn-inspect-thinking" hidden>
+            <span class="call-thinking-btn-icon" aria-hidden="true">◎</span>
+            <span>Inspect thinking</span>
+          </button>
+          <button type="button" class="icon-btn" data-close-modal aria-label="Close">✕</button>
+        </div>
+      </div>
+      <div id="modal-call-detail-body" class="modal-call-detail-body"></div>
+      <div id="call-thinking-panel" class="call-thinking-panel" hidden>
+        <div class="call-thinking-panel-head">
+          <div>
+            <h4 class="call-thinking-panel-title">Speculative next-turn prep</h4>
+            <p class="call-thinking-panel-sub muted">Background ideas prepared while the agent was speaking.</p>
+          </div>
+          <button type="button" class="icon-btn" id="btn-close-thinking" aria-label="Close thinking panel">✕</button>
+        </div>
+        <div id="call-thinking-panel-body" class="call-thinking-panel-body"></div>
+      </div>
+      <div class="modal-actions call-modal-actions">
+        <a id="modal-call-transcript-link" class="call-modal-btn call-modal-btn--primary" href="#" target="_blank" rel="noopener">
+          <span class="call-modal-btn-icon" aria-hidden="true">↓</span>
+          <span>Download transcript</span>
+        </a>
+        <button type="button" class="call-modal-btn call-modal-btn--outline" data-close-modal>Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile bottom navigation -->
+  <nav class="bottom-nav" id="bottom-nav" aria-label="Mobile navigation">
+    <button type="button" class="bottom-nav-item active" data-page="overview">
+      <span class="bottom-nav-icon" data-lucide="house" aria-hidden="true"></span><span>Home</span>
+    </button>
+    <button type="button" class="bottom-nav-item" data-page="leads">
+      <span class="bottom-nav-icon" data-lucide="users" aria-hidden="true"></span><span>Leads</span>
+    </button>
+    <button type="button" class="bottom-nav-item" data-page="call-logs">
+      <span class="bottom-nav-icon" data-lucide="phone" aria-hidden="true"></span><span>Calls</span>
+    </button>
+    <button type="button" class="bottom-nav-item" data-page="hot-leads">
+      <span class="bottom-nav-icon" data-lucide="flame" aria-hidden="true"></span><span>Priority</span>
+    </button>
+    <button type="button" class="bottom-nav-item" data-page="calendar">
+      <span class="bottom-nav-icon" data-lucide="calendar" aria-hidden="true"></span><span>Visits</span>
+    </button>
+    <button type="button" class="bottom-nav-item" id="bottom-nav-more" aria-label="More pages">
+      <span class="bottom-nav-icon" data-lucide="menu" aria-hidden="true"></span><span>More</span>
+    </button>
+  </nav>
+
+  <div id="toast-root" class="toast-root" aria-live="polite"></div>
+
+  <div
+    class="speaksy-loading-overlay"
+    id="speaksy-tab-loader"
+    data-theme="light"
+    aria-hidden="true"
+    role="status"
+    aria-label="Loading"
+  >
+    <div class="speaksy-loader">
+      <div class="speaksy-loader-pill light" aria-hidden="true">
+        <span>Speaksy.</span>
+        <span class="shimmer" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/vendor/chartjs/chart.umd.min.js"></script>
+  <script src="/static/vendor/lucide/lucide.min.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/lucide@0.469.0/dist/umd/lucide.min.js'"></script>
+  <script src="/static/app.js?v=20260734" defer></script>
+  <script src="/static/analytics.js?v=20260729" defer></script>
+  <script src="/static/calendar.js" defer></script>
+  <script src="/static/dashboard.js?v=20260729" defer></script>
+  <script src="/static/call-logs.js?v=20260706" defer></script>
+  <script src="/static/agent-detail.js?v=20260728" defer></script>
+  <script src="/static/integrations.js?v=20260730" defer></script>
+  <script src="/static/whatsapp-connect.js?v=20260732" defer></script>
+  <script src="/static/whatsapp-numbers.js?v=20260735" defer></script>
+  <script src="/static/whatsapp-chat.js?v=20260735" defer></script>
+  <script src="/static/agent-control.js" defer></script>
+  <script src="/static/assistant-settings.js" defer></script>
+  <script src="/static/lang-presets.js" defer></script>
+  <script src="/static/dashboard-v2.js" defer></script>
+  <script src="/static/vk-realty-hme/vk-realty-dashboard.js?v=20260731" defer></script>
+  <script src="/static/clients.js" defer></script>
+  <script src="/static/vk-realty-hme/organisation.js?v=20260703" defer></script>
+</body>
+</html>

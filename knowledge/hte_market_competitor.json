@@ -1,0 +1,281 @@
+{
+  "preset": "hte",
+  "primary_markets": [
+    "Mumbai-Thane MMR",
+    "Chandigarh Tricity"
+  ],
+  "micro_markets": [
+    {
+      "name": "Thane West",
+      "price_per_sqft": "₹15,000 - ₹26,000 (premium projects up to ₹32,000)",
+      "configurations": [
+        "1 BHK",
+        "2 BHK",
+        "3 BHK",
+        "4 BHK"
+      ],
+      "price_range_crores": "₹85 L - ₹6.3 Cr",
+      "usp": "Mumbai's fastest-growing suburb — Metro Line 4 operational Dec 2025, bullet train hub 2028. 40% cheaper than Mumbai island city.",
+      "target_buyer": "Mumbai working professionals, families seeking larger homes, NRI investors",
+      "appreciation_3yr": "15-25%",
+      "rental_yield": "4.0 - 5.5%",
+      "key_projects": [
+        "Lodha Amara",
+        "Piramal Vaikunth",
+        "L&T Evara Heights",
+        "Rustomjee La Vie"
+      ],
+      "infrastructure": "Metro Line 4 & 4A (58km, 21 lakh daily ridership), Bullet train station, Eastern Express Highway, Ghodbunder Road",
+      "pros": "Best connectivity upgrade in MMR, affordable vs Mumbai, excellent social infrastructure",
+      "cons": "Growing traffic, some areas still congested, monsoon waterlogging in pockets"
+    },
+    {
+      "name": "Thane — Ghodbunder Road",
+      "price_per_sqft": "₹12,000 - ₹20,000",
+      "configurations": [
+        "1 BHK",
+        "2 BHK",
+        "3 BHK"
+      ],
+      "price_range_crores": "₹75 L - ₹3.5 Cr",
+      "usp": "Entry-level Thane — best value in MMR. Godrej, Hiranandani, Lodha all present. Direct Mumbai-Nashik highway.",
+      "target_buyer": "First-time buyers, young couples, investors seeking rental income",
+      "appreciation_3yr": "12-18%",
+      "rental_yield": "4.5 - 5.5%",
+      "key_projects": [
+        "Godrej Emerald",
+        "Hiranandani Estate",
+        "Lodha Amara (extension)"
+      ],
+      "infrastructure": "Ghodbunder Road widening, Metro Line 5 (Thane-Bhiwandi-Kalyan), proposed tunnel to Borivali",
+      "pros": "Lowest entry in Thane, multiple builder options, strong rental demand",
+      "cons": "Heavy traffic, distance from station, ongoing construction noise"
+    },
+    {
+      "name": "Zirakpur — VIP Road / Airport Road",
+      "price_per_sqft": "₹5,100 - ₹6,800 (premium up to ₹8,500)",
+      "configurations": [
+        "2 BHK",
+        "3 BHK",
+        "4 BHK",
+        "Penthouse"
+      ],
+      "price_range_crores": "₹48 L - ₹1.75 Cr",
+      "usp": "Chandigarh's most affordable entry point. 10 min to Chandigarh, 15 min to airport. Punjab NRI favorite.",
+      "target_buyer": "Punjab NRIs (Dubai/Canada/UK), Chandigarh working professionals, first-time buyers",
+      "appreciation_3yr": "20-30% (26.67% YoY surge in 2025)",
+      "rental_yield": "4.0 - 4.5%",
+      "key_projects": [
+        "Sushma Belleza",
+        "Sushma Valencia",
+        "Hermitage Centralis",
+        "GBP Eco Homes"
+      ],
+      "infrastructure": "PR-7 Airport Road, Chandigarh-Ambala Highway, approved metro corridor, 15 min to airport",
+      "pros": "Lowest entry in Tricity, NRI demand strong, metro approved, Chandigarh proximity",
+      "cons": "Some pockets oversupplied, infrastructure catching up, VIP Road traffic"
+    },
+    {
+      "name": "Mohali — Aerocity / Sector 66-85",
+      "price_per_sqft": "₹5,500 - ₹10,100",
+      "configurations": [
+        "2 BHK",
+        "3 BHK",
+        "4 BHK"
+      ],
+      "price_range_crores": "₹55 L - ₹2.5 Cr",
+      "usp": "IT City Mohali — Quark, IDS Infotech, tech parks driving employment. GMADA planned sectors.",
+      "target_buyer": "IT professionals, government employees, investors",
+      "appreciation_3yr": "15-20%",
+      "rental_yield": "3.5 - 4.5%",
+      "key_projects": [
+        "Sushma Joynest MOH-1",
+        "DLF Hyde Park Estate (Mullanpur)",
+        "various GMADA sectors"
+      ],
+      "infrastructure": "IT City, International Airport 10 min, GMADA sectors, metro extension planned",
+      "pros": "Planned development, IT employment, airport proximity",
+      "cons": "Slower than Zirakpur, some sectors underdeveloped"
+    },
+    {
+      "name": "New Chandigarh (Mullanpur)",
+      "price_per_sqft": "₹5,500 - ₹15,000 (villas up to ₹25,000)",
+      "configurations": [
+        "Plots",
+        "Villas",
+        "3 BHK",
+        "4 BHK"
+      ],
+      "price_range_crores": "₹50 L - ₹18 Cr (villas)",
+      "usp": "GMADA's planned extension of Chandigarh — medicity, sports zones, education hubs. DLF's ultra-luxury Hyde Park Estate.",
+      "target_buyer": "Ultra-HNIs, NRIs, industrialists, long-term investors",
+      "appreciation_3yr": "10-15% (premium segment), high potential long-term",
+      "rental_yield": "2.5 - 3.5%",
+      "key_projects": [
+        "DLF Hyde Park Estate",
+        "Omaxe developments",
+        "various plotted colonies"
+      ],
+      "infrastructure": "Chandigarh-Manali Highway, proposed metro, PGI Hospital proximity, medicity planned",
+      "pros": "Planned development, Chandigarh extension, luxury segment available",
+      "cons": "Early stage, limited current infrastructure, long-term play"
+    }
+  ],
+  "market_commentary": {
+    "mumbai_thane": {
+      "trend": "Strong bullish — Metro Line 4 operational Dec 2025, bullet train 2028, infrastructure decade",
+      "key_drivers": [
+        "Metro Line 4 & 4A — 58km, India's longest elevated metro, 21 lakh daily ridership",
+        "Mumbai-Ahmedabad Bullet Train — Thane station, 320 km/hr, 2028 operational",
+        "Borivali-Thane Tunnel — 15 min travel time, under construction",
+        "MTHL (Atal Setu) — Mumbai-Navi Mumbai 20 min, already operational",
+        "Navi Mumbai International Airport — Phase 1 operational Dec 2025",
+        "Coastal Road Phase 1 — Marine Drive to Worli operational"
+      ],
+      "price_forecast_3yr": "Thane 15-20% appreciation expected, outperforming Mumbai island city"
+    },
+    "chandigarh_tricity": {
+      "trend": "Bullish — Metro approved, NRI demand surge, limited Chandigarh land supply",
+      "key_drivers": [
+        "Chandigarh Metro — Approved, 2025-26 completion expected for Phase 1",
+        "IT Park expansion — Mohali IT City Phase 2, 50,000+ additional jobs",
+        "Airport expansion — International flights increasing, cargo hub planned",
+        "NRI remittance — Punjab-origin NRIs from Dubai/Canada/UK driving demand",
+        "Limited Chandigarh supply — Sectors 1-56 fully developed, no new land",
+        "PR-7 Airport Road widening — Zirakpur connectivity improving"
+      ],
+      "price_forecast_3yr": "Zirakpur 20-25%, Mohali 15-18%, New Chandigarh 25-30% (from low base)"
+    }
+  },
+  "interest_rates": {
+    "sbi": "8.40% - 8.70%",
+    "hdfc": "8.40% - 8.65%",
+    "icici": "8.45% - 8.80%",
+    "axis": "8.35% - 8.90%",
+    "bank_of_baroda": "8.20% - 8.50%",
+    "current_repo_rate": "6.50% (RBI maintained status quo)",
+    "trend": "Stable — good time to lock in rates",
+    "maharashtra_stamp_duty": "5% + 1% registration + metro cess = ~6-7%",
+    "punjab_stamp_duty": "6% + 1% registration = ~7%",
+    "quote_to_callers_mumbai": "Sir, home loan rate abhi 8.4-8.5% chal raha hai. SBI aur HDFC best offers de rahe hain. Aapka salary ₹X+ hai toh ₹Y crore tak ka loan easily sanction ho jayega. Pre-approval letter nikalwa deta hoon — builder ko dikhake negotiation mein fayda hoga."
+  },
+  "competitors": [
+    {
+      "name": "Lodha Group",
+      "positioning": "India's largest real estate developer by sales volume. Premium to ultra-luxury focus.",
+      "strengths": [
+        "Massive land bank",
+        "Brand recognition",
+        "Integrated townships",
+        "Strong NRI network"
+      ],
+      "projects": [
+        "Lodha Amara (Thane)",
+        "Lodha Park (Mumbai)",
+        "Lodha Bellagio (Powai)"
+      ],
+      "price_position": "Premium — 20-30% above market average in Thane",
+      "our_positioning": "Lodha ke saath hamara corporate tie-up hai. Through VK Realty book karenge toh corporate discount + priority allotment milta hai. Same Lodha project, better price.",
+      "sample_script_hinglish": "Lodha Amara sirf naam hi kaafi hai sir. 40 acres, 70% open space, 6 swimming pools. ₹85 lakh se 1BHK start. Hamare through book karenge toh corporate discount milega — recent client ne ₹1.42 Cr ke jagah ₹1.38 Cr mein 2BHK liya."
+    },
+    {
+      "name": "L&T Realty",
+      "positioning": "Engineering-led developer, quality construction, trust factor from parent L&T",
+      "strengths": [
+        "Construction quality",
+        "Timely delivery track record",
+        "Engineering pedigree",
+        "Transparent pricing"
+      ],
+      "projects": [
+        "L&T Evara Heights (Thane)",
+        "L&T Wagle Estate",
+        "L&T Crestoria (Panvel)"
+      ],
+      "price_position": "Mid-to-premium — 10-15% above average",
+      "our_positioning": "L&T ka quality best hai sir. Engineer background se construction mein koi compromise nahi. Hamare paas unke Thane projects mein exclusive inventory hai.",
+      "sample_script_hinglish": "L&T Evara Heights Pokhran Road pe hai sir — ₹1.70 Cr se 2BHK. L&T ka naam matlab trust. 12 acres, 56 floors ki towers. Hamare clients ko floor rise charges mein discount milta hai."
+    },
+    {
+      "name": "Piramal Realty",
+      "positioning": "Design-focused luxury developer, attention to detail, smaller boutique projects",
+      "strengths": [
+        "Architectural design",
+        "Premium specifications",
+        "Low-density projects",
+        "Strong Mumbai legacy"
+      ],
+      "projects": [
+        "Piramal Vaikunth (Thane)",
+        "Piramal Aranya (Byculla)",
+        "Piramal Revanta (Mulund)"
+      ],
+      "price_position": "Premium — 15-20% above average",
+      "our_positioning": "Piramal design aur quality mein top hai. 32-acre Vaikunth Balkum mein — dual aspect apartments, 3.2m floor height. Hamare NRI clients bahut pasand karte hain.",
+      "sample_script_hinglish": "Piramal Vaikunth 32 acres pe hai sir, Balkum mein. Dual aspect apartments — do taraf khidkiyaan, ventilation best hai. ₹1.1 Cr se start. NRI clients ke liye perfect hai kyunki design international standard ka hai."
+    },
+    {
+      "name": "Sushma Buildtech",
+      "positioning": "Chandigarh Tricity's most trusted local developer — Zirakpur/Mohali specialists",
+      "strengths": [
+        "Local expertise",
+        "Timely delivery",
+        "Value pricing",
+        "Strong NRI (Dubai/Canada) network"
+      ],
+      "projects": [
+        "Sushma Belleza (Zirakpur)",
+        "Sushma Valencia (Zirakpur)",
+        "Sushma Joynest (Mohali)",
+        "Sushma Grande NXT"
+      ],
+      "price_position": "Mid-segment — best value in Zirakpur",
+      "our_positioning": "Zirakpur mein Sushma ka naam sabse zyada trusted hai. 15+ saal se market mein hain. Hamare paas unka VIP Road pe exclusive inventory hai — direct builder rates se 2-3% kam.",
+      "sample_script_punjabi": "Sushma Zirakpur da sab ton vadiya builder aa sir. 15 saal ton kaam kar rahe ne. Belleza VIP Road te — 3BHK ₹1.35 Cr to. Hamare through book karoge taan PLC charges mein discount milega."
+    },
+    {
+      "name": "DLF Limited",
+      "positioning": "India's largest listed developer. Ultra-luxury and plotted development specialists.",
+      "strengths": [
+        "Largest land bank in India",
+        "Ultra-luxury expertise",
+        "NRI favorite",
+        "Capital appreciation track record"
+      ],
+      "projects": [
+        "DLF Hyde Park Estate (New Chandigarh/Mullanpur)",
+        "DLF Cyber City (Gurgaon legacy)"
+      ],
+      "price_position": "Ultra-premium — villas ₹15,000-25,000/sq ft",
+      "our_positioning": "DLF luxury segment ka baap hai sir. New Chandigarh mein Hyde Park Estate — villas ₹5 Cr se upar. HNI aur NRI clients ke liye best. Hamare paise direct DLF se connection hai.",
+      "sample_script_hinglish": "DLF Hyde Park Estate New Chandigarh mein hai sir — ₹5 Cr se villas start. India's largest listed developer hai. NRI clients Dubai se specifically DLF maangte hain. Hamara unka direct channel hai."
+    }
+  ],
+  "infrastructure_highlights": {
+    "mumbai_thane": [
+      "Metro Line 4 & 4A — Wadala to Kasarvadavali, 58km, India's longest elevated, Dec 2025 operational",
+      "Metro Line 5 — Thane-Bhiwandi-Kalyan, 24km, under construction",
+      "Mumbai-Ahmedabad Bullet Train — Thane station, 320 km/hr, phased launch 2028",
+      "Borivali-Thane Tunnel — 11.8km, 15 min travel, under construction",
+      "MTHL Atal Setu — 21.8km sea bridge, operational, Mumbai-Navi Mumbai 20 min",
+      "Navi Mumbai International Airport — Phase 1 operational Dec 2025",
+      "Ghodbunder Road widening — 6-lane expansion ongoing"
+    ],
+    "chandigarh_tricity": [
+      "Chandigarh Metro — Approved, Phase 1 under construction, 2025-26 target",
+      "IT City Mohali Phase 2 — 50,000+ additional employment",
+      "PR-7 Airport Road widening — Improved Zirakpur connectivity",
+      "International Airport expansion — Direct flights to Dubai, Singapore, Europe increasing",
+      "GMADA Sectors 76-117 — Planned development, New Chandigarh extension",
+      "Chandigarh-Manali Highway upgrade — Better Mullanpur access"
+    ]
+  },
+  "objection_scripts": {
+    "price_too_high_mumbai": "Sir, Thane Mumbai se 40% sasta hai. Same configuration Mumbai mein ₹3 Cr+ jaata hai, yahan ₹1.5-2 Cr mein milta hai. Metro aa gaya hai, bullet train aa raha hai — 2 saal mein yeh price ₹2.5 Cr+ hoga. EMI compare kariye rent se.",
+    "price_too_high_chandigarh": "Sir, Zirakpur Chandigarh se 50% sasta hai. Same area Chandigarh mein ₹8,000-12,000/sq ft hai, Zirakpur mein ₹5,000-6,800. Metro approve ho gayi hai, completion ke baad aur jump aayega. Lock kariye abhi.",
+    "not_ready_to_move": "Samajhta hoon sir. Lekin under-construction mein 10-15% discount milta hai. Plus payment CLP mein jaata hai — burden kam. Thane mein kuch ready options bhi hain lekin 15% premium hai. Sochiye kya priority hai — immediate ya savings.",
+    "will_wait": "Sir, 2023 se Thane mein 15-20% appreciation ho chuka hai. Metro operational ho gaya hai, abhi bhi entry achha hai. Wait karne ka matlab same budget mein chhota ghar ya door location. Abhi lock kariye — rate guarantee hai.",
+    "other_builder_cheaper": "Haan sir, ₹200-300/sq ft ka difference normal hai. Lekin RERA check kariye — cheaper builder ka delay history kaisa hai? 1 saal delay hua toh rent + EMI dono dena padta hai. Hamare builders sab verified, on-time delivery track record.",
+    "need_family_discussion": "Bilkul sir, parivar se baat karna zaroori hai. Main aapko 48 hours hold karwa deta hoon — koi token nahi, koi commitment nahi. Floor preference aur unit bhi block ho jayegi. Kal tak decision le lijiye."
+  }
+}

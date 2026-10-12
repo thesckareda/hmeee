@@ -1,0 +1,503 @@
+{
+  "preset": "hte",
+  "market": "Mumbai-Thane MMR & Chandigarh Tricity",
+  "last_updated": "2026-06-30",
+  "currency": "INR",
+  "disclaimer": "All prices indicative and subject to change by builder. MahaRERA/Punjab RERA numbers verified as of date. Confirm latest pricing before site visit.",
+  "properties": [
+    {
+      "listing_id": "lodha_amara_thane",
+      "name": "Lodha Amara",
+      "builder": "Lodha Group",
+      "location": "Kolshet Road, Thane West",
+      "micro_market": "Thane West — Kolshet Road",
+      "configurations": [
+        "1 BHK",
+        "2 BHK",
+        "3 BHK"
+      ],
+      "sizes_sqft": {
+        "1_bhk": "446",
+        "2_bhk": "618 - 722",
+        "3_bhk": "830 - 1,165"
+      },
+      "price_range": "₹85 L - ₹2.60 Cr",
+      "price_per_sqft": "₹18,000 - ₹22,000",
+      "possession": "December 2025 (tower-wise)",
+      "rera_id": "P517000XXXXX",
+      "project_type": "Integrated Township Apartments",
+      "total_towers": 12,
+      "total_floors": "G+30 to G+40",
+      "total_units": 2500,
+      "land_area_acres": 40,
+      "amenities": [
+        "25,000 sq ft clubhouse",
+        "6 swimming pools (1 indoor temperature-controlled)",
+        "2 acres man-made forest",
+        "FIFA standard football ground",
+        "5,000 sq ft gymnasium",
+        "Marriage/party hall",
+        "AC in every home",
+        "70% open space",
+        "24x7 security",
+        "Jogging & cycling tracks"
+      ],
+      "usp": "40 acres — Thane's greenest township. 70% open space + 2 acre forest = unique selling point. Lodha brand = trust. Metro Line 4 (Kasarvadavali station 5 min).",
+      "sample_flat_available": true,
+      "site_visit_hours": "Daily 10AM-7PM",
+      "distance_key_locations": {
+        "thane_station": "6 km",
+        "kasarvadavali_metro": "1.5 km (5 min)",
+        "viviana_mall": "4 km",
+        "korum_mall": "5 km",
+        "hiranandani_hospital": "5 km",
+        "mumbai_airport": "28 km",
+        "bkca": "25 km"
+      },
+      "nearby_schools": [
+        "Orchid International",
+        "Sulochana Devi Singhania School",
+        "Vasant Vihar School"
+      ],
+      "home_loan_partners": [
+        "SBI",
+        "HDFC",
+        "ICICI",
+        "Axis Bank",
+        "LIC Housing"
+      ],
+      "maps_url": "https://maps.app.goo.gl/lodha-amara-thane",
+      "brochure_url": "https://vkrealty.co.in/brochures/lodha-amara.pdf",
+      "our_exclusive_offer": "VK Realty corporate rate: 2% off + zero stamp duty scheme (where applicable)",
+      "why_pitch_hinglish": "Sir, Thane ka sabse hara bhara project hai. 40 acres mein 70% open space — Mumbai mein yeh kahan milta hai? ₹85 lakh se 1BHK start. Metro aa gaya hai, 2 saal mein ₹1.5 Cr+ ho jayega yeh rate."
+    },
+    {
+      "listing_id": "piramal_vaikunth_thane",
+      "name": "Piramal Vaikunth",
+      "builder": "Piramal Realty",
+      "location": "Balkum, Thane West",
+      "micro_market": "Thane West — Balkum",
+      "configurations": [
+        "1 BHK",
+        "2 BHK",
+        "3 BHK",
+        "4 BHK"
+      ],
+      "sizes_sqft": {
+        "1_bhk": "318 - 420",
+        "2_bhk": "650 - 850",
+        "3_bhk": "980 - 1,200",
+        "4_bhk": "1,200 - 1,366"
+      },
+      "price_range": "₹60 L - ₹3.38 Cr",
+      "price_per_sqft": "₹16,000 - ₹20,000",
+      "possession": "June 2027 (Phase 1)",
+      "rera_id": "P51700003793",
+      "project_type": "Premium Mixed-use Development",
+      "total_towers": 13,
+      "total_floors": "G+29 to G+42",
+      "total_units": 2518,
+      "land_area_acres": 32,
+      "amenities": [
+        "50% open green space",
+        "Cricket ground",
+        "Swimming pool",
+        "Squash court",
+        "Gymnasium",
+        "Banquet hall",
+        "Library & reading room",
+        "Grocery shop within complex",
+        "24x7 security",
+        "Double-glazed windows (noise reduction)"
+      ],
+      "usp": "Dual aspect apartments = no shared walls, maximum sunlight. 3.2m floor-to-floor height = spacious feel. Cricket ground within premises = unique. Yeoor Hills + Thane Creek views.",
+      "sample_flat_available": true,
+      "site_visit_hours": "Tuesday-Sunday 10AM-6PM",
+      "distance_key_locations": {
+        "thane_station": "4 km",
+        "balkum_metro": "1 km (future)",
+        "viviana_mall": "3 km",
+        "mumbai_airport": "26 km",
+        "bkca": "22 km"
+      },
+      "nearby_schools": [
+        "Smt. Sulochanadevi Singhania School",
+        "Hiranandani Foundation School"
+      ],
+      "home_loan_partners": [
+        "HSBC",
+        "Axis Bank",
+        "IDBI",
+        "DHFL"
+      ],
+      "maps_url": "https://maps.app.goo.gl/piramal-vaikunth-thane",
+      "brochure_url": "https://vkrealty.co.in/brochures/piramal-vaikunth.pdf",
+      "our_exclusive_offer": "NRI desk special: dedicated relationship manager + forex assistance",
+      "why_pitch_hinglish": "Sir, Piramal ka design Mumbai mein alag level ka hai. Dual aspect apartment — do taraf khidkiyaan, hawa aur roshni dono taraf se. 3.2 meter height = lagta hai bungalow mein reh rahe hain. NRI clients bahut pasand karte hain."
+    },
+    {
+      "listing_id": "lt_evara_thane",
+      "name": "L&T Evara Heights",
+      "builder": "L&T Realty",
+      "location": "Pokhran Road, Thane West",
+      "micro_market": "Thane West — Pokhran Road",
+      "configurations": [
+        "2 BHK",
+        "3 BHK",
+        "4 BHK"
+      ],
+      "sizes_sqft": {
+        "2_bhk": "750 - 850",
+        "3_bhk": "1,057 - 1,214",
+        "4_bhk": "1,930 - 2,235"
+      },
+      "price_range": "₹1.70 Cr - ₹4.75 Cr",
+      "price_per_sqft": "₹21,000 - ₹24,000",
+      "possession": "August 2030",
+      "rera_id": "P51700077650",
+      "project_type": "Luxury High-rise Towers",
+      "total_towers": 5,
+      "total_floors": "G+56",
+      "total_units": 1200,
+      "land_area_acres": 12,
+      "amenities": [
+        "Yeoor Hills view balconies",
+        "Grand clubhouse",
+        "Swimming pool",
+        "Yoga & meditation zone",
+        "Senior citizen area",
+        "Kids play area",
+        "Garden & jogging track",
+        "Indoor games",
+        "24x7 security",
+        "Power backup"
+      ],
+      "usp": "Yeoor Hills views from every apartment. L&T engineering quality = structural reliability. 56 floors = tallest in Thane. Behind Viviana Mall = shopping convenience.",
+      "sample_flat_available": true,
+      "site_visit_hours": "Saturday-Sunday 10AM-6PM, Weekdays by appointment",
+      "distance_key_locations": {
+        "thane_station": "3.8 km",
+        "viviana_mall": "0.65 km (walkable)",
+        "majiwada_circle": "1.7 km",
+        "mumbai_airport": "27 km",
+        "metro_line4": "1 km"
+      },
+      "nearby_schools": [
+        "Smt. Sulochanadevi Singhania School",
+        "Orchid International"
+      ],
+      "home_loan_partners": [
+        "SBI",
+        "HDFC",
+        "ICICI",
+        "Axis Bank"
+      ],
+      "maps_url": "https://maps.app.goo.gl/lt-evara-thane",
+      "brochure_url": "https://vkrealty.co.in/brochures/lt-evara-heights.pdf",
+      "our_exclusive_offer": "Floor rise charges discount + CLP waiver on first 10 bookings",
+      "why_pitch_hinglish": "Sir, L&T matlab engineering ki guarantee. 56 floors — Thane ka sabse uncha tower. Viviana Mall ke peeche — shopping walking distance. Yeoor Hills ka view har apartment se. Construction quality best hai market mein."
+    },
+    {
+      "listing_id": "sushma_belleza_zirakpur",
+      "name": "Sushma Belleza",
+      "builder": "Sushma Buildtech",
+      "location": "PR-7 Airport Road, Zirakpur",
+      "micro_market": "Zirakpur — VIP Road / Airport Road",
+      "configurations": [
+        "3 BHK",
+        "4 BHK"
+      ],
+      "sizes_sqft": {
+        "3_bhk": "1,650 - 1,950",
+        "4_bhk": "2,200 - 2,600"
+      },
+      "price_range": "₹1.35 Cr - ₹1.75 Cr",
+      "price_per_sqft": "₹5,800 - ₹6,800",
+      "possession": "December 2026",
+      "rera_id": "PBRERA-SAS80-PR0724",
+      "project_type": "Luxury Apartments",
+      "total_towers": 6,
+      "total_floors": "G+14",
+      "total_units": 420,
+      "land_area_acres": 5.5,
+      "amenities": [
+        "Clubhouse with banquet hall",
+        "Swimming pool",
+        "Gymnasium",
+        "Yoga & meditation center",
+        "Kids play area",
+        "Jogging track",
+        "Landscaped gardens",
+        "24x7 security & CCTV",
+        "Power backup",
+        "Covered parking"
+      ],
+      "usp": "Zirakpur's most premium project on VIP Road. 3-4 BHK only = pure luxury community. Airport 15 min, Chandigarh 10 min. NRI demand highest here.",
+      "sample_flat_available": true,
+      "site_visit_hours": "Daily 10AM-7PM",
+      "distance_key_locations": {
+        "chandigarh_sector17": "10 km",
+        "chandigarh_airport": "8 km",
+        "mohali_it_city": "12 km",
+        "panchkula": "15 km",
+        "elante_mall": "12 km",
+        "vr_punjab_mall": "10 km"
+      },
+      "nearby_schools": [
+        "St. Xaviers School",
+        "Delhi Public School (Zirakpur)",
+        "Chitkara International School"
+      ],
+      "home_loan_partners": [
+        "SBI",
+        "HDFC",
+        "ICICI",
+        "Axis Bank",
+        "Punjab National Bank"
+      ],
+      "maps_url": "https://maps.app.goo.gl/sushma-belleza-zirakpur",
+      "brochure_url": "https://vkrealty.co.in/brochures/sushma-belleza.pdf",
+      "our_exclusive_offer": "PLC discount ₹2 lakh + free registration assistance + NRI documentation support",
+      "why_pitch_hinglish": "Sir, Zirakpur ka sabse premium project hai VIP Road pe. 3-4 BHK only — matlab pure luxury community. Airport 15 minute, Chandigarh 10 minute. Dubai/Canada se NRIs sabse zyada yahan invest kar rahe hain. Metro approve ho gayi hai — 2 saal mein ₹8,000/sq ft+ ho jayega."
+    },
+    {
+      "listing_id": "sushma_valencia_zirakpur",
+      "name": "Sushma Valencia",
+      "builder": "Sushma Buildtech",
+      "location": "PR-7 Airport Road, Zirakpur",
+      "micro_market": "Zirakpur — VIP Road",
+      "configurations": [
+        "3 BHK Independent Floors"
+      ],
+      "sizes_sqft": {
+        "3_bhk": "1,350 - 1,650"
+      },
+      "price_range": "₹1.25 Cr - ₹1.55 Cr",
+      "price_per_sqft": "₹7,500 - ₹8,500",
+      "possession": "March 2027",
+      "rera_id": "PBRERA-SAS80-PR0725",
+      "project_type": "Independent Luxury Floors",
+      "total_floors": "Stilt + 3",
+      "total_units": 180,
+      "land_area_acres": 3.0,
+      "amenities": [
+        "Individual terrace rights",
+        "Stilt parking",
+        "Modular kitchen",
+        "Power backup",
+        "24x7 security",
+        "Park & green area",
+        "Individual water connection",
+        "Gated community"
+      ],
+      "usp": "Independent floors = bungalow feel at apartment price. Own terrace = BBQ parties, personal space. Stilt parking = no basement hassles. Best for Punjabi joint families.",
+      "sample_flat_available": true,
+      "site_visit_hours": "Daily 10AM-7PM",
+      "distance_key_locations": {
+        "chandigarh_sector17": "10 km",
+        "chandigarh_airport": "8 km",
+        "mohali_it_city": "12 km",
+        "elante_mall": "12 km"
+      },
+      "nearby_schools": [
+        "St. Xaviers School",
+        "Delhi Public School (Zirakpur)"
+      ],
+      "home_loan_partners": [
+        "SBI",
+        "HDFC",
+        "ICICI",
+        "Punjab National Bank"
+      ],
+      "maps_url": "https://maps.app.goo.gl/sushma-valencia-zirakpur",
+      "brochure_url": "https://vkrealty.co.in/brochures/sushma-valencia.pdf",
+      "our_exclusive_offer": "Independent floor booking: free modular kitchen upgrade worth ₹1.5 lakh",
+      "why_pitch_punjabi": "Sir, independent floor matlab apna khula terrace, apni parking. Punjabi family ke liye perfect hai — joint family raho, privacy bhi mile. Apartment se zyada space, villa se kam price. Metro ke aane ke baad value double hone wali hai."
+    },
+    {
+      "listing_id": "dlf_hyde_park_mullanpur",
+      "name": "DLF Hyde Park Estate",
+      "builder": "DLF Limited",
+      "location": "Mullanpur, New Chandigarh",
+      "micro_market": "New Chandigarh / Mullanpur",
+      "configurations": [
+        "Plots",
+        "Villas (3/4/5 BHK)",
+        "Independent Floors"
+      ],
+      "sizes_sqft": {
+        "plots": "250 - 500 sq yards",
+        "villas_3bhk": "3,500 - 4,500",
+        "villas_4bhk": "5,000 - 6,500",
+        "villas_5bhk": "7,000 - 10,000"
+      },
+      "price_range": "₹1.50 Cr - ₹18 Cr (villas)",
+      "price_per_sqft": "₹15,000 - ₹25,000 (villas)",
+      "possession": "Ready to Move (Phase 1), Ongoing (Phase 2)",
+      "rera_id": "PBRERA-CHD04-PR0XXX",
+      "project_type": "Ultra-luxury Villas & Plotted Development",
+      "total_units": 800,
+      "land_area_acres": 200,
+      "amenities": [
+        "DLF-managed clubhouse",
+        "Olympic-size swimming pool",
+        "Golf course (9-hole)",
+        "Tennis courts",
+        "Cricket ground",
+        "Spa & wellness center",
+        "Business center",
+        "24x7 security & concierge",
+        "Landscaped central park",
+        "Gated entry with CCTV"
+      ],
+      "usp": "India's largest developer = capital safety. 200 acres = massive scale. New Chandigarh's most premium address. Golf course + spa = resort lifestyle. NRI favorite especially Dubai-based Punjabis.",
+      "sample_flat_available": true,
+      "site_visit_hours": "Daily 10AM-6PM (exclusive viewing by appointment)",
+      "distance_key_locations": {
+        "chandigarh_sector17": "8 km",
+        "chandigarh_airport": "12 km",
+        "pgi_hospital": "6 km",
+        "mohali_it_city": "10 km",
+        "panchkula": "12 km",
+        "chandigarh_manali_highway": "0.5 km"
+      },
+      "nearby_schools": [
+        "Yadavindra Public School",
+        "St. John's High School",
+        "Chitkara University"
+      ],
+      "home_loan_partners": [
+        "HDFC",
+        "ICICI",
+        "Axis Bank",
+        "Citibank",
+        "Yes Bank"
+      ],
+      "maps_url": "https://maps.app.goo.gl/dlf-hyde-park-mullanpur",
+      "brochure_url": "https://vkrealty.co.in/brochures/dlf-hyde-park.pdf",
+      "our_exclusive_offer": "NRI special: dedicated property management post-purchase + rental assistance",
+      "why_pitch_hinglish": "Sir, DLF matlab India's biggest developer. Hyde Park Estate New Chandigarh ka sabse premium address hai. 200 acres mein golf course, spa, clubhouse — resort jaisi life. Dubai se NRIs specifically DLF maangte hain. Plot leke apna dream ghar banao, ya ready villa lo."
+    },
+    {
+      "listing_id": "rustomjee_la_vie_thane",
+      "name": "Rustomjee La Vie",
+      "builder": "Rustomjee",
+      "location": "Majiwada, Thane West",
+      "micro_market": "Thane West — Majiwada",
+      "configurations": [
+        "2 BHK",
+        "3 BHK"
+      ],
+      "sizes_sqft": {
+        "2_bhk": "650 - 850",
+        "3_bhk": "1,100 - 1,350"
+      },
+      "price_range": "₹1.29 Cr - ₹2.50 Cr",
+      "price_per_sqft": "₹18,000 - ₹22,000",
+      "possession": "March 2028",
+      "rera_id": "P517000XXXXX",
+      "project_type": "Premium Residential Towers",
+      "total_towers": 4,
+      "total_floors": "G+35",
+      "total_units": 650,
+      "land_area_acres": 4.5,
+      "amenities": [
+        "Sky lounge",
+        "Infinity pool",
+        "Gymnasium",
+        "Yoga deck",
+        "Kids play area",
+        "Party hall",
+        "Jogging track",
+        "24x7 security",
+        "Power backup",
+        "EV charging stations"
+      ],
+      "usp": "Majiwada = Thane's connectivity heart. Walking to Eastern Express Highway + station. Rustomjee = luxury specialist from Mumbai. Sky lounge = unique amenity.",
+      "sample_flat_available": true,
+      "site_visit_hours": "Tuesday-Sunday 10AM-6PM",
+      "distance_key_locations": {
+        "thane_station": "2 km",
+        "eastern_express_highway": "0.5 km",
+        "viviana_mall": "3 km",
+        "mumbai_airport": "25 km",
+        "metro_line4": "0.8 km"
+      },
+      "nearby_schools": [
+        "Smt. Sulochanadevi Singhania School",
+        "Hiranandani Foundation School"
+      ],
+      "home_loan_partners": [
+        "SBI",
+        "HDFC",
+        "ICICI",
+        "Axis Bank"
+      ],
+      "maps_url": "https://maps.app.goo.gl/rustomjee-la-vie-thane",
+      "brochure_url": "https://vkrealty.co.in/brochures/rustomjee-la-vie.pdf",
+      "our_exclusive_offer": "Majiwada location premium: VK Realty clients get first pick on highway-facing units",
+      "why_pitch_hinglish": "Sir, Majiwada Thane ka connectivity ka center hai. Eastern Express Highway walking distance, station 2 km. Rustomjee luxury segment mein expert hai Mumbai mein. Sky lounge mein party karo — view pura Thane ka. Metro station 800 meter — future mein aur value badhegi."
+    },
+    {
+      "listing_id": "godrej_emerald_ghodbunder",
+      "name": "Godrej Emerald",
+      "builder": "Godrej Properties",
+      "location": "Ghodbunder Road, Thane West",
+      "micro_market": "Thane — Ghodbunder Road",
+      "configurations": [
+        "1.5 BHK",
+        "2 BHK",
+        "3 BHK"
+      ],
+      "sizes_sqft": {
+        "1.5_bhk": "550 - 650",
+        "2_bhk": "750 - 950",
+        "3_bhk": "1,100 - 1,300"
+      },
+      "price_range": "₹1.02 Cr - ₹1.90 Cr",
+      "price_per_sqft": "₹14,000 - ₹17,000",
+      "possession": "June 2027",
+      "rera_id": "P517000XXXXX",
+      "project_type": "Mid-premium Apartments",
+      "total_towers": 6,
+      "total_floors": "G+22",
+      "total_units": 900,
+      "land_area_acres": 6.0,
+      "amenities": [
+        "Godrej-style clubhouse",
+        "Swimming pool",
+        "Gymnasium",
+        "Kids play area",
+        "Senior citizen zone",
+        "Jogging track",
+        "24x7 security",
+        "Power backup",
+        "Rainwater harvesting",
+        "CCTV surveillance"
+      ],
+      "usp": "Godrej brand at entry-level Thane pricing. 1.5 BHK = unique configuration for young couples. Ghodbunder Road = direct Mumbai-Nashik highway access.",
+      "sample_flat_available": true,
+      "site_visit_hours": "Daily 10AM-7PM",
+      "distance_key_locations": {
+        "thane_station": "8 km",
+        "ghodbunder_road": "0.2 km",
+        "mumbai_nashik_highway": "0.5 km",
+        "mumbai_airport": "30 km"
+      },
+      "nearby_schools": [
+        "Vasant Vihar School",
+        "Smt. Sulochanadevi Singhania School"
+      ],
+      "home_loan_partners": [
+        "SBI",
+        "HDFC",
+        "ICICI",
+        "Axis Bank"
+      ],
+      "maps_url": "https://maps.app.goo.gl/godrej-emerald-thane",
+      "brochure_url": "https://vkrealty.co.in/brochures/godrej-emerald.pdf",
+      "our_exclusive_offer": "Godrej direct partnership: zero brokerage + festive season additional 1% discount",
+      "why_pitch_hinglish": "Sir, Godrej ka naam matlab trust. ₹1.02 Cr se start — Thane ka sabse reasonable entry Godrej brand ke saath. 1.5 BHK unique hai — young couples ke liye perfect. Ghodbunder Road se Mumbai-Nashik direct connect. Godrej ke saath hamara direct tie-up hai — best rate guarantee."
+    }
+  ]
+}

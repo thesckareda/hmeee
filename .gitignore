@@ -1,0 +1,22 @@
+.env
+.env.local
+.env.*.local
+
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+.DS_Store
+
+# Dependencies
+node_modules/
+.venv/
+venv/
+*.log
+
+# Runtime / local state (never commit)
+data/agent_logs/
+data/greeting_pcm_cache/
+data/live_test/
+data/tenancy.db
+data/config_reload.signal

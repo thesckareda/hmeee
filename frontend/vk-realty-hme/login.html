@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in — VK Realty</title>
+  <link rel="icon" type="image/png" href="/static/favicon.png">
+  <link rel="apple-touch-icon" href="/static/favicon.png">
+  <link rel="stylesheet" href="/static/vk-realty-hme/vk-realty-login.css?v=20260713">
+  <link rel="stylesheet" href="/static/apple-grade.css?v=20260702">
+</head>
+<body class="vk-login-page">
+  <a class="vk-login-back" href="/vk-realty-hme-hme">← Back to VK Realty</a>
+  <div class="vk-login-shell">
+    <div class="vk-login-brand">
+      <h1><span class="wm-vk">VK</span><span class="wm-realty"> Realty</span></h1>
+      <p>Sign in to your AI voice dashboard</p>
+    </div>
+    <div class="vk-login-card">
+      <div class="vk-login-tabs" role="tablist">
+        <button type="button" class="vk-login-tab active" id="tab-signin">Sign in</button>
+        <button type="button" class="vk-login-tab" id="tab-register">Register</button>
+      </div>
+      <form id="login-form" class="vk-form">
+        <label><span>Email</span><input name="email" type="email" required autocomplete="username" placeholder="you@vkrealty.com"></label>
+        <label><span>Password</span><input name="password" type="password" required autocomplete="current-password"></label>
+        <button type="submit" class="vk-btn" id="login-submit">Sign In</button>
+        <p class="vk-error" id="login-error"></p>
+        <div class="vk-login-powered" aria-label="Powered by Speaksy">
+          <span class="vk-powered-label">Powered by</span>
+          <img
+            class="vk-powered-logo vk-powered-logo--login"
+            src="/static/vendor/images/speaksy-logo-powered.png"
+            alt="Speaksy"
+            width="183"
+            height="52"
+            loading="lazy"
+            decoding="async"
+          >
+        </div>
+      </form>
+      <form id="register-form" class="vk-form" hidden>
+        <label><span>Email</span><input name="email" type="email" required placeholder="you@vkrealty.com"></label>
+        <label><span>Password</span><input name="password" type="password" minlength="8" required></label>
+        <label><span>Organisation</span><input name="org_name" value="VK Realty" placeholder="VK Realty"></label>
+        <button type="submit" class="vk-btn" id="register-submit">Create account</button>
+        <p class="vk-error" id="register-error"></p>
+      </form>
+    </div>
+  </div>
+  <script src="/static/vk-realty-hme/client-base.js?v=20260702"></script>
+  <script src="/static/vk-realty-hme/vk-realty-login.js" defer></script>
+</body>
+</html>

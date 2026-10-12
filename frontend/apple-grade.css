@@ -1,0 +1,498 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   APPLE-GRADE DESIGN LAYER — final cascade override
+   Loads after styles.css / vercel-ui.css / dashboard-v2.css / client css.
+   Pure visual refinement: typography, materials, depth, motion.
+   No selectors are removed — only re-skinned.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── 1. Design tokens ────────────────────────────────────────────────────── */
+.vui-v2 {
+  /* SF-style system type stack */
+  --apl-font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+              "Geist", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --apl-font-mono: ui-monospace, "SF Mono", "Geist Mono", "Menlo", monospace;
+
+  /* Apple dark neutrals */
+  --ds-void: #0a0a0c;
+  --ds-graphite: #151518;
+  --ds-surface: #151518;
+  --ds-surface-raised: #1d1d21;
+  --ds-surface-high: #26262b;
+  --ds-on-surface: #f5f5f7;
+  --ds-on-muted: #a1a1a9;
+  --ds-outline: rgba(255, 255, 255, 0.09);
+  --ds-glass: rgba(18, 18, 21, 0.72);
+
+  /* Refined brand accent (kept mint, tuned for depth) */
+  --apl-accent: #5fdab2;
+  --apl-accent-strong: #2fbe8f;
+  --apl-accent-tint: rgba(95, 218, 178, 0.14);
+  --ds-mint: var(--apl-accent);
+  --ds-mint-bright: #8af2cf;
+  --ds-mint-dim: var(--apl-accent-tint);
+  --ds-mint-glow: rgba(95, 218, 178, 0.22);
+  --ds-emerald: var(--apl-accent-strong);
+
+  /* Depth & shape */
+  --apl-radius-sm: 8px;
+  --apl-radius-md: 12px;
+  --apl-radius-lg: 16px;
+  --apl-radius-xl: 20px;
+  --apl-hairline: 0 0 0 1px var(--ds-outline);
+  --apl-shadow-card:
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 1px 1px rgba(0, 0, 0, 0.28),
+    0 12px 32px -12px rgba(0, 0, 0, 0.5);
+  --apl-shadow-float:
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 2px 6px rgba(0, 0, 0, 0.35),
+    0 24px 64px -16px rgba(0, 0, 0, 0.6);
+
+  /* Apple motion */
+  --apl-ease: cubic-bezier(0.32, 0.72, 0, 1);
+  --apl-ease-spring: cubic-bezier(0.34, 1.3, 0.64, 1);
+  --apl-fast: 160ms;
+  --apl-med: 260ms;
+  --vui-ease: var(--apl-ease);
+
+  --vui-radius-sm: var(--apl-radius-sm);
+  --vui-radius-md: var(--apl-radius-md);
+  --vui-radius-lg: var(--apl-radius-lg);
+  --vui-radius-xl: var(--apl-radius-xl);
+}
+
+[data-theme="light"].vui-v2,
+[data-theme="light"] .vui-v2 {
+  --ds-void: #f5f5f7;                 /* Apple's signature canvas */
+  --ds-graphite: #ffffff;
+  --ds-surface: #ffffff;
+  --ds-surface-raised: #fbfbfd;
+  --ds-surface-high: #f0f0f2;
+  --ds-on-surface: #1d1d1f;
+  --ds-on-muted: #6e6e73;
+  --ds-outline: rgba(0, 0, 0, 0.07);
+  --ds-glass: rgba(251, 251, 253, 0.72);
+  --apl-accent: #0e9f6e;
+  --apl-accent-strong: #0b8a5f;
+  --apl-accent-tint: rgba(14, 159, 110, 0.1);
+  --ds-mint: var(--apl-accent);
+  --ds-mint-bright: #16b981;
+  --ds-mint-dim: var(--apl-accent-tint);
+  --ds-mint-glow: rgba(14, 159, 110, 0.16);
+  --apl-shadow-card:
+    0 0 0 1px rgba(0, 0, 0, 0.045),
+    0 1px 2px rgba(0, 0, 0, 0.05),
+    0 12px 32px -16px rgba(0, 0, 0, 0.12);
+  --apl-shadow-float:
+    0 0 0 1px rgba(0, 0, 0, 0.05),
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    0 32px 80px -24px rgba(0, 0, 0, 0.22);
+}
+
+/* ─── 2. Typography ───────────────────────────────────────────────────────── */
+.vui-v2,
+.vui-v2 body,
+.vui-v2 button,
+.vui-v2 input,
+.vui-v2 select,
+.vui-v2 textarea {
+  font-family: var(--apl-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "cv01", "cv03", "ss01";
+}
+
+.vui-v2 h1, .vui-v2 h2, .vui-v2 h3, .vui-v2 h4,
+.vui-v2 .brand-wordmark,
+.vui-v2 .topbar-titles h2 {
+  font-family: var(--apl-font);
+  letter-spacing: -0.022em;
+  font-weight: 650;
+}
+
+.vui-v2 .topbar-titles h2 { font-size: 1.3125rem; }
+.vui-v2 .page-subtitle    { letter-spacing: -0.006em; }
+
+.vui-v2 .section-label,
+.vui-v2 .sidebar-group-label,
+.vui-v2 .ma-zone-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ds-on-muted);
+}
+
+.vui-v2 code, .vui-v2 pre, .vui-v2 .mono { font-family: var(--apl-font-mono); }
+
+/* Tabular figures for stats and tables */
+.vui-v2 .stat-value, .vui-v2 td, .vui-v2 .kpi, .vui-v2 .metric {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─── 3. Materials: frosted chrome ────────────────────────────────────────── */
+.vui-v2 .vui-topbar {
+  background: var(--ds-glass);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--ds-outline);
+}
+
+.vui-v2 .sidebar {
+  background: var(--ds-glass);
+  -webkit-backdrop-filter: saturate(180%) blur(24px);
+  backdrop-filter: saturate(180%) blur(24px);
+  border-right: 1px solid var(--ds-outline);
+}
+
+/* Ambient canvas glow — quieter, Apple-style single source */
+.vui-v2 .main::before {
+  background:
+    radial-gradient(ellipse 70% 44% at 50% -12%, var(--ds-mint-glow), transparent 70%);
+  opacity: 0.5;
+}
+
+/* ─── 4. Cards & panels ───────────────────────────────────────────────────── */
+.vui-v2 .card,
+.vui-v2 .panel,
+.vui-v2 .query-card {
+  background: var(--ds-surface);
+  border: none;
+  border-radius: var(--apl-radius-lg);
+  box-shadow: var(--apl-shadow-card);
+  transition: box-shadow var(--apl-med) var(--apl-ease),
+              transform var(--apl-med) var(--apl-ease);
+}
+
+.vui-v2 .card:hover,
+.vui-v2 .query-card:hover {
+  box-shadow: var(--apl-shadow-float);
+}
+
+.vui-v2 .panel-head,
+.vui-v2 .section-head-inline {
+  border-bottom: 1px solid var(--ds-outline);
+}
+
+/* ─── 5. Buttons ──────────────────────────────────────────────────────────── */
+.vui-v2 .btn {
+  border-radius: var(--apl-radius-md);
+  font-weight: 560;
+  letter-spacing: -0.01em;
+  transition: transform var(--apl-fast) var(--apl-ease),
+              background var(--apl-fast) var(--apl-ease),
+              box-shadow var(--apl-fast) var(--apl-ease),
+              opacity var(--apl-fast) var(--apl-ease);
+}
+
+.vui-v2 .btn:active { transform: scale(0.97); }
+
+.vui-v2 .btn-primary {
+  background: var(--apl-accent);
+  color: #04140d;
+  border: none;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 1px 2px rgba(0, 0, 0, 0.25);
+}
+[data-theme="light"] .vui-v2 .btn-primary { color: #ffffff; }
+
+.vui-v2 .btn-primary:hover {
+  background: var(--ds-mint-bright);
+  transform: translateY(-1px);
+}
+[data-theme="light"] .vui-v2 .btn-primary:hover { background: var(--apl-accent-strong); }
+
+.vui-v2 .btn-secondary {
+  background: var(--ds-surface-raised);
+  border: 1px solid var(--ds-outline);
+}
+.vui-v2 .btn-secondary:hover { background: var(--ds-surface-high); }
+
+.vui-v2 .btn-ghost { border-radius: var(--apl-radius-md); }
+.vui-v2 .btn-ghost:hover { background: var(--ds-surface-raised); }
+
+/* ─── 6. Inputs & fields ──────────────────────────────────────────────────── */
+.vui-v2 .input,
+.vui-v2 input[type="text"],
+.vui-v2 input[type="search"],
+.vui-v2 input[type="email"],
+.vui-v2 input[type="password"],
+.vui-v2 input[type="number"],
+.vui-v2 input[type="tel"],
+.vui-v2 input[type="date"],
+.vui-v2 input[type="time"],
+.vui-v2 select,
+.vui-v2 .textarea,
+.vui-v2 textarea {
+  background: var(--ds-surface-raised);
+  border: 1px solid var(--ds-outline);
+  border-radius: var(--apl-radius-md);
+  color: var(--ds-on-surface);
+  transition: border-color var(--apl-fast) var(--apl-ease),
+              box-shadow var(--apl-fast) var(--apl-ease),
+              background var(--apl-fast) var(--apl-ease);
+}
+
+.vui-v2 .input:focus,
+.vui-v2 input:focus,
+.vui-v2 select:focus,
+.vui-v2 textarea:focus {
+  outline: none;
+  border-color: var(--apl-accent);
+  box-shadow: 0 0 0 4px var(--apl-accent-tint);
+  background: var(--ds-surface);
+}
+
+.vui-v2 ::placeholder { color: var(--ds-on-muted); opacity: 0.7; }
+
+.vui-v2 .field > label {
+  font-size: 12.5px;
+  font-weight: 560;
+  letter-spacing: -0.006em;
+  color: var(--ds-on-muted);
+}
+
+/* ─── 7. Navigation ───────────────────────────────────────────────────────── */
+.vui-v2 .nav-item {
+  border-radius: 10px;
+  transition: background var(--apl-fast) var(--apl-ease),
+              color var(--apl-fast) var(--apl-ease),
+              transform var(--apl-fast) var(--apl-ease);
+}
+
+.vui-v2 .nav-item:hover { background: var(--ds-surface-raised); }
+.vui-v2 .nav-item:active { transform: scale(0.98); }
+
+.vui-v2 .nav-item.active {
+  background: var(--apl-accent-tint);
+  color: var(--ds-on-surface);
+  box-shadow: inset 0 0 0 1px rgba(95, 218, 178, 0.22);
+}
+
+.vui-v2 .nav-item.active .nav-icon { color: var(--apl-accent); }
+
+/* ─── 8. Tables ───────────────────────────────────────────────────────────── */
+.vui-v2 .table-wrap {
+  border-radius: var(--apl-radius-lg);
+  border: none;
+  box-shadow: var(--apl-shadow-card);
+  overflow: hidden;
+}
+
+.vui-v2 .table th {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ds-on-muted);
+  background: var(--ds-surface-raised);
+  border-bottom: 1px solid var(--ds-outline);
+}
+
+.vui-v2 .table td { border-bottom: 1px solid var(--ds-outline); }
+.vui-v2 .table tbody tr { transition: background var(--apl-fast) var(--apl-ease); }
+.vui-v2 .table tbody tr:hover { background: var(--ds-surface-raised); }
+.vui-v2 .table tbody tr:last-child td { border-bottom: none; }
+
+/* ─── 9. Chips, tabs, badges ──────────────────────────────────────────────── */
+.vui-v2 .chip,
+.vui-v2 .agents-pill,
+.vui-v2 .v2-badge {
+  border-radius: 999px;
+  font-weight: 560;
+  letter-spacing: -0.006em;
+}
+
+.vui-v2 .tab {
+  border-radius: var(--apl-radius-md);
+  transition: background var(--apl-fast) var(--apl-ease),
+              color var(--apl-fast) var(--apl-ease);
+}
+
+.vui-v2 .tab.active {
+  background: var(--ds-surface-high);
+  box-shadow: var(--apl-hairline);
+}
+
+/* ─── 10. Modals — frosted sheet ──────────────────────────────────────────── */
+.vui-v2 .modal-backdrop {
+  background: rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  animation: apl-fade var(--apl-med) var(--apl-ease);
+}
+
+.vui-v2 .modal-card,
+.vui-v2 .modal {
+  border-radius: var(--apl-radius-xl);
+  background: var(--ds-glass);
+  -webkit-backdrop-filter: saturate(180%) blur(28px);
+  backdrop-filter: saturate(180%) blur(28px);
+  box-shadow: var(--apl-shadow-float);
+  border: 1px solid var(--ds-outline);
+  animation: apl-sheet var(--apl-med) var(--apl-ease-spring);
+}
+
+@keyframes apl-fade { from { opacity: 0; } }
+@keyframes apl-sheet {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+}
+
+/* ─── 11. Page transitions ────────────────────────────────────────────────── */
+.vui-v2 .vui-page,
+.vui-v2 .page {
+  animation: apl-page 320ms var(--apl-ease);
+}
+
+@keyframes apl-page {
+  from { opacity: 0; transform: translateY(6px); }
+}
+
+/* ─── 12. Scrollbars ──────────────────────────────────────────────────────── */
+.vui-v2 ::-webkit-scrollbar { width: 10px; height: 10px; }
+.vui-v2 ::-webkit-scrollbar-track { background: transparent; }
+.vui-v2 ::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 136, 0.32);
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+.vui-v2 ::-webkit-scrollbar-thumb:hover {
+  background: rgba(128, 128, 136, 0.5);
+  background-clip: content-box;
+  border: 2px solid transparent;
+}
+
+/* ─── 13. Focus & selection ───────────────────────────────────────────────── */
+.vui-v2 :focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--apl-accent-tint), 0 0 0 1px var(--apl-accent);
+  border-radius: var(--apl-radius-sm);
+}
+
+.vui-v2 ::selection { background: var(--apl-accent-tint); }
+
+/* ─── 14. Accessibility: reduced motion ───────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .vui-v2 *,
+  .vui-v2 *::before,
+  .vui-v2 *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SIGNATURE LAYER — the parts nobody else ships
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── S1. Living waveform — the brand mark breathes like a live call ──────── */
+.vui-v2 .icon-mark-bar {
+  fill: var(--apl-accent);
+  transform-origin: center;
+  animation: apl-wave 2.8s var(--apl-ease) infinite;
+}
+.vui-v2 .icon-mark-bar:nth-child(1) { animation-delay: 0.00s; }
+.vui-v2 .icon-mark-bar:nth-child(2) { animation-delay: 0.18s; }
+.vui-v2 .icon-mark-bar:nth-child(3) { animation-delay: 0.36s; }
+.vui-v2 .icon-mark-bar:nth-child(4) { animation-delay: 0.54s; }
+.vui-v2 .icon-mark-bar:nth-child(5) { animation-delay: 0.72s; }
+
+@keyframes apl-wave {
+  0%, 100% { transform: scaleY(1); opacity: 0.9; }
+  50%      { transform: scaleY(0.55); opacity: 0.55; }
+}
+
+.vui-v2 .brand:hover .icon-mark-bar { animation-duration: 0.9s; }
+
+/* ─── S2. Lit from above — macOS window light model ───────────────────────── */
+.vui-v2 .card,
+.vui-v2 .panel,
+.vui-v2 .query-card,
+.vui-v2 .modal-card {
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.045) 0%,
+    rgba(255, 255, 255, 0.012) 18%,
+    transparent 40%
+  );
+}
+[data-theme="light"] .vui-v2 .card,
+[data-theme="light"] .vui-v2 .panel,
+[data-theme="light"] .vui-v2 .query-card,
+[data-theme="light"] .vui-v2 .modal-card {
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    transparent 32%
+  );
+}
+
+/* ─── S3. Film grain — kills the flat digital-gradient look ───────────────── */
+.vui-v2::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}
+[data-theme="light"] .vui-v2::after { opacity: 0.018; }
+
+/* ─── S4. Display-grade stat typography with gradient ink ─────────────────── */
+.vui-v2 .stat-value,
+.vui-v2 .kpi-value,
+.vui-v2 .metric-value {
+  font-size: clamp(1.75rem, 2.6vw, 2.375rem);
+  font-weight: 680;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  background: linear-gradient(180deg, var(--ds-on-surface) 55%, var(--ds-on-muted) 130%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ─── S5. Nav rail indicator — slides in, Apple sidebar style ─────────────── */
+.vui-v2 .nav-item { position: relative; }
+.vui-v2 .nav-item::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 50%;
+  height: 0;
+  width: 3px;
+  border-radius: 999px;
+  background: var(--apl-accent);
+  transform: translateY(-50%);
+  transition: height var(--apl-med) var(--apl-ease-spring), opacity var(--apl-fast);
+  opacity: 0;
+}
+.vui-v2 .nav-item.active::before {
+  height: 58%;
+  opacity: 1;
+}
+
+/* ─── S6. Primary CTA glow — accent light bleeds like hardware LED ────────── */
+.vui-v2 .btn-primary:hover {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 1px 2px rgba(0, 0, 0, 0.25),
+    0 4px 20px -4px var(--ds-mint-glow);
+}
+
+/* ─── S7. Topbar title — gradient ink, tight display tracking ─────────────── */
+.vui-v2 .topbar-titles h2 {
+  background: linear-gradient(180deg, var(--ds-on-surface) 60%, var(--ds-on-muted) 140%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vui-v2 .icon-mark-bar { animation: none; }
+}

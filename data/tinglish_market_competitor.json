@@ -1,0 +1,266 @@
+{
+  "preset": "tinglish",
+  "primary_market": "Hyderabad - Western IT Corridor",
+  "micro_markets": [
+    {
+      "name": "Kokapet / Neopolis",
+      "price_per_sqft": "₹10,000 - ₹13,000 (premium projects up to ₹15,000)",
+      "configurations": [
+        "3 BHK",
+        "4 BHK",
+        "Luxury Villas"
+      ],
+      "price_range_crores": "₹2.0 Cr - ₹8.8 Cr",
+      "usp": "Hyderabad's fastest-appreciating luxury corridor. HMDA Neopolis land auctions fetched ₹100-137 crore per acre. Metro Phase 2 (Blue Line extension) approved.",
+      "target_buyer": "IT CXOs, NRIs, HNIs seeking luxury gated communities",
+      "appreciation_5yr": "58.5% (highest in Hyderabad)",
+      "rental_yield": "3.8 - 4.5%",
+      "key_projects": [
+        "Godrej Madison Avenue",
+        "Prestige Clairmont",
+        "Candeur Skyline",
+        "MSN One"
+      ],
+      "infrastructure": "ORR Exit 13-14, Metro Phase 2 (Raidurg-Kokapet 11.6km), 20 min to Airport",
+      "pros": "Highest appreciation, IT hub proximity, ultra-luxury segment, metro coming",
+      "cons": "High entry price, some areas still developing, traffic during peak hours"
+    },
+    {
+      "name": "Gachibowli",
+      "price_per_sqft": "₹8,000 - ₹14,000",
+      "configurations": [
+        "2 BHK",
+        "3 BHK",
+        "4 BHK"
+      ],
+      "price_range_crores": "₹1.2 Cr - ₹4.5 Cr",
+      "usp": "Established IT hub — Microsoft, Amazon, Google campuses within 5km. Most mature social infrastructure.",
+      "target_buyer": "IT professionals, families with school-going children",
+      "appreciation_5yr": "45-50%",
+      "rental_yield": "4.0 - 5.0%",
+      "key_projects": [
+        "My Home Krishe",
+        "L&T Realty projects",
+        "Raghava Wave"
+      ],
+      "infrastructure": "ORR connectivity, HITEC City metro, international schools, hospitals",
+      "pros": "Fully developed, best schools (Chirec, Oakridge), hospital corridor",
+      "cons": "Congested, limited new supply, older buildings"
+    },
+    {
+      "name": "Financial District",
+      "price_per_sqft": "₹9,000 - ₹13,500 (avg ₹10,775)",
+      "configurations": [
+        "2 BHK",
+        "3 BHK",
+        "4 BHK",
+        "Villas"
+      ],
+      "price_range_crores": "₹1.5 Cr - ₹5.0 Cr+ (Villas ₹20,245/sq ft)",
+      "usp": "Hyderabad's Wall Street — Deloitte, Bank of America, Wipro, Apple campuses. Walk-to-work culture developing.",
+      "target_buyer": "Finance sector professionals, MNC employees, investors",
+      "appreciation_5yr": "40-45%",
+      "rental_yield": "4.5 - 5.5% (highest in city)",
+      "key_projects": [
+        "My Home Krishe",
+        "ASBL Broadway",
+        "Sumadhura Olympus",
+        "Prestige High Fields"
+      ],
+      "infrastructure": "ORR access, dedicated metro corridor planned, 30 min to Airport",
+      "pros": "Employment hub, highest rental yields, premium address",
+      "cons": "Commercial traffic, limited greenery, weekend quiet"
+    },
+    {
+      "name": "Narsingi / Puppalaguda",
+      "price_per_sqft": "₹8,600 - ₹11,800 (avg ₹10,300)",
+      "configurations": [
+        "2 BHK",
+        "3 BHK",
+        "4 BHK"
+      ],
+      "price_range_crores": "₹85 L - ₹2.8 Cr",
+      "usp": "Best value corridor — 15-30% cheaper than Gachibowli with similar appreciation. 4-6 km from Financial District.",
+      "target_buyer": "First-time buyers, young IT professionals, budget-conscious families",
+      "appreciation_5yr": "58.5% (same as Kokapet corridor)",
+      "rental_yield": "3.8 - 4.5%",
+      "key_projects": [
+        "Rajapushpa Provincia",
+        "Hallmark Treasor",
+        "ASBL Broadway"
+      ],
+      "infrastructure": "ORR direct access, 20 min to HITEC City, Medicover Hospital, schools",
+      "pros": "Best value for money, rapid development, IT corridor proximity",
+      "cons": "Still developing infrastructure, some pockets have water issues"
+    },
+    {
+      "name": "Tellapur / Kollur",
+      "price_per_sqft": "₹5,500 - ₹8,500",
+      "configurations": [
+        "2 BHK",
+        "3 BHK"
+      ],
+      "price_range_crores": "₹65 L - ₹1.8 Cr",
+      "usp": "Most affordable entry point into western corridor. ORR connected, Pharma City nearby.",
+      "target_buyer": "First-time buyers, investors with 5-year horizon",
+      "appreciation_5yr": "35-40%",
+      "rental_yield": "3.5 - 4.0%",
+      "key_projects": [
+        "Muppa Melody",
+        "Raghava Wave"
+      ],
+      "infrastructure": "ORR, proposed Metro Phase 2 extension, Hyderabad Pharma City",
+      "pros": "Lowest entry price, high future potential",
+      "cons": "Less developed, longer commute, fewer amenities"
+    }
+  ],
+  "market_commentary": {
+    "overall_trend": "Bullish — western Hyderabad IT corridor is India's fastest-growing premium residential market",
+    "key_drivers": [
+      "IT/ITES expansion — 65% of Q1 2026 residential launches in western zone (Cushman & Wakefield)",
+      "ORR connectivity — 158km ring road connects all growth corridors",
+      "Metro Phase 2 — Airport + Kokapet extensions approved, ₹24,269 crore investment",
+      "RRR (Regional Ring Road) — 340km upcoming, will further expand city boundaries",
+      "NRI investment — 30% growth in NRI demand 2023-2025",
+      "Neopolis land auctions — ₹100-137 crore/acre setting price floor"
+    ],
+    "appreciation_forecast": {
+      "kokapet_neopolis": "12-15% annually (next 3 years)",
+      "gachibowli": "8-10% annually",
+      "financial_district": "10-12% annually",
+      "narsingi": "12-15% annually",
+      "tellapur": "10-12% annually"
+    },
+    "demand_segments": {
+      "luxury_3cr_plus": "NRIs, CXOs — Kokapet/Neopolis",
+      "premium_1_3cr": "IT professionals — Financial District, Gachibowli, Narsingi",
+      "mid_segment_50l_1cr": "First-time buyers — Narsingi, Tellapur",
+      "affordable_below_50l": "Limited supply, moving to suburbs"
+    }
+  },
+  "interest_rates": {
+    "sbi": "8.40% - 8.70% (repo linked)",
+    "hdfc": "8.40% - 8.65% (MCLR linked)",
+    "icici": "8.45% - 8.80%",
+    "axis": "8.35% - 8.90%",
+    "current_repo_rate": "6.50% (RBI maintained in June 2026)",
+    "trend": "Stable — RBI has maintained status quo, good time to lock rates",
+    "quote_to_callers": "Sir, abhi home loan rate 8.4-8.5% chal raha hai. SBI aur HDFC dono achha offer kar rahe hain. Aapka CIBIL score achha hai toh 8.4% mil sakta hai. Pre-approval nikalwa deta hoon — 10 minute mein pata chal jayega eligibility."
+  },
+  "competitors": [
+    {
+      "name": "Godrej Properties",
+      "positioning": "Premium branded developer, strong Mumbai origin, now aggressive in Hyderabad",
+      "strengths": [
+        "Brand trust",
+        "RERA compliance",
+        "Premium amenities",
+        "Strong NRI appeal"
+      ],
+      "hyderabad_projects": [
+        "Godrej Madison Avenue (Kokapet)",
+        "Godrej Neopolis",
+        "Godrej Regal Pavilion (Nacharam)"
+      ],
+      "price_position": "Premium — 15-20% above local average",
+      "our_positioning": "Godrej ke saath hamara direct tie-up hai. Through VK Realty book karenge toh additional 2-3% corporate discount milta hai. Same project, better price.",
+      "sample_script": "Godrej bahut achha builder hai sir, brand value hai. Lekin unka price thoda premium hai. Hamare through book karenge toh negotiated rate milega — recent client ko ₹2.34 Cr ke jagah ₹2.28 Cr mein 3BHK mila Madison Avenue mein."
+    },
+    {
+      "name": "My Home Constructions",
+      "positioning": "Local Hyderabad heavyweight — quality construction, timely delivery",
+      "strengths": [
+        "Local expertise",
+        "Timely possession",
+        "Strong in Financial District",
+        "Value for money"
+      ],
+      "hyderabad_projects": [
+        "My Home Krishe (Financial District)",
+        "My Home Avatar",
+        "My Home Tarkshya"
+      ],
+      "price_position": "Mid-to-premium — 5-10% above average",
+      "our_positioning": "My Home ke saath hamara long-term relationship hai. Unke projects mein VK Realty clients ko priority allotment milta hai. Financial District mein walk-to-work option best hai unka.",
+      "sample_script": "My Home Financial District ka pioneer hai sir. Krishe mein 2BHK ₹1.64 Cr se start hota hai. Hamare 5 clients ne recently liya hai — possession Feb 2024 mein tha, sab satisfied hain."
+    },
+    {
+      "name": "Rajapushpa Properties",
+      "positioning": "Local developer with strong Narsingi/Kokapet focus, luxury positioning",
+      "strengths": [
+        "Prime land parcels",
+        "Large township format",
+        "Good amenities",
+        "Competitive pricing vs national brands"
+      ],
+      "hyderabad_projects": [
+        "Rajapushpa Provincia (Narsingi)",
+        "Rajapushpa Imperial",
+        "Rajapushpa Atria"
+      ],
+      "price_position": "Mid-premium — comparable to national brands but more spacious units",
+      "our_positioning": "Rajapushpa Narsingi ka best developer hai. 23+ acre townships banate hain. Hamare through booking pe additional PLC (Preferred Location Charges) discount milta hai.",
+      "sample_script": "Rajapushpa Provincia 23.75 acres pe hai sir — bahut spacious. 2BHK ₹1.29 Cr se, 3BHK ₹2.0 Cr se. National brand nahi hai lekin construction quality aur timely delivery mein koi compromise nahi. Hamare 8 clients ne liya hai."
+    },
+    {
+      "name": "Sobha Limited",
+      "positioning": "Ultra-luxury segment — 'Sobha quality' is industry benchmark",
+      "strengths": [
+        "Best-in-class construction quality",
+        "Premium specifications",
+        "Strong Bangalore/Hyderabad presence",
+        "NRI favorite"
+      ],
+      "hyderabad_projects": [
+        "Sobha Waterfront (Somajiguda)",
+        "Sobha Neopolis",
+        "Sobha Ayana"
+      ],
+      "price_position": "Ultra-premium — 30-40% above market average",
+      "our_positioning": "Sobha quality ke saath koi comparison nahi sir. Lekin budget ₹4 Cr+ hona chahiye. Main personally Sobha mein 2 saal kaam kiya hoon — unka quality control best hai industry mein.",
+      "sample_script": "Sobha Waterfront ₹4.3 Cr se start hota hai sir. 4.1 acres, 238 apartments only — bahut exclusive. Maine wahan kaam kiya tha, construction quality dekhke hi VK Realty mein aaya. Agar budget hai toh best option."
+    },
+    {
+      "name": "Prestige Group",
+      "positioning": "Bangalore-origin premium developer, now expanding in Hyderabad",
+      "strengths": [
+        "Strong brand from South India",
+        "Integrated townships",
+        "Commercial + residential mix",
+        "Consistent delivery"
+      ],
+      "hyderabad_projects": [
+        "Prestige Clairmont (Neopolis, Kokapet)",
+        "Prestige High Fields (Financial District)"
+      ],
+      "price_position": "Premium — 20-25% above local average",
+      "our_positioning": "Prestige Bangalore se bahut strong brand hai. Hyderabad mein Neopolis mein Clairmont launch kiya hai — ₹3.4 Cr se. Hamare through early bird offer chal raha hai.",
+      "sample_script": "Prestige Clairmont Neopolis mein hai sir — ₹3.4 Cr onwards. Bangalore mein unka naam bahut bada hai, ab Hyderabad mein bhi same quality la rahe hain. Hamare clients ko priority booking milti hai."
+    }
+  ],
+  "infrastructure_highlights": [
+    "ORR (Outer Ring Road) — 158km, 30 min airport access, connects all corridors",
+    "Metro Phase 2A — Airport (36.8km) + Kokapet (11.6km) extensions, DPR submitted",
+    "Metro Phase 2B — 86.1km additional corridors, ₹19,579 crore",
+    "ORR Metro Ring — 278km proposed orbital metro, cabinet approved",
+    "RRR (Regional Ring Road) — 340km, under planning",
+    "Future City — 30,000 acre Net-Zero smart city, India's first",
+    "Pharma City — 19,000 acres, 560,000 jobs, near Tukkuguda",
+    "Airport Expansion — GMR expanding RGIA, completion 2028"
+  ],
+  "objection_scripts": {
+    "price_too_high": "Sir, thoda zyada lag raha hai samajhta hoon. Lekin is price mein aapko metro connectivity, ORR access, aur IT hub proximity mil rahi hai. 3 saal mein yeh price 30% upar hoga — recent data bolta hai. EMI aur rent compare kariye, rent mein paisa barbaad, EMI mein asset ban raha hai.",
+    "not_ready_to_move": "Samajhta hoon sir, immediate shift karna hai. Lekin under-construction mein 10-15% discount milta hai ready-to-move se. Plus payment construction ke hisaab se jaata hai — burden kam. Agar urgent hai toh Narsingi mein kuch ready options bhi hain.",
+    "will_wait_for_rates_to_fall": "Sir, 2020 se ab tak rates 60% upar gaye hain Hyderabad mein. Metro Phase 2 approval ke baad aur jump aayega. Wait karne ka risk yeh hai ki same budget mein area chhota milega. Lock kariye abhi — rate badhe ya na badhe, aapka fixed hai.",
+    "other_builder_cheaper": "Haan sir, ₹200-300 per sq ft ka difference ho sakta hai. Lekin RERA check kariye — cheaper builder ka track record kaisa hai? Possession delay hua toh cost zyada padti hai. Hamara builder sab verified hain, timely delivery guarantee.",
+    "need_to_think": "Bilkul sir, sochiye zaroor. Lekin inventory fast move hoti hai — especially 2BHK. Main aapko 48 hours hold karwa deta hoon bina koi token ke. Uske baad decision lijiye. Floor preference bhi reh jayegi."
+  },
+  "objection_stories": {
+    "price_too_high": "Kokapet corridor 5-year appreciation 58.5% — highest in Hyderabad. 2020 lo hesitate chesina buyers ippudu double price lo chustunnaru. Entry price kanna exit value matters andi.",
+    "need_to_think": "Chala buyers 'think chestam' ani cheppi, Metro Phase 2 approval news taruvata same project ki vachharu — appatiki pricing move ayindi. Thinking time lo market kuda move avtundi andi.",
+    "other_builder_cheaper": "Neopolis lo HMDA land auctions ₹100-137 crore per acre fetch chesayi — cheaper project ante cheaper land, cheaper corridor. Same corridor lo compare cheyandi, city-wide kadu.",
+    "location_far": "Kokapet ORR Exit 13-14 daggara — Financial District 10 minutes, airport 20 minutes. Raidurg-Kokapet Metro 11.6km approved. 'Far' anede today's map, tomorrow's kadu andi.",
+    "will_wait_for_rates_to_fall": "Rate 0.5% padite EMI konchem tagguthundi, kani Kokapet lo pricing year-ki double-digit move avtundi — rate savings kanna price move pedda number andi.",
+    "not_ready_to_move": "Under-construction lo book chesina 2022 buyers ki possession time ki appreciation free ga vachindi — ready-to-move premium pay cheyakunda. Timeline flexibility asalu advantage andi."
+  }
+}

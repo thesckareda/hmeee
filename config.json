@@ -1,0 +1,207 @@
+{
+  "agent_name": "inbound-voice-demo",
+  "agent_purpose": "real_estate_sales",
+  "agent_instructions": "You are Arjun, a Senior Real Estate Consultant at VK Realty, specializing in premium and mid-segment residential properties in Mumbai and Chandigarh.\n\nYou are warm, confident, and human-like. Speak natural SPOKEN Hinglish, Marathi+English, or Indian English — match the caller's language. Never pure formal Hindi or pure formal Marathi.\n- Hinglish: Hindi connectors in Devanagari (जी, हाँ, बिल्कुल) + English for numbers (1.2 Cr, 3 BHK), budgets, site visit, EMI, parking, place names (Thane, Zirakpur), and property terms.\n- Marathi+English: Marathi connectors + same English terms for numbers and property jargon.\n- Sound like a real phone consultant, not a textbook or news bulletin.\nKeep responses short, natural, and conversational (1–2 sentences).",
+  "first_line": "नमस्ते! मैं अर्जुन बोल रहा हूँ, VK Realty से। आपकी property search में मैं कैसे मदद कर सकता हूँ?",
+  "language": "hi",
+  "languages": [
+    "hi",
+    "en-in",
+    "mr"
+  ],
+  "lang_preset": "hme",
+  "tts_provider": "cartesia",
+  "cartesia_tts_model": "sonic-3.5",
+  "gemini_tts_model": "gemini-3.1-flash-tts-preview",
+  "stt_provider": "soniox",
+  "stt_model": "stt-rt-v5",
+  "stt_language": "unknown",
+  "llm_provider": "gemini",
+  "gemini_model": "gemini-2.5-flash-lite",
+  "llm_max_completion_tokens": 200,
+  "llm_temperature": 0.7,
+  "max_turns": 40,
+  "max_call_duration_seconds": 400,
+  "tts_voice": "3f2297f1-cac9-4942-b0bd-5d9bb3c35946",
+  "tts_voice_display": "Nivas Hindi/EN/MR",
+  "tts_voice_tab": "recommended",
+  "tts_language": "unknown",
+  "tts_hard_word_cap": 0,
+  "stt_min_endpointing_delay": 0.2,
+  "stt_max_endpointing_delay": 0.2,
+  "stt_silence_timeout_ms": 200,
+  "stt_max_endpoint_delay_ms": 200,
+  "stt_endpoint_sensitivity": 0.5,
+  "stt_enable_language_identification": true,
+  "stt_enable_endpoint_detection": true,
+  "timezone": "Asia/Kolkata",
+  "call_ending": {
+    "max_duration_sec": 1800,
+    "enabled": true,
+    "end_phrases": [
+      "goodbye",
+      "bye bye",
+      "bye"
+    ],
+    "message": "धन्यवाद! VK Realty से बात करने के लिए। Site visit fix होने के बाद फिर बात करेंगे। Goodbye!"
+  },
+  "user_idle": {
+    "threshold_sec": 30,
+    "max_prompts": 1,
+    "prompt_message": "Hello, sun pa rahe hain?",
+    "end_after_max": true,
+    "last_message": "Koi baat nahi, jab time ho to dubara call kar lena. Thank you!"
+  },
+  "silence_guard_enabled": true,
+  "filler_phrases_enabled": false,
+  "backchannel_enabled": false,
+  "llm_context_prewarm": true,
+  "system_prompt_token_budget": 1000,
+  "speculative_reply_enabled": false,
+  "speculative_reply_min_speech_ms": 2000,
+  "parallel_turn_injectors_enabled": false,
+  "allow_interruptions": true,
+  "min_interruption_duration": 0.35,
+  "min_interruption_words": 2,
+  "noise_reduction": true,
+  "livekit_url": "wss://YOUR_PROJECT.livekit.cloud",
+  "livekit_api_key": "YOUR_LIVEKIT_API_KEY",
+  "livekit_api_secret": "YOUR_LIVEKIT_API_SECRET",
+  "supabase_url": "https://YOUR_PROJECT.supabase.co",
+  "supabase_key": "YOUR_SUPABASE_ANON_KEY",
+  "sarvam_api_key": "",
+  "gemini_api_key": "",
+  "llm_model": "gemini-2.5-flash-lite",
+  "groq_model": "",
+  "llm_startup_probe": false,
+  "tone_preset": "professional",
+  "campaign_id": "",
+  "welcome_dynamic": true,
+  "welcome_interruptable": true,
+  "llm_streaming": true,
+  "ambient_sound": {
+    "enabled": true,
+    "sound_type": "cicd_1",
+    "volume": 0.14,
+    "file_path": ""
+  },
+  "advanced_settings": {
+    "noise_cancellation": true,
+    "listening_speech_confidence": 0.5,
+    "listening_start_ms": 200,
+    "listening_min_ms": 300,
+    "bot_speech_confidence": 0.5,
+    "bot_start_ms": 200,
+    "bot_min_ms": 350
+  },
+  "conversational_flow_sections": [
+    {
+      "id": "identity",
+      "title": "Identity & Purpose",
+      "content": "",
+      "enabled": true
+    },
+    {
+      "id": "facts",
+      "title": "Facts",
+      "content": "",
+      "enabled": true
+    },
+    {
+      "id": "actions",
+      "title": "Actions & Limits",
+      "content": "",
+      "enabled": true
+    }
+  ],
+  "assistant_settings": {
+    "assistant_id": "main",
+    "name": "inbound-voice-demo",
+    "languages": [
+      "hi",
+      "en-in",
+      "mr"
+    ],
+    "voice": {
+      "tab": "recommended",
+      "provider": "cartesia",
+      "voice_id": "3f2297f1-cac9-4942-b0bd-5d9bb3c35946",
+      "display_name": "Nivas Hindi/EN/MR"
+    },
+    "llm": {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "temperature": 0.7,
+      "streaming": true,
+      "max_completion_tokens": 200
+    },
+    "stt": {
+      "provider": "soniox",
+      "model": "stt-rt-v5",
+      "language": "unknown",
+      "silence_timeout_ms": 200,
+      "noise_reduction": true,
+      "min_endpointing_delay": 0.2,
+      "max_endpointing_delay": 0.2,
+      "max_endpoint_delay_ms": 200,
+      "endpoint_sensitivity": 0.5,
+      "enable_language_identification": true,
+      "enable_endpoint_detection": true
+    },
+    "advanced": {
+      "speaking_interruption_allowed": true,
+      "speculative_reply_enabled": false,
+      "speculative_reply_min_speech_ms": 2000,
+      "parallel_turn_injectors_enabled": false,
+      "listening": {
+        "speech_detection_confidence": 0.5,
+        "user_speech_start_duration_ms": 200,
+        "minimum_user_speech_duration_ms": 300
+      },
+      "bot_speaking": {
+        "minimum_words_to_interrupt": 2,
+        "speech_detection_confidence": 0.5,
+        "user_speech_start_duration_ms": 200,
+        "minimum_user_speech_duration_ms": 350
+      }
+    },
+    "ambient_sound": {
+      "enabled": true,
+      "sound_type": "cicd_1",
+      "volume": 0.14,
+      "file_path": ""
+    },
+    "welcome": {
+      "message": "नमस्ते! मैं अर्जुन बोल रहा हूँ, VK Realty से। आपकी property search में मैं कैसे मदद कर सकता हूँ?",
+      "dynamic": true,
+      "interruptable": true,
+      "max_chars": 600
+    },
+    "flow": {
+      "identity_purpose": {
+        "id": "identity",
+        "title": "Identity & Purpose",
+        "content": "",
+        "enabled": true
+      },
+      "facts": {
+        "id": "facts",
+        "title": "Facts",
+        "content": "",
+        "enabled": true
+      },
+      "actions_limits": {
+        "id": "actions",
+        "title": "Actions & Limits",
+        "content": "",
+        "enabled": true
+      }
+    },
+    "system_prompt": "You are Arjun, a Senior Real Estate Consultant at VK Realty, specializing in premium and mid-segment residential properties in Mumbai and Chandigarh.\n\nYou are warm, confident, and human-like. Speak natural SPOKEN Hinglish, Marathi+English, or Indian English — match the caller's language. Never pure formal Hindi or pure formal Marathi.\n- Hinglish: Hindi connectors in Devanagari (जी, हाँ, बिल्कुल) + English for numbers (1.2 Cr, 3 BHK), budgets, site visit, EMI, parking, place names (Thane, Zirakpur), and property terms.\n- Marathi+English: Marathi connectors + same English terms for numbers and property jargon.\n- Sound like a real phone consultant, not a textbook or news bulletin.\nKeep responses short, natural, and conversational (1–2 sentences).",
+    "max_turns": 40,
+    "max_call_duration_seconds": 400
+  },
+  "cartesia_api_key": "",
+  "conversational_iq_v2_enabled": true,
+  "remember_caller_enabled": true
+}

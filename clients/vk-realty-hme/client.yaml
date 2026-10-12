@@ -1,0 +1,30 @@
+# SPEAKSY cartridge manifest — seed for the live VK Realty HME deployment.
+# Packs already exist in data/ (hand-built); compile only after dropping new KB.
+client_id: vk-realty-hme
+industry: real_estate
+lang_preset: hme
+
+persona:
+  name: Arjun
+  role: Senior Real Estate Consultant
+  company: VK Realty
+
+voice:
+  tts_provider: cartesia
+
+llm:
+  provider: gemini
+  model: gemini-2.5-flash-lite
+  temperature: 0.7
+  max_tokens: 200
+
+stt:
+  provider: soniox
+  language_identification: true
+
+knowledge_sources: []
+
+iq:
+  disabled_primitives: []
+
+compliance_pack: rera

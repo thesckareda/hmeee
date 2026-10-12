@@ -1,0 +1,11 @@
+# dashboard.speaksy.online — VK Realty HME (Layer 2 client on port 8001)
+# Copy to /etc/caddy/Caddyfile on the VM, then: sudo caddy validate && sudo systemctl reload caddy
+
+dashboard.speaksy.online {
+
+	@root path /
+	redir @root /realestate permanent
+
+	# Full path forwarded unchanged — app serves /realestate, /api, /static, /health
+	reverse_proxy 127.0.0.1:8001
+}

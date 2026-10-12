@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VK Realty AI voice platform — sign in to your dashboard.">
+  <title>VK Realty — Sign In</title>
+  <link rel="icon" type="image/png" href="/static/favicon.png">
+  <link rel="apple-touch-icon" href="/static/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/vk-realty-hme/vk-realty.css">
+  <link rel="stylesheet" href="/static/vk-realty-hme/vk-realty-login.css?v=20260713">
+  <link rel="stylesheet" href="/static/apple-grade.css?v=20260702">
+</head>
+<body>
+  <div class="loader" id="loader">
+    <div class="loader-wordmark wordmark"><span class="wm-vk">VK</span><span class="wm-realty"> Realty</span></div>
+    <div class="loader-bar"><div class="loader-bar-fill" id="loader-fill"></div></div>
+    <p class="loader-label" id="loader-label">Loading…</p>
+  </div>
+
+  <div class="wordmark-fly wordmark" id="wordmark-fly" aria-hidden="true">
+    <span class="wm-vk">VK</span><span class="wm-realty"> Realty</span>
+  </div>
+
+  <main>
+    <section class="scrub-stage" id="scrub-stage">
+      <div class="scrub-sticky">
+        <header class="site-nav">
+          <a class="nav-brand wordmark" id="nav-brand" href="/vk-realty-hme-hme"><span class="wm-vk">VK</span><span class="wm-realty"> Realty</span></a>
+          <nav class="nav-links">
+            <a class="nav-link nav-cta" href="#login">Sign in</a>
+          </nav>
+        </header>
+
+        <div class="scrub-canvas-wrap">
+          <canvas id="scrub-canvas" aria-hidden="true"></canvas>
+        </div>
+
+        <div class="scrub-copy-layer">
+          <article class="copy-panel" id="panel-hero">
+            <span class="eyebrow">Tinglish · Telugu + English</span>
+            <h2>Your AI Property Consultant. Live on Every Call.</h2>
+            <p>Arjun speaks natural Telugish on every call — numbers and property terms in English, warmth in Telugu. Sub-400ms, 24/7.</p>
+            <div class="cta-row">
+              <button type="button" class="text-link" id="btn-hear-demo">Hear Arjun Talk</button>
+            </div>
+          </article>
+
+          <article class="copy-panel" id="panel-ring">
+            <span class="eyebrow">01 · Pick up</span>
+            <h2>Missed call ante missed lead.</h2>
+            <p>Inbound rings — Arjun answers in seconds. Budget, location, timeline — capture avutundi before rep free avutaru.</p>
+          </article>
+
+          <article class="copy-panel" id="panel-answer">
+            <span class="eyebrow">02 · Explain</span>
+            <h2>Inventory, pricing, floor plans — on the call.</h2>
+            <p>RAG-backed project knowledge. Natural Tinglish — numbers English lo, warmth Telugu lo.</p>
+          </article>
+
+          <article class="copy-panel" id="panel-book">
+            <span class="eyebrow">03 · Book</span>
+            <h2>Site visit confirm. CRM update. Done.</h2>
+            <p>Visit slot lock chesi, lead ni hot queue ki pass chestadu — full call context tho.</p>
+          </article>
+
+          <article class="copy-panel copy-panel--occlude" id="panel-trust">
+            <span class="eyebrow">Infrastructure</span>
+            <h2>Built for scale.</h2>
+            <p>Your SIP trunk. Your CRM. Your knowledge base. Per-client workspaces.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="vk-login-stage vk-login-stage--full" id="login">
+      <div class="vk-login-split">
+        <div class="vk-login-brand-pane vk-reveal">
+          <div class="vk-brand-ambient" aria-hidden="true">
+            <span class="vk-brand-orb vk-brand-orb--gold"></span>
+            <span class="vk-brand-orb vk-brand-orb--mint"></span>
+          </div>
+
+          <div class="vk-login-brand-inner">
+            <header class="vk-brand-top">
+              <div class="vk-login-mark wordmark vk-login-mark--hero"><span class="wm-vk">VK</span><span class="wm-realty"> Realty</span></div>
+              <span class="vk-brand-live">
+                <span class="vk-brand-live-dot" aria-hidden="true"></span>
+                Live · Tinglish preset
+              </span>
+            </header>
+
+            <h1 class="vk-login-brand-title">Every inbound call answered in natural Telugish.</h1>
+            <p class="vk-login-brand-lead">Arjun qualifies leads, explains inventory, and books site visits — without putting a human on the phone first.</p>
+
+            <ol class="vk-brand-flow" aria-label="Call flow">
+              <li class="vk-brand-flow-step">
+                <span class="vk-brand-flow-num">01</span>
+                <span class="vk-brand-flow-text">
+                  <strong>Pick up</strong>
+                  <span>Answer in &lt;30s</span>
+                </span>
+              </li>
+              <li class="vk-brand-flow-step">
+                <span class="vk-brand-flow-num">02</span>
+                <span class="vk-brand-flow-text">
+                  <strong>Explain</strong>
+                  <span>Pricing &amp; floor plans</span>
+                </span>
+              </li>
+              <li class="vk-brand-flow-step">
+                <span class="vk-brand-flow-num">03</span>
+                <span class="vk-brand-flow-text">
+                  <strong>Book</strong>
+                  <span>Site visit + CRM</span>
+                </span>
+              </li>
+            </ol>
+
+            <div class="vk-brand-call" aria-label="Sample live call">
+              <div class="vk-brand-call-head">
+                <div class="vk-brand-avatar" aria-hidden="true">A</div>
+                <div class="vk-brand-call-meta">
+                  <strong>Arjun</strong>
+                  <span>VK Realty · on a call now</span>
+                </div>
+                <div class="vk-brand-wave" aria-hidden="true">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </div>
+              </div>
+              <p class="vk-brand-bubble">
+                <span class="vk-brand-bubble-label">Arjun</span>
+                Kokapet lo 3 BHK flat price 1.2 Crores nunchi start avutundi andi. Site visit schedule cheddama?
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="vk-login-form-pane vk-reveal vk-reveal--delay">
+          <div class="vk-login-form-center">
+            <form id="login-form" class="vk-form vk-form--minimal">
+              <div class="vk-field">
+                <label for="login-id">User ID</label>
+                <input id="login-id" name="username" type="text" required autocomplete="username" placeholder="your.id">
+              </div>
+              <div class="vk-field">
+                <label for="login-password">Password</label>
+                <input id="login-password" name="password" type="password" required autocomplete="current-password" placeholder="••••••••">
+              </div>
+              <div class="vk-field">
+                <label for="login-org-code">Org code</label>
+                <input id="login-org-code" name="org_code" type="text" required autocomplete="organization" value="default" placeholder="default">
+              </div>
+              <button type="submit" class="vk-btn vk-btn--primary" id="login-submit">Sign in</button>
+              <p class="vk-error" id="login-error" aria-live="polite"></p>
+              <div class="vk-login-powered" aria-label="Powered by Speaksy">
+                <span class="vk-powered-label">Powered by</span>
+                <img
+                  class="vk-powered-logo vk-powered-logo--login"
+                  src="/static/vendor/images/speaksy-logo-powered.png"
+                  alt="Speaksy"
+                  width="183"
+                  height="52"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/static/vk-realty-hme/client-base.js?v=20260702"></script>
+  <script src="/static/vk-realty-hme/vk-realty.js" defer></script>
+  <script src="/static/vk-realty-hme/vk-realty-login.js" defer></script>
+</body>
+</html>

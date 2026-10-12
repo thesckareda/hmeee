@@ -1,0 +1,495 @@
+{
+  "preset": "tinglish",
+  "market": "Hyderabad — Western IT Corridor",
+  "last_updated": "2026-06-30",
+  "currency": "INR",
+  "disclaimer": "All prices indicative and subject to change by builder. RERA numbers verified as of date. Please confirm latest pricing before site visit.",
+  "properties": [
+    {
+      "listing_id": "godrej_madison_kokapet",
+      "name": "Godrej Madison Avenue",
+      "builder": "Godrej Properties",
+      "location": "Kokapet, Hyderabad",
+      "micro_market": "Kokapet / Neopolis",
+      "configurations": [
+        "3 BHK",
+        "4 BHK"
+      ],
+      "sizes_sqft": {
+        "3_bhk": "2,100 - 2,400",
+        "4_bhk": "2,800 - 3,200"
+      },
+      "price_range": "₹2.34 Cr - ₹4.30 Cr",
+      "price_per_sqft": "₹11,000 - ₹13,500",
+      "possession": "December 2028",
+      "rera_id": "P0240000XXXX",
+      "project_type": "High-rise Luxury Apartments",
+      "total_towers": 1,
+      "total_floors": "B+G+50",
+      "total_units": 452,
+      "land_area_acres": 3.5,
+      "amenities": [
+        "46,000 sq ft clubhouse",
+        "Swimming pool",
+        "Gymnasium",
+        "Yoga & meditation deck",
+        "Kids play area",
+        "Senior citizen zone",
+        "Jogging track",
+        "Multipurpose hall",
+        "24x7 security & CCTV",
+        "Spa & wellness center"
+      ],
+      "usp": "Single tower G+50 landmark, largest clubhouse in Kokapet (46,000 sq ft), Godrej brand trust, walk-to-Neopolis",
+      "sample_flat_available": true,
+      "site_visit_hours": "Saturday-Sunday 10AM-6PM, Weekdays by appointment",
+      "distance_key_locations": {
+        "hitec_city": "10 km",
+        "gachibowli": "8 km",
+        "financial_district": "6.5 km",
+        "airport": "29 km",
+        "orr": "3 km",
+        "aig_hospitals": "8.9 km",
+        "continental_hospitals": "4.3 km"
+      },
+      "nearby_schools": [
+        "Oakridge International",
+        "Chirec Public School",
+        "Keystone School"
+      ],
+      "home_loan_partners": [
+        "SBI",
+        "HDFC",
+        "ICICI",
+        "Axis Bank"
+      ],
+      "maps_url": "https://maps.app.goo.gl/kokapet-godrej-madison",
+      "brochure_url": "https://vkrealty.co.in/brochures/godrej-madison-kokapet.pdf",
+      "our_exclusive_offer": "VK Realty corporate discount: 2-3% off builder price + zero brokerage",
+      "why_pitch": "Kokapet's fastest-appreciating project. Godrej brand = NRI trust. 46,000 sq ft clubhouse = lifestyle selling point. Metro Phase 2 will add 20% value jump."
+    },
+    {
+      "listing_id": "myhome_krishe_fd",
+      "name": "My Home Krishe",
+      "builder": "My Home Constructions",
+      "location": "Financial District, Hyderabad",
+      "micro_market": "Financial District / Nanakramguda",
+      "configurations": [
+        "2 BHK",
+        "3 BHK"
+      ],
+      "sizes_sqft": {
+        "2_bhk": "1,275 - 1,450",
+        "3_bhk": "1,850 - 2,780"
+      },
+      "price_range": "₹1.64 Cr - ₹3.50 Cr",
+      "price_per_sqft": "₹12,000 - ₹13,500",
+      "possession": "Ready to Move (Feb 2024 delivered)",
+      "rera_id": "P02400000003",
+      "project_type": "Premium High-rise Apartments",
+      "total_towers": 5,
+      "total_floors": "G+35",
+      "total_units": 850,
+      "land_area_acres": 7.2,
+      "amenities": [
+        "30,000 sq ft clubhouse",
+        "Infinity pool",
+        "Fully equipped gym",
+        "Tennis court",
+        "Basketball court",
+        "Party halls",
+        "Co-working spaces",
+        "24x7 security",
+        "Power backup",
+        "Landscaped gardens"
+      ],
+      "usp": "Ready to move — immediate possession. Walk to Deloitte, Bank of America, Wipro campuses. Proven rental yield 4.5-5.5%.",
+      "sample_flat_available": true,
+      "site_visit_hours": "Daily 10AM-7PM",
+      "distance_key_locations": {
+        "hitec_city": "8 km",
+        "gachibowli": "5 km",
+        "financial_district": "0.5 km (walkable)",
+        "airport": "25 km",
+        "orr": "2 km",
+        "continental_hospitals": "3 km"
+      },
+      "nearby_schools": [
+        "Keystone International",
+        "Delhi Public School",
+        "Indus International"
+      ],
+      "home_loan_partners": [
+        "SBI",
+        "HDFC",
+        "ICICI",
+        "Axis Bank",
+        "LIC Housing"
+      ],
+      "maps_url": "https://maps.app.goo.gl/myhome-krishe-fd",
+      "brochure_url": "https://vkrealty.co.in/brochures/myhome-krishe-fd.pdf",
+      "our_exclusive_offer": "Resale inventory at builder-negotiated rates, immediate possession benefit",
+      "why_pitch": "Only ready-to-move option in Financial District with walk-to-work advantage. Rental income starts immediately. IT professionals' #1 choice."
+    },
+    {
+      "listing_id": "rajapushpa_provincia_narsingi",
+      "name": "Rajapushpa Provincia",
+      "builder": "Rajapushpa Properties",
+      "location": "Narsingi, Outer Ring Road, Hyderabad",
+      "micro_market": "Narsingi / Puppalaguda",
+      "configurations": [
+        "2 BHK",
+        "3 BHK"
+      ],
+      "sizes_sqft": {
+        "2_bhk": "1,350 - 1,550",
+        "3_bhk": "1,850 - 2,400"
+      },
+      "price_range": "₹1.29 Cr - ₹2.76 Cr",
+      "price_per_sqft": "₹8,900 - ₹11,500",
+      "possession": "December 2027",
+      "rera_id": "P0240000XXXX",
+      "project_type": "Gated Community Apartments",
+      "total_towers": 12,
+      "total_floors": "G+18",
+      "total_units": 1470,
+      "land_area_acres": 23.75,
+      "amenities": [
+        "Grand clubhouse",
+        "Olympic-size swimming pool",
+        "Wellness & fitness center",
+        "Landscaped gardens",
+        "Jogging tracks",
+        "Cricket practice net",
+        "Kids play area",
+        "Senior citizen park",
+        "24x7 security",
+        "Amphitheatre"
+      ],
+      "usp": "23.75 acres — largest township in Narsingi. Best value per sq ft in corridor. 15-30% cheaper than Gachibowli with same appreciation potential.",
+      "sample_flat_available": true,
+      "site_visit_hours": "Saturday-Sunday 10AM-6PM",
+      "distance_key_locations": {
+        "hitec_city": "12 km",
+        "gachibowli": "8 km",
+        "financial_district": "4 km",
+        "airport": "22 km",
+        "orr": "1 km (direct access)",
+        "medicover_hospital": "3 km"
+      },
+      "nearby_schools": [
+        "Oakridge International",
+        "Silver Oaks School",
+        "Rockwell International"
+      ],
+      "home_loan_partners": [
+        "SBI",
+        "HDFC",
+        "ICICI",
+        "Axis Bank"
+      ],
+      "maps_url": "https://maps.app.goo.gl/rajapushpa-provincia-narsingi",
+      "brochure_url": "https://vkrealty.co.in/brochures/rajapushpa-provincia.pdf",
+      "our_exclusive_offer": "PLC (Preferred Location Charges) discount up to ₹2 lakh, free home loan processing",
+      "why_pitch": "Best value-for-money in western corridor. 23+ acre township = community living. 4 km from Financial District = rental demand guaranteed. Budget buyers' dream project."
+    },
+    {
+      "listing_id": "prestige_clairmont_kokapet",
+      "name": "Prestige Clairmont",
+      "builder": "Prestige Group",
+      "location": "Neopolis, Kokapet, Hyderabad",
+      "micro_market": "Kokapet / Neopolis",
+      "configurations": [
+        "3 BHK",
+        "4 BHK",
+        "4.5 BHK"
+      ],
+      "sizes_sqft": {
+        "3_bhk": "2,200 - 2,600",
+        "4_bhk": "3,000 - 3,500",
+        "4.5_bhk": "3,800 - 4,200"
+      },
+      "price_range": "₹3.40 Cr - ₹7.50 Cr",
+      "price_per_sqft": "₹13,000 - ₹15,500",
+      "possession": "March 2029",
+      "rera_id": "P02400006248",
+      "project_type": "Ultra-luxury High-rise",
+      "total_towers": 4,
+      "total_floors": "B+G+40",
+      "total_units": 380,
+      "land_area_acres": 5.5,
+      "amenities": [
+        "60,000 sq ft clubhouse",
+        "Rooftop infinity pool",
+        "Private theatre",
+        "Wine lounge",
+        "Golf simulation room",
+        "Spa & sauna",
+        "Business center",
+        "Concierge services",
+        "24x7 valet parking",
+        "Smart home automation"
+      ],
+      "usp": "Bangalore's #1 developer in Hyderabad. Ultra-luxury specs. Neopolis address = future-proof investment. Smart home ready.",
+      "sample_flat_available": true,
+      "site_visit_hours": "Saturday-Sunday 10AM-5PM (by appointment only)",
+      "distance_key_locations": {
+        "hitec_city": "9 km",
+        "gachibowli": "7 km",
+        "financial_district": "5 km",
+        "airport": "28 km",
+        "orr": "2 km"
+      },
+      "nearby_schools": [
+        "Oakridge International",
+        "Chirec Public School"
+      ],
+      "home_loan_partners": [
+        "HDFC",
+        "ICICI",
+        "Axis Bank"
+      ],
+      "maps_url": "https://maps.app.goo.gl/prestige-clairmont-neopolis",
+      "brochure_url": "https://vkrealty.co.in/brochures/prestige-clairmont.pdf",
+      "our_exclusive_offer": "Early bird pricing: 5% discount on first 20 units through VK Realty",
+      "why_pitch": "HNIs and NRIs love Prestige brand. Neopolis land auction at ₹137 Cr/acre = this area will be South India's most premium. Ultra-luxury = recession-proof segment."
+    },
+    {
+      "listing_id": "asbl_broadway_narsingi",
+      "name": "ASBL Broadway",
+      "builder": "ASBL Spectra Developers",
+      "location": "Financial District Extension, Narsingi",
+      "micro_market": "Narsingi / Financial District Fringe",
+      "configurations": [
+        "3 BHK",
+        "3.5 BHK"
+      ],
+      "sizes_sqft": {
+        "3_bhk": "1,832 - 2,100",
+        "3.5_bhk": "2,200 - 2,385"
+      },
+      "price_range": "₹2.09 Cr - ₹3.20 Cr",
+      "price_per_sqft": "₹10,500 - ₹12,000",
+      "possession": "May 2030",
+      "rera_id": "P02400009684",
+      "project_type": "Premium High-rise",
+      "total_towers": 3,
+      "total_floors": "B+G+35",
+      "total_units": 880,
+      "land_area_acres": 4.2,
+      "amenities": [
+        "Clubhouse with co-working space",
+        "Swimming pool",
+        "Spa & salon",
+        "Indoor badminton courts",
+        "Pickleball court",
+        "Pet zone",
+        "Gymnasium",
+        "Party areas",
+        "24x7 security",
+        "EV charging stations"
+      ],
+      "usp": "Co-working spaces + pet zone = millennial-focused design. Pickleball court = unique amenity. Financial District extension = walk-to-work potential.",
+      "sample_flat_available": true,
+      "site_visit_hours": "Saturday-Sunday 10AM-6PM",
+      "distance_key_locations": {
+        "hitec_city": "10 km",
+        "gachibowli": "7 km",
+        "financial_district": "3 km",
+        "airport": "24 km",
+        "orr": "1.5 km"
+      },
+      "nearby_schools": [
+        "Keystone International",
+        "Delhi Public School"
+      ],
+      "home_loan_partners": [
+        "SBI",
+        "HDFC",
+        "ICICI"
+      ],
+      "maps_url": "https://maps.app.goo.gl/asbl-broadway-narsingi",
+      "brochure_url": "https://vkrealty.co.in/brochures/asbl-broadway.pdf",
+      "our_exclusive_offer": "Zero brokerage + free interior design consultation worth ₹50,000",
+      "why_pitch": "Millennial-focused amenities = future demand. Financial District extension = employment hub walking distance. 3.5 BHK option = work-from-home dedicated space."
+    },
+    {
+      "listing_id": "candeur_skyline_puppalaguda",
+      "name": "Candeur Skyline",
+      "builder": "Candeur Developers",
+      "location": "Puppalaguda, Hyderabad",
+      "micro_market": "Puppalaguda / Narsingi Border",
+      "configurations": [
+        "4 BHK"
+      ],
+      "sizes_sqft": {
+        "4_bhk": "3,200 - 3,800"
+      },
+      "price_range": "₹3.50 Cr - ₹4.50 Cr",
+      "price_per_sqft": "₹10,500 - ₹12,500",
+      "possession": "June 2028",
+      "rera_id": "P02400005946",
+      "project_type": "Luxury High-rise",
+      "total_towers": 2,
+      "total_floors": "B+G+28",
+      "total_units": 168,
+      "land_area_acres": 3.0,
+      "amenities": [
+        "Sky lounge",
+        "Infinity pool",
+        "Private lift lobby per unit",
+        "Smart home features",
+        "Home theatre room",
+        "Gymnasium",
+        "Yoga deck",
+        "24x7 security",
+        "Valet parking",
+        "Landscaped podium garden"
+      ],
+      "usp": "Private lift lobby = exclusivity. Only 4 BHK configuration = pure luxury community. Smart home ready. Low density (168 units only).",
+      "sample_flat_available": true,
+      "site_visit_hours": "By appointment only",
+      "distance_key_locations": {
+        "hitec_city": "11 km",
+        "gachibowli": "8 km",
+        "financial_district": "4 km",
+        "airport": "23 km",
+        "orr": "1 km"
+      },
+      "nearby_schools": [
+        "Oakridge International",
+        "Chirec Public School"
+      ],
+      "home_loan_partners": [
+        "HDFC",
+        "ICICI",
+        "Axis Bank"
+      ],
+      "maps_url": "https://maps.app.goo.gl/candeur-skyline-puppalaguda",
+      "brochure_url": "https://vkrealty.co.in/brochures/candeur-skyline.pdf",
+      "our_exclusive_offer": "Priority unit selection + 1 year maintenance free",
+      "why_pitch": "Exclusive 4 BHK only = HNI community. Private lift lobby = unique selling point. Only 168 units = low density luxury. Perfect for joint families."
+    },
+    {
+      "listing_id": "vertex_florenza_neopolis",
+      "name": "Vertex Florenza",
+      "builder": "Vertex Homes",
+      "location": "Neopolis, Kokapet, Hyderabad",
+      "micro_market": "Neopolis / Kokapet",
+      "configurations": [
+        "4 BHK"
+      ],
+      "sizes_sqft": {
+        "4_bhk": "2,957 (single size)"
+      },
+      "price_range": "₹4.50 Cr - ₹5.50 Cr",
+      "price_per_sqft": "₹14,000 - ₹16,000",
+      "possession": "September 2029",
+      "rera_id": "P02400009023",
+      "project_type": "Ultra-luxury Single Tower",
+      "total_towers": 1,
+      "total_floors": "B+G+35",
+      "total_units": 105,
+      "land_area_acres": 2.5,
+      "amenities": [
+        "Exclusive sky club",
+        "Temperature-controlled pool",
+        "Private concierge",
+        "Business lounge",
+        "Gymnasium",
+        "Party hall",
+        "Indoor games",
+        "24x7 security",
+        "Power backup",
+        "Private parking podiums"
+      ],
+      "usp": "Only 105 units in single tower = most exclusive project in Neopolis. Single 4 BHK size (2,957 sq ft) = uniform elite community. Vertex = premium Hyderabad builder.",
+      "sample_flat_available": true,
+      "site_visit_hours": "By appointment only (exclusive viewing)",
+      "distance_key_locations": {
+        "hitec_city": "8 km",
+        "gachibowli": "6 km",
+        "financial_district": "4 km",
+        "airport": "26 km",
+        "orr": "1.5 km"
+      },
+      "nearby_schools": [
+        "Oakridge International",
+        "Chirec Public School"
+      ],
+      "home_loan_partners": [
+        "HDFC",
+        "ICICI",
+        "Axis Bank",
+        "Kotak"
+      ],
+      "maps_url": "https://maps.app.goo.gl/vertex-florenza-neopolis",
+      "brochure_url": "https://vkrealty.co.in/brochures/vertex-florenza.pdf",
+      "our_exclusive_offer": "Exclusive VK Realty pricing — not available on any other channel",
+      "why_pitch": "Most exclusive project — 105 units only. Uniform 2,957 sq ft = no size compromise. Neopolis address + Vertex quality = best of both worlds. Ultra-HNI target."
+    },
+    {
+      "listing_id": "sobha_waterfront_somajiguda",
+      "name": "Sobha Waterfront",
+      "builder": "Sobha Limited",
+      "location": "Somajiguda, Hyderabad",
+      "micro_market": "Central Hyderabad / Somajiguda",
+      "configurations": [
+        "3.5 BHK",
+        "4 BHK"
+      ],
+      "sizes_sqft": {
+        "3.5_bhk": "1,948 - 2,200",
+        "4_bhk": "2,800 - 3,278"
+      },
+      "price_range": "₹4.30 Cr - ₹7.20 Cr",
+      "price_per_sqft": "₹18,000 - ₹22,000",
+      "possession": "October 2028",
+      "rera_id": "P02500005580",
+      "project_type": "Ultra-luxury Lake-view Apartments",
+      "total_towers": 4,
+      "total_floors": "B+G+25",
+      "total_units": 238,
+      "land_area_acres": 4.1,
+      "amenities": [
+        "6-storey standalone clubhouse",
+        "Rooftop lakeview swimming pool",
+        "Golf course (9-hole)",
+        "Spa & sauna",
+        "Library",
+        "Party lawn",
+        "Kids play area",
+        "24x7 security",
+        "Valet services",
+        "Lake-facing balconies"
+      ],
+      "usp": "Only lake-view luxury project in central Hyderabad. Sobha quality = industry benchmark. Golf course within city limits. Limited 238 units = exclusivity.",
+      "sample_flat_available": true,
+      "site_visit_hours": "Tuesday-Sunday 10AM-6PM",
+      "distance_key_locations": {
+        "hitec_city": "6 km",
+        "gachibowli": "8 km",
+        "financial_district": "7 km",
+        "airport": "32 km",
+        "hussain_sagar_lake": "1 km",
+        "begumpet_railway": "2 km"
+      },
+      "nearby_schools": [
+        "Hyderabad Public School",
+        "Nasr School",
+        "Begumpet Oxford"
+      ],
+      "home_loan_partners": [
+        "SBI",
+        "HDFC",
+        "ICICI",
+        "Axis Bank",
+        "Citibank"
+      ],
+      "maps_url": "https://maps.app.goo.gl/sobha-waterfront-somajiguda",
+      "brochure_url": "https://vkrealty.co.in/brochures/sobha-waterfront.pdf",
+      "our_exclusive_offer": "Sobha direct channel partner — best pricing guaranteed",
+      "why_pitch": "I personally worked at Sobha — their quality is unmatched. Lake view + golf course = unique in Hyderabad. Central location = access to both IT corridor and old city. Ultra-luxury with Sobha trust."
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+# Documentation Changelog
+
+## Status
+
+| Phase | Docs | Status |
+|---|---|---|
+| 1 | Hub + generated refs (config, API) | **IN PROGRESS** |
+| 2 | Architecture spine (dev/01–03, 05, 13) | TBA |
+| 3 | Subsystems + ops (dev/04–09, 12, 14) | TBA |
+| 4 | Product guides (product/01–08) | TBA |
+| 5 | Mirror + coverage report | TBA |
+
+**Overall:** 1 of 22 docs written · 5%
+
+## Generated References
+
+These docs are automatically extracted from the codebase:
+
+- **dev/10-config-reference** — every key in `config.json` + env vars
+- **dev/11-api-reference** — every HTTP endpoint from `@router` decorators
+
+Run the generation commands from `DOCUMENTATION_MASTER_PLAN.md` §3.2–3.3 to refresh.
+
+## Coverage Gates (Phase 4)
+
+- [ ] config.json keys documented = keys present (% recorded here)
+- [ ] HTTP routes documented = routes found (must be 100%)
+- [ ] All 18 IQ primitives in dev/04 with triggers
+- [ ] Every data/ JSON schema in product/05 or dev/06
+- [ ] No dead links from docs/README
+- [ ] Quickstart walkthrough dry-run passes
+
+---
+
+**Last updated:** July 3, 2026 · Started with hub + Nextra scaffold

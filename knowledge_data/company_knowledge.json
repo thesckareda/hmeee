@@ -1,0 +1,134 @@
+{
+  "documents": [
+    {
+      "document_id": "faq_company_info_001",
+      "type": "company_info",
+      "title": "About VK Realty",
+      "content": "VK Realty is a premier real estate consultancy based in Hyderabad, serving the Financial District, Kokapet, Neopolis, Narsingi, and Gachibowli areas. Founded in 2018, we have helped over 2,000 families find their dream homes and assisted 500+ investors with commercial properties. We specialize in residential apartments (2BHK, 3BHK, 4BHK), luxury villas, independent houses, commercial office spaces, retail shops, and open plots. Our team of 25+ experienced consultants provides end-to-end service from property search to registration.",
+      "department": "general",
+      "language": "en",
+      "tags": ["company", "about", "brand", "expertise"],
+      "metadata": { "priority": "high", "confidence_required": 0.99 }
+    },
+    {
+      "document_id": "faq_office_location_001",
+      "type": "office_info",
+      "title": "Where is VK Realty's office located?",
+      "content": "VK Realty's head office is located at Plot No 42, 2nd Floor, Jayabheri Enclave, Financial District, Gachibowli, Hyderabad 500032. Landmark: Next to Wipro Circle, near Continental Hospital. We also have a site office in Kokapet near the Outer Ring Road exit. Our office is easily accessible by cab, auto, and the MMTS. We are open Monday to Saturday from 9 AM to 7 PM. For Sunday site visits, please book in advance.",
+      "department": "general",
+      "language": "en",
+      "tags": ["office", "location", "address", "map", "directions"],
+      "metadata": { "priority": "high", "confidence_required": 0.99 }
+    },
+    {
+      "document_id": "faq_consultants_001",
+      "type": "company_info",
+      "title": "Who are the real estate consultants at VK Realty?",
+      "content": "VK Realty has a dedicated team of 25+ property consultants. Arjun is our Senior Real Estate Consultant with 8+ years experience specializing in Kokapet and Financial District luxury properties. Priya handles Neopolis and Narsingi residential segments with focus on family housing. Ramesh specializes in commercial leasing and retail spaces across Gachibowli. Our team collectively has 50+ years of Hyderabad real estate expertise. We are rated 4.5 stars on Google with 200+ reviews.",
+      "department": "general",
+      "language": "en",
+      "tags": ["consultants", "team", "agents", "arjun", "experts"],
+      "metadata": { "priority": "high", "confidence_required": 0.95 }
+    },
+    {
+      "document_id": "faq_hours_001",
+      "type": "office_info",
+      "title": "What are VK Realty's working hours?",
+      "content": "VK Realty is open Monday to Saturday from 9:00 AM to 7:00 PM IST. We are closed on Sundays but site visits can be arranged for Sunday with advance booking. The office follows Indian public holidays. Site visits are conducted between 10 AM and 6 PM on working days. Last site visit booking is taken by 5 PM for same-day visits.",
+      "department": "general",
+      "language": "en",
+      "tags": ["hours", "timing", "working hours", "schedule"],
+      "metadata": { "priority": "high", "confidence_required": 0.99 }
+    },
+    {
+      "document_id": "faq_properties_kokapet_001",
+      "type": "property_listing",
+      "title": "Properties in Kokapet",
+      "content": "Kokapet is Hyderabad's most premium residential corridor near the Financial District. VK Realty has 45+ active listings in Kokapet. Available properties include: 3BHK apartments (1800-2200 sq ft) in premium gated communities, luxury villas (3500-6000 sq ft) with private gardens, penthouse apartments with skyline views, and residential plots in HMDA-approved layouts close to the Outer Ring Road. Kokapet properties feature proximity to IT hubs, international schools, premium hospitals, and the Kokapet lake. Site visits available daily. This is a high-demand area with strong appreciation potential.",
+      "department": "residential",
+      "language": "en",
+      "tags": ["kokapet", "properties", "flats", "villas", "plots", "luxury"],
+      "metadata": { "priority": "high", "confidence_required": 0.95, "location": "kokapet" }
+    },
+    {
+      "document_id": "faq_properties_financial_district_001",
+      "type": "property_listing",
+      "title": "Properties in Financial District",
+      "content": "The Financial District is Hyderabad's premier business and residential hub. VK Realty has 60+ active listings here. Available: 2BHK apartments (1200-1500 sq ft) ideal for IT professionals, 3BHK apartments (1600-2400 sq ft) in gated communities with clubhouse and pool, 4BHK luxury units (2800-4000 sq ft), premium villas near Wipro Circle, and commercial office spaces for lease in top-grade buildings. The area has excellent connectivity to HITEC City, Gachibowli, and the Outer Ring Road. Metro connectivity coming soon. This location offers the best rental yields in Hyderabad.",
+      "department": "residential",
+      "language": "en",
+      "tags": ["financial district", "properties", "flats", "villas", "office", "commercial"],
+      "metadata": { "priority": "high", "confidence_required": 0.95, "location": "financial_district" }
+    },
+    {
+      "document_id": "faq_properties_neopolis_001",
+      "type": "property_listing",
+      "title": "Properties in Neopolis",
+      "content": "Neopolis is Hyderabad's newest planned township near Kokapet. VK Realty has 30+ active listings. Available: 3BHK apartments (1600-2000 sq ft) in newly launched projects with modern amenities, 4BHK premium apartments (2200-3200 sq ft), residential villa plots (200-500 sq yards) in gated communities, and upcoming commercial spaces. Neopolis offers wide roads, underground utilities, and world-class infrastructure planned by the government. Proximity to IT hubs makes it perfect for professionals. Many NRIs are investing here due to master-plan quality and long-term growth potential.",
+      "department": "residential",
+      "language": "en",
+      "tags": ["neopolis", "properties", "township", "plots", "new projects"],
+      "metadata": { "priority": "high", "confidence_required": 0.95, "location": "neopolis" }
+    },
+    {
+      "document_id": "faq_properties_narsingi_001",
+      "type": "property_listing",
+      "title": "Properties in Narsingi",
+      "content": "Narsingi is an emerging residential corridor with excellent connectivity to the Financial District and Kokapet. VK Realty has 35+ active listings. Available: 2BHK apartments (1000-1300 sq ft) at competitive price points, 3BHK apartments (1400-1800 sq ft) in gated communities, independent houses (150-300 sq yards), and open plots for residential construction. Narsingi offers more affordable options compared to Kokapet while still being close to IT hubs. Good for first-time home buyers and families looking for value. The area has multiple schools, hospitals, and shopping centers within 3 km.",
+      "department": "residential",
+      "language": "en",
+      "tags": ["narsingi", "properties", "affordable", "plots", "houses"],
+      "metadata": { "priority": "high", "confidence_required": 0.95, "location": "narsingi" }
+    },
+    {
+      "document_id": "faq_properties_gachibowli_001",
+      "type": "property_listing",
+      "title": "Properties in Gachibowli",
+      "content": "Gachibowli is one of Hyderabad's most established IT and residential hubs. VK Realty has 50+ active listings. Available: 2BHK apartments (1100-1400 sq ft) near Microsoft and Wipro campuses, 3BHK apartments (1500-2200 sq ft) in premium gated communities, independent villas (2500-4000 sq ft), commercial office spaces (500-5000 sq ft) for lease and purchase, and retail shops in high-footfall areas. Gachibowli has the best social infrastructure with international schools, multi-specialty hospitals, shopping malls, restaurants, and sports facilities. Excellent connectivity via Outer Ring Road and the new flyover. Rental demand is consistently high due to large IT workforce.",
+      "department": "residential",
+      "language": "en",
+      "tags": ["gachibowli", "properties", "flats", "villas", "office", "rental"],
+      "metadata": { "priority": "high", "confidence_required": 0.95, "location": "gachibowli" }
+    },
+    {
+      "document_id": "faq_site_visit_001",
+      "type": "policy",
+      "title": "How to book a site visit with VK Realty",
+      "content": "To book a site visit: call VK Realty or speak with our voice agent. Provide your name, phone number, preferred property type (2BHK, 3BHK, villa, plot, commercial), preferred location, budget range, purpose (investment or self-use), and your available date and time. Site visits are conducted from 10 AM to 6 PM, Monday to Saturday. Sunday visits require advance booking. A consultant will meet you at the property or our office. Site visits typically take 45-60 minutes per property. We recommend visiting 2-3 properties in one session for best comparison.",
+      "department": "general",
+      "language": "en",
+      "tags": ["site visit", "booking", "schedule", "viewing"],
+      "metadata": { "priority": "high", "confidence_required": 0.95 }
+    },
+    {
+      "document_id": "faq_pricing_001",
+      "type": "faq",
+      "title": "Property prices and costs",
+      "content": "VK Realty deals in properties across all budget ranges. Price depends on location, size, amenities, project age, and market conditions. Kokapet and Financial District properties are in the premium segment. Narsingi offers more affordable options. Gachibowli and Neopolis cover mid-to-premium range. We do not provide specific prices over the phone as rates change frequently. Our consultants provide the latest rate sheets and market comparisons during the site visit. There is no fee for our consultation or site visit coordination. We earn our commission from the developer or seller, not from buyers.",
+      "department": "general",
+      "language": "en",
+      "tags": ["pricing", "cost", "budget", "rates", "commission"],
+      "metadata": { "priority": "high", "confidence_required": 0.95 }
+    },
+    {
+      "document_id": "faq_buying_process_001",
+      "type": "policy",
+      "title": "Property buying process with VK Realty",
+      "content": "The VK Realty buying process: 1) Initial consultation to understand your requirements, 2) Property shortlisting based on budget and preferences, 3) Site visits to view shortlisted properties, 4) Price negotiation and offer submission, 5) Legal verification and document review, 6) Bank loan processing assistance, 7) Registration and handover. The entire process typically takes 30-60 days for ready-to-move properties and 3-12 months for under-construction projects. VK Realty provides legal verification assistance, home loan support from major banks, and end-to-end registration guidance.",
+      "department": "general",
+      "language": "en",
+      "tags": ["process", "buying", "steps", "registration", "loan"],
+      "metadata": { "priority": "high", "confidence_required": 0.95 }
+    },
+    {
+      "document_id": "faq_amenity_001",
+      "type": "service_info",
+      "title": "Amenities in recommended properties",
+      "content": "Properties recommended by VK Realty typically include modern amenities: 24/7 security with CCTV, power backup, clubhouse with swimming pool and gym, landscaped gardens, children's play area, indoor games room, multipurpose hall, visitor parking, rainwater harvesting, and sewage treatment plant. Premium projects additionally offer: temperature-controlled swimming pool, squash courts, jogging tracks, pet parks, senior citizen zones, yoga deck, co-working spaces, and EV charging stations. Amenity availability varies by project. We can filter properties based on your preferred amenities during the shortlisting process.",
+      "department": "general",
+      "language": "en",
+      "tags": ["amenities", "facilities", "features", "clubhouse", "security"],
+      "metadata": { "priority": "medium", "confidence_required": 0.85 }
+    }
+  ]
+}

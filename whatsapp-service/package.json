@@ -1,0 +1,17 @@
+{
+  "name": "speaksy-whatsapp-service",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Baileys-backed WhatsApp Web session manager for the Speaksy dashboard's Phone WhatsApp connection method.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "@whiskeysockets/baileys": "^6.7.9",
+    "express": "^4.19.2",
+    "pino": "^9.3.2",
+    "qrcode": "^1.5.4"
+  }
+}

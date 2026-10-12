@@ -1,0 +1,2948 @@
+/* VK Realty dashboard — brand tokens & button system */
+
+/* ═══ Typography — Cy Grotesk Wide for headings only ═══════════════
+   Cy Grotesk Wide is self-hosted and reserved as the DISPLAY face: it is
+   applied only to headings, key metrics and a few special brand elements
+   (see the "Display type — Cy Grotesk scope" block near the end of this
+   file). Body copy, controls, inputs and tables use the normal system /
+   Geist sans so long-form text stays legible and un-stretched.
+   Declared weight 100–900 so every heading weight uses the true design. */
+@font-face {
+  font-family: "Cy Grotesk Wide";
+  src: url("/static/vendor/fonts/cy-grotesk-wide-light.ttf") format("truetype");
+  font-weight: 100 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cy Grotesk Wide";
+  src: url("/static/vendor/fonts/cy-grotesk-wide-medium.ttf") format("truetype");
+  font-weight: 500 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Normal font everywhere by default … */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Geist", Roboto, Helvetica, Arial, sans-serif;
+  --font-body: var(--font-sans);
+  --font-mono: ui-monospace, "SF Mono", "Geist Mono", Menlo, monospace;
+  /* … and the Cy Grotesk display face reserved for headings. */
+  --font-display: "Cy Grotesk Wide", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Base text (body, buttons, inputs, tables) resolves to the normal sans.
+   apple-grade's var(--apl-font) consumers inherit the system face too;
+   headings opt back into Cy Grotesk via the display-scope block below. */
+body.vui,
+body.vui-v2 {
+  font-family: var(--font-sans);
+  --apl-font: var(--font-sans);
+  --apl-font-mono: var(--font-mono);
+}
+
+:root {
+  /* Brand green ramp — dark-theme values (light overrides below).
+     Gold is retired to the logo mark only (--vk-gold). */
+  --vk-green: #34d399;
+  --vk-green-hover: #56e0aa;
+  --vk-green-active: #10b981;
+  --vk-green-fill: #10b981;
+  --vk-on-green: #04241a;
+  --vk-green-muted: rgba(52, 211, 153, 0.14);
+  --vk-green-glow: rgba(52, 211, 153, 0.22);
+  --vk-gold: #c4a052; /* logo mark only */
+  --vk-navy: #132175;
+  --accent: var(--vk-green);
+  --accent-hover: var(--vk-green-hover);
+  --accent-muted: var(--vk-green-muted);
+  /* Speaksy button bezel — machined near-black ring in dark theme,
+     absent in light (the "remove black border" variant). */
+  --sbtn-ring: 0 0 0 1.5px #05070a;
+  --sbtn-surface:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.08) 22%, rgba(0, 0, 0, 0) 48%),
+    radial-gradient(120% 94% at 8% 0%, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0) 46%),
+    linear-gradient(145deg,
+      #0e2410 0%, #163d18 22%, #245c28 46%,
+      #397e39 66%, #4c9349 84%, #5aa652 100%);
+  --sbtn-shadow:
+    var(--sbtn-ring),
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -8px 16px rgba(0, 0, 0, 0.30),
+    0 1px 2px rgba(0, 0, 0, 0.22),
+    0 8px 20px -8px rgba(20, 80, 44, 0.30),
+    0 12px 26px -12px rgba(90, 180, 120, 0.38);
+  --sbtn-shadow-compact:
+    var(--sbtn-ring),
+    inset 0 1px 0 rgba(255, 255, 255, 0.20),
+    inset 0 -4px 10px rgba(0, 0, 0, 0.26),
+    0 1px 2px rgba(0, 0, 0, 0.20),
+    0 4px 12px -4px rgba(20, 80, 44, 0.28),
+    0 6px 16px -8px rgba(90, 180, 120, 0.32);
+  /* Precision build (speaksy-button-v2) — hero / magical CTAs only */
+  --sbtn-magic-surface:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0.10) 20%, rgba(0, 0, 0, 0) 45%),
+    radial-gradient(120% 90% at 8% 0%, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0) 42%),
+    radial-gradient(120% 90% at 95% 0%, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 40%),
+    linear-gradient(145deg,
+      #0e2410 0%, #163d18 22%, #245c28 45%,
+      #397e39 65%, #4c9349 82%, #5aa652 100%);
+  --sbtn-magic-ring: 0 0 0 0 rgba(0, 0, 0, 0);
+  --sbtn-magic-shadow:
+    var(--sbtn-magic-ring),
+    0 1px 2px rgba(0, 0, 0, 0.25),
+    0 10px 22px -6px rgba(0, 0, 0, 0.28),
+    0 16px 32px -10px rgba(20, 80, 44, 0.34),
+    0 20px 40px -12px rgba(90, 180, 120, 0.40),
+    0 24px 48px -14px rgba(150, 205, 255, 0.24);
+  --sbtn-magic-shadow-hover:
+    var(--sbtn-magic-ring),
+    0 2px 3px rgba(0, 0, 0, 0.26),
+    0 14px 28px -8px rgba(0, 0, 0, 0.30),
+    0 22px 40px -12px rgba(20, 80, 44, 0.38),
+    0 28px 52px -14px rgba(90, 180, 120, 0.48),
+    0 32px 60px -16px rgba(150, 205, 255, 0.58);
+}
+
+[data-theme="light"] {
+  --vk-green: #047857;
+  --vk-green-hover: #065f46;
+  --vk-green-active: #064e3b;
+  --vk-green-fill: #047857;
+  --vk-on-green: #ffffff;
+  --vk-green-muted: rgba(4, 120, 87, 0.10);
+  --vk-green-glow: rgba(4, 120, 87, 0.16);
+  --accent: var(--vk-green);
+  --accent-hover: var(--vk-green-hover);
+  --accent-muted: var(--vk-green-muted);
+  --sbtn-ring: 0 0 0 0 rgba(0, 0, 0, 0);
+  --sbtn-magic-ring: 0 0 0 0 rgba(0, 0, 0, 0);
+  --sbtn-magic-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.12),
+    0 8px 18px -6px rgba(4, 120, 87, 0.22),
+    0 14px 28px -10px rgba(4, 120, 87, 0.28),
+    0 20px 40px -12px rgba(150, 205, 255, 0.18);
+  --sbtn-magic-shadow-hover:
+    0 2px 4px rgba(0, 0, 0, 0.14),
+    0 12px 24px -8px rgba(4, 120, 87, 0.30),
+    0 20px 36px -12px rgba(4, 120, 87, 0.36),
+    0 28px 48px -14px rgba(150, 205, 255, 0.32);
+}
+
+/* Chart + legacy bridge — analytics.js reads these off documentElement,
+   and vercel-ui/styles.css consume them directly. -dim doubles as a solid
+   button fill with white text, so it must stay a solid hex. */
+:root {
+  --speaksy-green: #34d399;
+  --speaksy-green-hover: #56e0aa;
+  --speaksy-green-dim: #0d9d76;
+}
+
+[data-theme="light"] {
+  --speaksy-green: #047857;
+  --speaksy-green-hover: #065f46;
+  --speaksy-green-dim: #047857;
+}
+
+.brand-wordmark {
+  font-family: var(--font-display) !important;
+  letter-spacing: -0.03em;
+}
+
+/* Sidebar brand — icon + 2-line wordmark + live pill (no consultant subline) */
+.vui-v2 .sidebar-top .brand {
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.vui-v2 .sidebar-top .icon-mark {
+  display: none;
+  width: auto;
+  height: 14px;
+  max-width: 48px;
+  border-radius: 0;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: transparent;
+  border: none;
+}
+
+.vui-v2 .sidebar-top .icon-mark-img {
+  display: block;
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 0;
+  transform-origin: center;
+  animation: vk-brand-mark-breathe 2.8s var(--apl-ease, ease-in-out) infinite;
+}
+
+.vui-v2 .brand:hover .icon-mark-img {
+  animation-duration: 1.1s;
+}
+
+@keyframes vk-brand-mark-breathe {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.04);
+    filter: brightness(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vui-v2 .sidebar-top .icon-mark-img {
+    animation: none;
+  }
+}
+
+.vui-v2 .sidebar-top .brand-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 0;
+}
+
+.vui-v2 .sidebar-top .brand-wordmark {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-family: var(--font-display) !important;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  white-space: normal;
+}
+
+.vui-v2 .brand-wordmark-vk {
+  color: var(--vk-green);
+}
+
+.vui-v2 .brand-wordmark-realty {
+  color: var(--ds-on-surface, var(--text));
+}
+
+[data-theme="light"] .vui-v2 .brand-wordmark-realty {
+  color: #0f172a;
+}
+
+.vk-brand-live--sidebar {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px 4px 8px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vk-green);
+  background: var(--vk-green-muted);
+  border: 1px solid var(--vk-green-glow);
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.vk-brand-live--sidebar .vk-brand-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--vk-green);
+  animation: vk-sidebar-live-pulse 2.2s ease-out infinite;
+}
+
+@keyframes vk-sidebar-live-pulse {
+  0% { box-shadow: 0 0 0 0 var(--vk-green-glow); }
+  70% { box-shadow: 0 0 0 8px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+.vui-v2 .sidebar-top .brand-sub {
+  display: none !important;
+}
+
+.vui-v2 .sidebar-top .theme-toggle {
+  align-self: flex-start;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.icon-mark-bar {
+  fill: var(--vk-gold) !important;
+}
+
+/* ── Nav accents (brand green) ────────────────────────────────── */
+
+.vui-v2 .nav-item.active,
+.vui-v2 .nav-btn.active {
+  border-left-color: var(--vk-green);
+  background: var(--vk-green-muted);
+  color: var(--vk-green);
+}
+
+.vui-v2 .nav-item.active .nav-icon,
+.vui-v2 .nav-btn.active .nav-icon {
+  color: var(--vk-green);
+}
+
+.vui-v2 .bottom-nav-item.active {
+  color: var(--vk-green);
+}
+
+.vui-v2 .tab-bar .tab.active {
+  color: var(--vk-green);
+  border-bottom-color: var(--vk-green);
+}
+
+.v2-badge {
+  background: var(--vk-green-muted) !important;
+  color: var(--vk-green) !important;
+}
+
+/* ── Speaksy primary button — machined green pill ─────────────────
+   The showpiece button, distilled to scale at real UI sizes. One green
+   surface across both themes; the difference is the shadow signature:
+   dark theme carries the machined near-black bezel (--sbtn-ring), light
+   theme drops it for a soft green float ("remove the black border").
+   Applied to every primary CTA so the whole dashboard speaks one button. */
+.vui-v2 .btn-primary,
+.vui .btn-primary,
+.btn-primary,
+.vui-v2 .agents-btn-primary,
+.vui .agents-btn-primary {
+  position: relative;
+  border: 0;
+  border-radius: 999px;
+  color: #ffffff;
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  background: var(--sbtn-surface);
+  box-shadow: var(--sbtn-shadow);
+  transition:
+    transform 0.2s cubic-bezier(.22, .61, .36, 1),
+    box-shadow 0.2s cubic-bezier(.22, .61, .36, 1),
+    filter 0.2s ease;
+}
+
+.vui-v2 .btn-primary:hover:not(:disabled),
+.vui .btn-primary:hover:not(:disabled),
+.btn-primary:hover:not(:disabled),
+.vui-v2 .agents-btn-primary:hover:not(:disabled),
+.vui .agents-btn-primary:hover:not(:disabled) {
+  color: #ffffff;
+  transform: translateY(-1px);
+  filter: brightness(1.04);
+  box-shadow:
+    var(--sbtn-ring),
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.24),
+    inset 0 -8px 16px rgba(0, 0, 0, 0.30),
+    0 2px 3px rgba(0, 0, 0, 0.24),
+    0 14px 28px -8px rgba(20, 80, 44, 0.34),
+    0 20px 40px -12px rgba(120, 210, 150, 0.52);
+}
+
+.vui-v2 .btn-primary:active:not(:disabled),
+.vui .btn-primary:active:not(:disabled),
+.btn-primary:active:not(:disabled),
+.vui-v2 .agents-btn-primary:active:not(:disabled),
+.vui .agents-btn-primary:active:not(:disabled) {
+  transform: translateY(1px) scale(0.994);
+  filter: brightness(0.99);
+  box-shadow:
+    var(--sbtn-ring),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    inset 0 -6px 14px rgba(0, 0, 0, 0.42),
+    0 1px 2px rgba(0, 0, 0, 0.22),
+    0 5px 12px -6px rgba(20, 80, 44, 0.28);
+}
+
+.vui-v2 .btn-primary:focus-visible,
+.vui .btn-primary:focus-visible,
+.btn-primary:focus-visible,
+.vui-v2 .agents-btn-primary:focus-visible,
+.vui .agents-btn-primary:focus-visible {
+  outline: none;
+  box-shadow:
+    var(--sbtn-ring),
+    0 0 0 3px var(--vk-green-glow),
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.22),
+    0 12px 26px -12px rgba(90, 180, 120, 0.4);
+}
+
+.vui-v2 .btn-primary:disabled,
+.vui .btn-primary:disabled,
+.btn-primary:disabled,
+.vui-v2 .agents-btn-primary:disabled,
+.vui .agents-btn-primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  filter: none;
+}
+
+/* Animated green ramp — runs only while :hover is active */
+@property --speaksy-magic-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 145deg;
+}
+
+@keyframes speaksy-magic-gradient-flow {
+  0%, 100% {
+    --speaksy-magic-angle: 120deg;
+    filter: brightness(1.04);
+  }
+  50% {
+    --speaksy-magic-angle: 168deg;
+    filter: brightness(1.08);
+  }
+}
+
+@keyframes speaksy-magic-sheen {
+  0%   { background-position: -140% 0; }
+  100% { background-position: 240% 0; }
+}
+
+/* ── Speaksy precision button — v2 build for magical CTAs only ──
+   Distilled from speaksy-button-v2.html: machined shell, layered green
+   surface, cyan bloom, Cy Grotesk Wide label. No black bezel ring in any
+   theme (--sbtn-magic-ring). Add .btn-speaksy--soft for 10px radius. */
+body.vui-v2 .btn-speaksy,
+body.vui-v2 .btn.btn-speaksy,
+body.vui-v2 .agents-btn-primary.btn-speaksy,
+body.vui-v2 .nav-item.btn-speaksy,
+body.vui-v2 .nav-btn.btn-speaksy,
+body.vui-v2 .agents-pill.btn-speaksy.selected,
+body.vui-v2 .lead-action-btn.btn-speaksy,
+body.vui-v2 .integration-connect-btn.btn-speaksy {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  overflow: hidden;
+  border: 0;
+  border-radius: 999px;
+  color: #ffffff !important;
+  font-family: var(--font-display) !important;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  --speaksy-magic-angle: 145deg;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0.10) 20%, rgba(0, 0, 0, 0) 45%),
+    radial-gradient(120% 90% at 8% 0%, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0) 42%),
+    radial-gradient(120% 90% at 95% 0%, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 40%),
+    linear-gradient(
+      var(--speaksy-magic-angle),
+      #0e2410 0%, #163d18 18%, #245c28 36%,
+      #397e39 54%, #4c9349 72%, #5aa652 88%, #6fbf6c 100%
+    );
+  box-shadow: var(--sbtn-magic-shadow);
+  transition:
+    transform 0.25s cubic-bezier(.22, .61, .36, 1),
+    box-shadow 0.25s cubic-bezier(.22, .61, .36, 1),
+    filter 0.35s ease;
+}
+
+body.vui-v2 .btn-speaksy.btn-speaksy--soft,
+body.vui-v2 .btn.btn-speaksy.btn-speaksy--soft,
+body.vui-v2 .nav-item.btn-speaksy.btn-speaksy--soft,
+body.vui-v2 .nav-btn.btn-speaksy.btn-speaksy--soft,
+body.vui-v2 .agents-btn-primary.btn-speaksy.btn-speaksy--soft,
+body.vui-v2 .agents-pill.btn-speaksy.btn-speaksy--soft,
+body.vui-v2 .lead-action-btn.btn-speaksy.btn-speaksy--soft,
+body.vui-v2 .integration-connect-btn.btn-speaksy.btn-speaksy--soft {
+  border-radius: 10px;
+}
+
+body.vui-v2 .btn-speaksy > *,
+body.vui-v2 .btn.btn-speaksy > *,
+body.vui-v2 .agents-btn-primary.btn-speaksy > *,
+body.vui-v2 .nav-item.btn-speaksy > *,
+body.vui-v2 .nav-btn.btn-speaksy > *,
+body.vui-v2 .agents-pill.btn-speaksy.selected > *,
+body.vui-v2 .lead-action-btn.btn-speaksy > *,
+body.vui-v2 .integration-connect-btn.btn-speaksy > * {
+  position: relative;
+  z-index: 2;
+}
+
+body.vui-v2 .btn-speaksy::before,
+body.vui-v2 .btn.btn-speaksy::before,
+body.vui-v2 .agents-btn-primary.btn-speaksy::before,
+body.vui-v2 .nav-item.btn-speaksy::before,
+body.vui-v2 .nav-btn.btn-speaksy::before,
+body.vui-v2 .agents-pill.btn-speaksy.selected::before,
+body.vui-v2 .lead-action-btn.btn-speaksy::before,
+body.vui-v2 .integration-connect-btn.btn-speaksy::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg,
+    rgba(0, 0, 0, 0.42) 0%,
+    rgba(0, 0, 0, 0.16) 18%,
+    rgba(0, 0, 0, 0) 42%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+body.vui-v2 .btn-speaksy::after,
+body.vui-v2 .btn.btn-speaksy::after,
+body.vui-v2 .agents-btn-primary.btn-speaksy::after,
+body.vui-v2 .nav-item.btn-speaksy::after,
+body.vui-v2 .nav-btn.btn-speaksy::after,
+body.vui-v2 .agents-pill.btn-speaksy.selected::after,
+body.vui-v2 .lead-action-btn.btn-speaksy::after,
+body.vui-v2 .integration-connect-btn.btn-speaksy::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(70% 55% at 50% 118%, rgba(140, 220, 120, 0.30) 0%, rgba(140, 220, 120, 0) 60%),
+    radial-gradient(60% 100% at 50% 0%, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0) 72%),
+    radial-gradient(46% 80% at 88% 42%, rgba(200, 255, 190, 0.12) 0%, rgba(200, 255, 190, 0) 70%),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0) 20%);
+  box-shadow:
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.20),
+    inset 0 -10px 18px rgba(0, 0, 0, 0.34);
+  pointer-events: none;
+  z-index: 1;
+}
+
+body.vui-v2 .btn-speaksy:hover:not(:disabled),
+body.vui-v2 .btn.btn-speaksy:hover:not(:disabled),
+body.vui-v2 .agents-btn-primary.btn-speaksy:hover:not(:disabled),
+body.vui-v2 .nav-item.btn-speaksy:hover,
+body.vui-v2 .nav-btn.btn-speaksy:hover,
+body.vui-v2 .agents-pill.btn-speaksy.selected:hover:not(:disabled),
+body.vui-v2 .lead-action-btn.btn-speaksy:hover:not(:disabled),
+body.vui-v2 .integration-connect-btn.btn-speaksy:hover:not(:disabled) {
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: var(--sbtn-magic-shadow-hover);
+}
+
+body.vui-v2 .nav-item.btn-speaksy:hover,
+body.vui-v2 .nav-btn.btn-speaksy:hover {
+  filter: brightness(1.035);
+}
+
+/* Flowing green ramp + sheen — action CTAs only (Generate, Deploy, Connect, …) */
+body.vui-v2 .btn-speaksy:hover:not(:disabled):not(.nav-item):not(.nav-btn),
+body.vui-v2 .btn.btn-speaksy:hover:not(:disabled):not(.nav-item):not(.nav-btn),
+body.vui-v2 .agents-btn-primary.btn-speaksy:hover:not(:disabled),
+body.vui-v2 .agents-pill.btn-speaksy.selected:hover:not(:disabled),
+body.vui-v2 .lead-action-btn.btn-speaksy:hover:not(:disabled),
+body.vui-v2 .integration-connect-btn.btn-speaksy:hover:not(:disabled),
+body.vui-v2 #create-assistant-btn:hover:not(:disabled) {
+  animation: speaksy-magic-gradient-flow 2.2s ease-in-out infinite;
+}
+
+body.vui-v2 .btn-speaksy:hover:not(:disabled):not(.nav-item):not(.nav-btn)::after,
+body.vui-v2 .btn.btn-speaksy:hover:not(:disabled):not(.nav-item):not(.nav-btn)::after,
+body.vui-v2 .agents-btn-primary.btn-speaksy:hover:not(:disabled)::after,
+body.vui-v2 .agents-pill.btn-speaksy.selected:hover:not(:disabled)::after,
+body.vui-v2 .lead-action-btn.btn-speaksy:hover:not(:disabled)::after,
+body.vui-v2 .integration-connect-btn.btn-speaksy:hover:not(:disabled)::after,
+body.vui-v2 #create-assistant-btn:hover:not(:disabled)::after {
+  background:
+    linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(120, 210, 110, 0.22) 38%,
+      rgba(210, 255, 200, 0.55) 50%,
+      rgba(120, 210, 110, 0.22) 62%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    radial-gradient(70% 55% at 50% 118%, rgba(140, 220, 120, 0.34) 0%, rgba(140, 220, 120, 0) 60%),
+    radial-gradient(60% 100% at 50% 0%, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 72%),
+    radial-gradient(46% 80% at 88% 42%, rgba(200, 255, 190, 0.16) 0%, rgba(200, 255, 190, 0) 70%),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0) 20%);
+  background-size: 42% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  background-repeat: no-repeat;
+  background-position: -140% 0, 0 0, 0 0, 0 0, 0 0;
+  animation: speaksy-magic-sheen 2.2s ease-in-out infinite;
+}
+
+/* Light theme — same button look; slightly stronger hover sweep only */
+[data-theme="light"] body.vui-v2 .btn-speaksy:hover:not(:disabled):not(.nav-item):not(.nav-btn),
+[data-theme="light"] body.vui-v2 .btn.btn-speaksy:hover:not(:disabled):not(.nav-item):not(.nav-btn),
+[data-theme="light"] body.vui-v2 .agents-btn-primary.btn-speaksy:hover:not(:disabled),
+[data-theme="light"] body.vui-v2 .agents-pill.btn-speaksy.selected:hover:not(:disabled),
+[data-theme="light"] body.vui-v2 .lead-action-btn.btn-speaksy:hover:not(:disabled),
+[data-theme="light"] body.vui-v2 .integration-connect-btn.btn-speaksy:hover:not(:disabled),
+[data-theme="light"] body.vui-v2 #create-assistant-btn:hover:not(:disabled) {
+  animation: speaksy-magic-gradient-flow-light 2s ease-in-out infinite;
+}
+
+[data-theme="light"] body.vui-v2 .btn-speaksy:hover:not(:disabled):not(.nav-item):not(.nav-btn)::after,
+[data-theme="light"] body.vui-v2 .btn.btn-speaksy:hover:not(:disabled):not(.nav-item):not(.nav-btn)::after,
+[data-theme="light"] body.vui-v2 .agents-btn-primary.btn-speaksy:hover:not(:disabled)::after,
+[data-theme="light"] body.vui-v2 .agents-pill.btn-speaksy.selected:hover:not(:disabled)::after,
+[data-theme="light"] body.vui-v2 .lead-action-btn.btn-speaksy:hover:not(:disabled)::after,
+[data-theme="light"] body.vui-v2 .integration-connect-btn.btn-speaksy:hover:not(:disabled)::after,
+[data-theme="light"] body.vui-v2 #create-assistant-btn:hover:not(:disabled)::after {
+  background:
+    linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(120, 210, 110, 0.30) 36%,
+      rgba(230, 255, 225, 0.68) 50%,
+      rgba(120, 210, 110, 0.30) 64%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    radial-gradient(70% 55% at 50% 118%, rgba(140, 220, 120, 0.34) 0%, rgba(140, 220, 120, 0) 60%),
+    radial-gradient(60% 100% at 50% 0%, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 72%),
+    radial-gradient(46% 80% at 88% 42%, rgba(200, 255, 190, 0.16) 0%, rgba(200, 255, 190, 0) 70%),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0) 20%);
+  background-size: 52% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  animation: speaksy-magic-sheen 1.9s ease-in-out infinite;
+}
+
+@keyframes speaksy-magic-gradient-flow-light {
+  0%, 100% {
+    --speaksy-magic-angle: 112deg;
+    filter: brightness(1.06);
+  }
+  50% {
+    --speaksy-magic-angle: 172deg;
+    filter: brightness(1.11);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.vui-v2 .btn-speaksy:hover:not(:disabled):not(.nav-item):not(.nav-btn),
+  body.vui-v2 .btn.btn-speaksy:hover:not(:disabled):not(.nav-item):not(.nav-btn),
+  body.vui-v2 .agents-btn-primary.btn-speaksy:hover:not(:disabled),
+  body.vui-v2 .agents-pill.btn-speaksy.selected:hover:not(:disabled),
+  body.vui-v2 .lead-action-btn.btn-speaksy:hover:not(:disabled),
+  body.vui-v2 .integration-connect-btn.btn-speaksy:hover:not(:disabled) {
+    animation: none;
+    filter: brightness(1.035);
+  }
+
+  body.vui-v2 .btn-speaksy:hover:not(:disabled):not(.nav-item):not(.nav-btn)::after,
+  body.vui-v2 .btn.btn-speaksy:hover:not(:disabled):not(.nav-item):not(.nav-btn)::after,
+  body.vui-v2 .agents-btn-primary.btn-speaksy:hover:not(:disabled)::after,
+  body.vui-v2 .agents-pill.btn-speaksy.selected:hover:not(:disabled)::after,
+  body.vui-v2 .lead-action-btn.btn-speaksy:hover:not(:disabled)::after,
+  body.vui-v2 .integration-connect-btn.btn-speaksy:hover:not(:disabled)::after {
+    animation: none;
+  }
+}
+
+body.vui-v2 .btn-speaksy:active:not(:disabled),
+body.vui-v2 .btn.btn-speaksy:active:not(:disabled),
+body.vui-v2 .agents-btn-primary.btn-speaksy:active:not(:disabled),
+body.vui-v2 .nav-item.btn-speaksy:active,
+body.vui-v2 .nav-btn.btn-speaksy:active,
+body.vui-v2 .agents-pill.btn-speaksy.selected:active:not(:disabled),
+body.vui-v2 .lead-action-btn.btn-speaksy:active:not(:disabled),
+body.vui-v2 .integration-connect-btn.btn-speaksy:active:not(:disabled) {
+  transform: translateY(1px) scale(0.994);
+  filter: brightness(0.99);
+  box-shadow:
+    var(--sbtn-magic-ring),
+    0 1px 2px rgba(0, 0, 0, 0.22),
+    0 6px 14px rgba(0, 0, 0, 0.26),
+    0 16px 32px -12px rgba(0, 0, 0, 0.32),
+    0 20px 36px -14px rgba(150, 205, 255, 0.22);
+}
+
+body.vui-v2 .btn-speaksy:active:not(:disabled)::after,
+body.vui-v2 .btn.btn-speaksy:active:not(:disabled)::after,
+body.vui-v2 .agents-btn-primary.btn-speaksy:active:not(:disabled)::after,
+body.vui-v2 .nav-item.btn-speaksy:active::after,
+body.vui-v2 .nav-btn.btn-speaksy:active::after,
+body.vui-v2 .agents-pill.btn-speaksy.selected:active:not(:disabled)::after,
+body.vui-v2 .lead-action-btn.btn-speaksy:active:not(:disabled)::after,
+body.vui-v2 .integration-connect-btn.btn-speaksy:active:not(:disabled)::after {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -8px 14px rgba(0, 0, 0, 0.48);
+}
+
+body.vui-v2 .btn-speaksy:focus-visible,
+body.vui-v2 .btn.btn-speaksy:focus-visible,
+body.vui-v2 .agents-btn-primary.btn-speaksy:focus-visible,
+body.vui-v2 .nav-item.btn-speaksy:focus-visible,
+body.vui-v2 .nav-btn.btn-speaksy:focus-visible,
+body.vui-v2 .agents-pill.btn-speaksy.selected:focus-visible,
+body.vui-v2 .lead-action-btn.btn-speaksy:focus-visible,
+body.vui-v2 .integration-connect-btn.btn-speaksy:focus-visible {
+  outline: none;
+  box-shadow:
+    var(--sbtn-magic-shadow),
+    0 0 0 3px var(--vk-green-glow);
+}
+
+body.vui-v2 .btn-speaksy:disabled,
+body.vui-v2 .btn.btn-speaksy:disabled,
+body.vui-v2 .agents-btn-primary.btn-speaksy:disabled,
+body.vui-v2 .agents-pill.btn-speaksy.selected:disabled,
+body.vui-v2 .lead-action-btn.btn-speaksy:disabled,
+body.vui-v2 .integration-connect-btn.btn-speaksy:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  filter: none;
+}
+
+/* Focus-area chips — speaksy class on all; gradient only when selected */
+body.vui-v2 .agents-pill.btn-speaksy:not(.selected) {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--ds-on-muted, var(--muted));
+  box-shadow: none;
+  border: 1px solid var(--ds-outline, rgba(255, 255, 255, 0.1));
+  font-family: var(--font-display) !important;
+  font-weight: 500;
+}
+
+body.vui-v2 .agents-pill.btn-speaksy:not(.selected)::before,
+body.vui-v2 .agents-pill.btn-speaksy:not(.selected)::after {
+  display: none;
+}
+
+body.vui-v2 .agents-pill.btn-speaksy:not(.selected):hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--ds-on-surface, var(--text));
+  transform: none;
+  filter: none;
+}
+
+[data-theme="light"] body.vui-v2 .agents-pill.btn-speaksy:not(.selected) {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+body.vui-v2 .nav-item.btn-speaksy {
+  font-weight: 500;
+  text-align: left;
+}
+
+body.vui-v2 .nav-item.btn-speaksy .nav-icon,
+body.vui-v2 .nav-btn.btn-speaksy .nav-icon {
+  color: #ffffff;
+  opacity: 1;
+}
+
+body.vui-v2 .lead-action-btn.btn-speaksy {
+  border: 0;
+}
+
+body.vui-v2 .integration-connect-btn.btn-speaksy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 0 16px;
+  font-size: 0.8125rem;
+}
+
+body.vui-v2 .integration-connect-btn.btn-speaksy .integration-ext-icon {
+  position: relative;
+  z-index: 2;
+  opacity: 1;
+  color: #ffffff;
+}
+
+body.vui-v2 .make-call-submit.btn-speaksy {
+  width: 100%;
+  justify-content: center;
+  min-height: 46px;
+  font-size: 1rem;
+}
+
+body.vui-v2 .ma-make-call-btn.btn-speaksy {
+  font-weight: 500;
+}
+
+/* ── Secondary buttons — the quiet member of the same pill family ── */
+
+.vui-v2 .btn-secondary,
+.vui .btn-secondary,
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  color: var(--ds-on-surface, var(--vui-fg));
+  font-weight: 400;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+
+.vui-v2 .btn-secondary:hover,
+.vui .btn-secondary:hover,
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--vk-green-glow);
+  color: var(--ds-on-surface, var(--vui-fg));
+}
+
+[data-theme="light"] .vui-v2 .btn-secondary,
+[data-theme="light"] .vui .btn-secondary,
+[data-theme="light"] .btn-secondary {
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--ds-outline, rgba(0, 0, 0, 0.10));
+}
+
+[data-theme="light"] .vui-v2 .btn-secondary:hover,
+[data-theme="light"] .vui .btn-secondary:hover,
+[data-theme="light"] .btn-secondary:hover {
+  background: rgba(0, 0, 0, 0.07);
+  border-color: var(--vk-green-glow);
+}
+
+.vui-v2 .btn-secondary:focus-visible,
+.vui .btn-secondary:focus-visible,
+.btn-secondary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--vk-green-muted);
+}
+
+/* ── Make-call modal & accent surfaces ────────────────────────── */
+
+.vui-v2 .make-call-card {
+  border-color: var(--vk-green-glow);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 32px var(--vk-green-muted);
+}
+
+.vui-v2 .make-call-input:focus {
+  border-color: var(--vk-green);
+  box-shadow: 0 0 0 3px var(--vk-green-muted);
+}
+
+.vui-v2 .make-call-recent-chip:hover:not(:disabled) {
+  border-color: var(--vk-green-glow);
+  background: var(--vk-green-muted);
+}
+
+.vui-v2 .agents-composer {
+  border-color: var(--vk-green-muted);
+  background: linear-gradient(160deg, var(--ds-glass), var(--vk-green-muted));
+}
+
+.vui-v2 .pricing-card-featured {
+  border-color: var(--vk-green-glow);
+  box-shadow: 0 0 32px var(--vk-green-muted);
+}
+
+/* ── Button sizing consistency — one pill family ──────────────── */
+
+.vui-v2 .btn,
+.vui .btn {
+  min-height: 36px;
+  border-radius: 999px; /* full pill — the Speaksy signature */
+  padding: 0 18px;
+}
+
+.vui-v2 .btn-sm,
+.vui .btn-sm {
+  min-height: 32px;
+  padding: 0 14px;
+  font-size: 0.75rem;
+}
+
+.vui-v2 .btn-block,
+.vui .btn-block {
+  width: 100%;
+}
+
+/* Ghost — text-only member of the pill family; green wash on hover */
+.vui-v2 .btn-ghost,
+.vui .btn-ghost {
+  border-radius: 999px;
+  font-weight: 400;
+}
+
+.vui-v2 .btn-ghost:hover,
+.vui .btn-ghost:hover {
+  background: var(--vk-green-muted);
+  color: var(--vk-green);
+}
+
+/* ── Speaksy powered-by branding ──────────────────────────────── */
+
+.vk-powered-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted, var(--vui-fg-subtle));
+  white-space: nowrap;
+}
+
+.vk-powered-logo {
+  display: block;
+  height: 42px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.vk-powered-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.vk-powered-logo--billing {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 2px;
+  height: 44px;
+  max-width: 200px;
+}
+
+.vk-billing-powered {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.vk-platform-powered {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  border-color: var(--ds-outline, var(--border));
+  background: var(--ds-surface, var(--card));
+}
+
+.vk-platform-powered-copy {
+  margin: 0;
+  font-size: 12px;
+  max-width: 420px;
+  text-align: right;
+}
+
+/* Sidebar footer — sign out on top, powered by pinned to bottom */
+.vui-v2 .sidebar-footer.vk-sidebar-footer {
+  margin-top: auto;
+  flex-direction: column;
+  align-items: stretch !important;
+  gap: 0 !important;
+  padding: 12px 20px 14px !important;
+  width: 100%;
+}
+
+/* ── Sidebar “Powered by” — edit tokens below to iterate ─────────
+   HTML : tinglish-vk-realty/dashboard.html → .vk-sidebar-powered
+   Image: frontend/vendor/images/speaksy-logo-powered.png
+   Also : .vk-powered-label (global) ~30 lines above for font size   */
+.vk-sidebar-powered {
+  --vk-powered-pad-x: 0.75rem;   /* horizontal inset — match .vk-support-link */
+  --vk-powered-pad-top: 12px;
+  --vk-powered-gap: 2px;         /* space between label and logo */
+  --vk-powered-logo-h: 112px;    /* logo height (width scales auto) */
+  --vk-powered-logo-nudge-x: 0;  /* horizontal offset — 0 when center-aligned */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--vk-powered-gap);
+  width: 100%;
+  margin-top: 10px;
+  padding: var(--vk-powered-pad-top) var(--vk-powered-pad-x) 4px;
+  border-top: 1px solid var(--ds-outline, var(--border));
+  box-sizing: border-box;
+}
+
+.vk-sidebar-powered .vk-powered-label {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-align: center;
+}
+
+.vk-powered-logo--sidebar {
+  display: block;
+  width: auto;
+  height: var(--vk-powered-logo-h, 112px);
+  max-width: 100%;
+  margin: -6px 0 0;
+  margin-left: var(--vk-powered-logo-nudge-x, 0);
+  padding: 0;
+  object-fit: contain;
+  object-position: center;
+  align-self: center;
+}
+
+/* Hide legacy browser demo link if present in cached HTML */
+.vui-v2 .sidebar-links {
+  display: none !important;
+}
+
+
+
+.sidebar-footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+.sidebar-footer-actions .status-dot {
+  flex-shrink: 0;
+}
+
+.sidebar-logout-btn {
+  margin-left: auto !important;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.sidebar-logout-icon {
+  display: none;
+  width: 18px;
+  height: 18px;
+}
+
+.sidebar-status-text {
+  flex: 1;
+  min-width: 0;
+  font-size: 12px;
+  color: var(--muted, var(--vui-fg-subtle));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Collapsed sidebar — strict icon rail; everything contained inside the rail */
+.vui-v2 .vui-shell.sidebar-collapsed {
+  --sidebar-collapsed: 56px;
+}
+
+.vui-v2 .vui-shell.sidebar-collapsed .sidebar {
+  width: 56px !important;
+  min-width: 56px !important;
+  max-width: 56px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  box-sizing: border-box;
+}
+
+.vui-v2 .vui-shell.sidebar-collapsed .sidebar-inner {
+  width: 100%;
+  max-width: 56px;
+  padding: 8px 0 6px !important;
+  gap: 4px;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.vui-v2 .vui-shell.sidebar-collapsed .sidebar-top {
+  width: 100%;
+  max-width: 56px;
+  margin: 0 !important;
+  padding: 0 0 6px !important;
+  border-bottom: none !important;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.vui-v2 .vui-shell.sidebar-collapsed .brand {
+  justify-content: center;
+  width: 100%;
+  max-width: 56px;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.vui-v2 .vui-shell.sidebar-collapsed .icon-mark {
+  display: block !important;
+  width: auto !important;
+  height: 14px !important;
+  max-width: 48px !important;
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+
+.vui-v2 .vui-shell.sidebar-collapsed .icon-mark-img {
+  border-radius: 0;
+}
+
+.vui-v2 .vui-shell.sidebar-collapsed .section-nav {
+  gap: 2px;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100%;
+  max-width: 56px;
+  flex: 1;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+  box-sizing: border-box;
+}
+
+.vui-v2 .vui-shell.sidebar-collapsed .section-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.vui-v2 .vui-shell.sidebar-collapsed .nav-item,
+.vui-v2 .vui-shell.sidebar-collapsed .nav-btn {
+  width: 36px !important;
+  min-width: 36px !important;
+  max-width: 36px !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+  border-left: none !important;
+  border-radius: 8px !important;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.vui-v2 .vui-shell.sidebar-collapsed .nav-icon,
+.vui-v2 .vui-shell.sidebar-collapsed .nav-icon svg {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.vui-v2 .vui-shell.sidebar-collapsed .sidebar-footer,
+.vui-v2 .vui-shell.sidebar-collapsed .vk-sidebar-footer {
+  align-items: center !important;
+  padding: 6px 2px 4px !important;
+  gap: 0 !important;
+  border-top: 1px solid var(--ds-outline, var(--border)) !important;
+  margin-top: auto;
+  width: 100% !important;
+  max-width: 56px !important;
+  flex-wrap: nowrap !important;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.vui-v2 .vui-shell.sidebar-collapsed .sidebar-footer-actions {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  max-width: 52px;
+  margin: 0 auto;
+}
+
+.vui-v2 .vui-shell.sidebar-collapsed .status-dot,
+.vui-v2 .vui-shell.sidebar-collapsed .sidebar-status-text,
+.vui-v2 .vui-shell.sidebar-collapsed .sidebar-logout-label,
+.vui-v2 .vui-shell.sidebar-collapsed .vk-powered-label {
+  display: none !important;
+}
+
+.vui-v2 .vui-shell.sidebar-collapsed .sidebar-logout-btn {
+  margin: 0 !important;
+  width: 32px !important;
+  height: 32px !important;
+  min-height: 32px !important;
+  padding: 0 !important;
+  justify-content: center;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.vui-v2 .vui-shell.sidebar-collapsed .sidebar-logout-icon {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+}
+
+.vui-v2 .vui-shell.sidebar-collapsed .vk-sidebar-powered {
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  padding-top: 4px;
+  border-top: 1px solid var(--ds-outline, var(--border));
+  width: 100%;
+  max-width: 52px;
+  gap: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* ── Client-centric UX ─────────────────────────────────────────── */
+
+.vk-needs-action {
+  margin-bottom: 1rem;
+  padding: 18px 20px 20px;
+  border: 1px solid var(--vk-green-muted);
+  background: linear-gradient(135deg, var(--vk-green-muted), transparent);
+}
+
+.vk-needs-action .card-head-brand.row-head {
+  margin-bottom: 14px;
+  padding-right: 4px;
+}
+
+.vk-needs-action-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 2px 0;
+}
+
+.vk-needs-card {
+  padding: 16px 18px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card);
+}
+
+.vk-needs-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.vk-needs-summary {
+  margin: 0 0 0.35rem;
+  font-size: 0.92rem;
+  color: var(--text);
+  line-height: 1.45;
+}
+
+.vk-needs-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 0.65rem;
+}
+
+.vk-needs-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.vk-data-help {
+  margin-bottom: 1rem;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--vk-green);
+}
+
+.vk-data-help a {
+  color: var(--vk-green);
+  font-weight: 600;
+}
+
+.vk-support-link {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.vk-support-link:hover {
+  color: var(--vk-green);
+  background: var(--vk-green-muted);
+}
+
+.vk-support-link .nav-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.lead-action-btn--call {
+  text-decoration: none;
+  background: var(--vk-green-muted);
+  color: var(--vk-green);
+  border: 1px solid transparent;
+}
+
+.lead-action-btn--call:hover {
+  background: var(--vk-green-fill);
+  color: var(--vk-on-green);
+}
+
+.vk-feature-hidden {
+  display: none !important;
+}
+
+.vui-v2 .vui-shell.sidebar-collapsed .vk-powered-logo--sidebar {
+  display: block !important;
+  height: 68px !important;
+  width: auto !important;
+  max-width: 192px !important;
+  margin: 0 auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+@media (max-width: 900px) {
+  .vk-platform-powered {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .vk-platform-powered-copy {
+    text-align: left;
+  }
+}
+
+.api-keys-restart-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--muted, var(--vui-fg-subtle));
+  margin-right: 8px;
+  white-space: nowrap;
+}
+
+.api-keys-restart-toggle input {
+  accent-color: var(--ds-mint, var(--speaksy-green));
+}
+
+.api-keys-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+#cartesia-voice-panel {
+  margin-bottom: 16px;
+}
+
+.vk-feature-hidden,
+.nav-btn.vk-feature-hidden,
+.bottom-nav-item.vk-feature-hidden,
+.page.vui-page.vk-feature-hidden {
+  display: none !important;
+}
+
+/* Settings tabs — scroll on narrow screens */
+#settings-tabs {
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+#settings-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+#settings-tabs .tab {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* ── Visual polish pass ────────────────────────────────────────── */
+
+/* Re-tint the apple-grade layer (loads after this file) to brand green.
+   body.vui-v2 out-specifies its .vui-v2 token blocks, so the accent is
+   green everywhere: nav rail, focus rings, input focus, CTA glow,
+   selection, ambient canvas glow. Vars resolve per-theme. */
+body.vui-v2 {
+  --apl-accent: var(--vk-green);
+  --apl-accent-strong: var(--vk-green-active);
+  --apl-accent-tint: var(--vk-green-muted);
+  --ds-mint: var(--vk-green);
+  --ds-mint-bright: var(--vk-green-hover);
+  --ds-mint-dim: var(--vk-green-muted);
+  --ds-mint-glow: var(--vk-green-glow);
+  --ds-emerald: var(--vk-green-active);
+}
+
+[data-theme="light"] body.vui-v2 {
+  --apl-accent: var(--vk-green);
+  --apl-accent-strong: var(--vk-green-active);
+  --apl-accent-tint: var(--vk-green-muted);
+  --ds-mint: var(--vk-green);
+  --ds-mint-bright: var(--vk-green-hover);
+  --ds-mint-dim: var(--vk-green-muted);
+  --ds-mint-glow: var(--vk-green-glow);
+}
+
+body.vui-v2 .btn-primary {
+  color: var(--vk-on-green);
+}
+
+/* Active sidebar nav → .btn-speaksy.btn-speaksy--soft (toggled in app.js) */
+
+/* Status badges — fix the mint-background/accent-text clash from
+   vercel-ui (same selectors, later file wins the specificity tie). */
+.vui .badge.success,
+.vui .badge-booked,
+.vui .badge-hot {
+  background: var(--vk-green-muted);
+  color: var(--vk-green);
+  border-color: var(--vk-green-glow);
+}
+
+.vui .badge-interested {
+  background: var(--vk-green-muted);
+  color: var(--vk-green);
+}
+
+/* ── Daily briefing hero (Today page) ──────────────────────────── */
+
+@property --vk-briefing-glow-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 135deg;
+}
+
+@keyframes vk-briefing-gradient-flow {
+  0%, 100% {
+    --vk-briefing-glow-angle: 118deg;
+    opacity: 0.82;
+  }
+  50% {
+    --vk-briefing-glow-angle: 162deg;
+    opacity: 1;
+  }
+}
+
+@keyframes vk-briefing-sheen {
+  0%   { background-position: -45% 0; }
+  100% { background-position: 145% 0; }
+}
+
+@keyframes vk-briefing-glow-drift {
+  0%, 100% { background-position: 88% -20%, 10% 108%, 0% 50%; }
+  50%      { background-position: 72% -8%, 22% 96%, 100% 50%; }
+}
+
+.vk-briefing {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  margin-bottom: 1rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem) clamp(1.25rem, 3.5vw, 2rem);
+  border-radius: var(--apl-radius-lg, 16px);
+  background: var(--ds-surface, var(--card));
+  box-shadow: var(--apl-shadow-card, 0 0 0 1px var(--border));
+}
+
+.vk-briefing::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+  background: linear-gradient(
+    102deg,
+    rgba(52, 211, 153, 0) 0%,
+    rgba(52, 211, 153, 0.04) 42%,
+    rgba(90, 200, 120, 0.08) 50%,
+    rgba(52, 211, 153, 0.04) 58%,
+    rgba(52, 211, 153, 0) 100%
+  );
+  background-size: 34% 100%;
+  background-repeat: no-repeat;
+  background-position: -45% 0;
+  animation: vk-briefing-sheen 16s ease-in-out infinite;
+}
+
+.vk-briefing-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  --vk-briefing-glow-angle: 135deg;
+  background:
+    radial-gradient(ellipse 58% 88% at 88% -18%, rgba(52, 211, 153, 0.16), transparent 64%),
+    radial-gradient(ellipse 42% 72% at 10% 108%, rgba(22, 61, 24, 0.14), transparent 58%),
+    linear-gradient(
+      var(--vk-briefing-glow-angle),
+      rgba(14, 36, 16, 0.24) 0%,
+      rgba(36, 92, 40, 0.10) 34%,
+      transparent 58%
+    );
+  background-size: 100% 100%, 100% 100%, 220% 220%;
+  background-repeat: no-repeat;
+  background-position: 88% -20%, 10% 108%, 0% 50%;
+  animation:
+    vk-briefing-gradient-flow 14s ease-in-out infinite,
+    vk-briefing-glow-drift 18s ease-in-out infinite;
+}
+
+/* Copy paints above animated layers */
+.vk-briefing > *:not(.vk-briefing-glow) {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vk-briefing::before,
+  .vk-briefing-glow {
+    animation: none;
+  }
+}
+
+/* Light theme — soft emerald glow (no white sheen) */
+[data-theme="light"] .vk-briefing {
+  background: linear-gradient(155deg, #f9fcfa 0%, #f3f8f5 52%, #eef5f1 100%);
+  box-shadow:
+    0 0 0 1px rgba(4, 120, 87, 0.10),
+    0 6px 22px -8px rgba(4, 120, 87, 0.10);
+}
+
+[data-theme="light"] .vk-briefing::before {
+  background: linear-gradient(
+    102deg,
+    rgba(4, 120, 87, 0) 0%,
+    rgba(4, 120, 87, 0.05) 40%,
+    rgba(16, 185, 129, 0.09) 50%,
+    rgba(4, 120, 87, 0.05) 60%,
+    rgba(4, 120, 87, 0) 100%
+  );
+}
+
+[data-theme="light"] .vk-briefing-glow {
+  background:
+    radial-gradient(ellipse 62% 90% at 86% -16%, rgba(4, 120, 87, 0.16), transparent 66%),
+    radial-gradient(ellipse 44% 74% at 12% 106%, rgba(16, 185, 129, 0.11), transparent 60%),
+    linear-gradient(
+      var(--vk-briefing-glow-angle),
+      rgba(4, 120, 87, 0.11) 0%,
+      rgba(16, 185, 129, 0.06) 36%,
+      transparent 62%
+    );
+}
+
+@keyframes vk-briefing-gradient-flow-light {
+  0%, 100% {
+    --vk-briefing-glow-angle: 118deg;
+    opacity: 0.88;
+  }
+  50% {
+    --vk-briefing-glow-angle: 162deg;
+    opacity: 1;
+  }
+}
+
+[data-theme="light"] .vk-briefing-glow {
+  animation:
+    vk-briefing-gradient-flow-light 14s ease-in-out infinite,
+    vk-briefing-glow-drift 18s ease-in-out infinite;
+}
+
+.vk-briefing-greeting {
+  margin: 0 0 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vk-green);
+}
+
+.vk-briefing-line {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+  font-weight: 650;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: var(--ds-on-surface, var(--text));
+}
+
+.vk-briefing-line strong {
+  color: var(--vk-green);
+  font-weight: 700;
+}
+
+.vk-briefing-sub {
+  margin: 8px 0 0;
+  max-width: 56ch;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--ds-on-muted, var(--muted));
+}
+
+.vk-briefing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.vk-briefing-actions:empty {
+  display: none;
+}
+
+.vk-brief-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 18px;
+  border-radius: 10px;
+}
+
+/* Briefing hero — pair primary + secondary on the same corner radius */
+body.vui-v2 .vk-briefing-actions .vk-brief-btn,
+body.vui-v2 .vk-briefing-actions .btn-speaksy.btn-speaksy--soft,
+body.vui-v2 .vk-briefing-actions .btn-secondary.vk-brief-btn {
+  border-radius: 10px;
+}
+
+.vk-brief-btn-icon {
+  font-size: 0.7em;
+}
+
+.vk-briefing-player {
+  margin-top: 14px;
+}
+
+.vk-brief-player-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--ds-outline, var(--border));
+  background: var(--ds-surface-raised, var(--card));
+}
+
+.vk-brief-player-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+}
+
+.vk-brief-player-card audio {
+  width: 100%;
+  height: 40px;
+}
+
+/* Needs-action cards — light hover affordance */
+.vk-needs-card {
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.vk-needs-card:hover {
+  border-color: var(--vk-green-glow);
+  transform: translateY(-1px);
+}
+
+/* Anchor nav entries (e.g. Platform → /platform) match button nav items */
+.section-nav a.nav-item {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* ═══ Premium polish ═══════════════════════════════════════════════ */
+
+/* ── Sidebar — quiet rail, pill items, green indicator ─────────── */
+
+.vui-v2 .section-nav {
+  padding: 10px 12px;
+  gap: 2px;
+}
+
+.vui-v2 .nav-item,
+.vui-v2 .nav-btn {
+  padding: 9px 12px;
+  border-radius: 9px;
+  border-left: 2px solid transparent;
+  font-size: 13.5px;
+  letter-spacing: -0.006em;
+}
+
+.vui-v2 .nav-item:hover,
+.vui-v2 .nav-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] .vui-v2 .nav-item:hover,
+[data-theme="light"] .vui-v2 .nav-btn:hover {
+  background: rgba(0, 0, 0, 0.045);
+}
+
+.vui-v2 .nav-item.active,
+.vui-v2 .nav-btn.active {
+  border-left-color: transparent;
+  font-weight: 500;
+}
+
+.vui-v2 .nav-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.vui-v2 .sidebar-group-label {
+  padding: 18px 14px 6px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  opacity: 0.6;
+}
+
+.vui-v2 .sidebar-cta {
+  padding: 14px 14px 0;
+}
+
+/* ── Modals & popups — graceful in, calm chrome ────────────────── */
+
+@keyframes vk-backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes vk-card-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+.vui .modal-backdrop {
+  background: rgba(6, 10, 9, 0.55);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  animation: vk-backdrop-in 0.18s ease both;
+}
+
+[data-theme="light"] .vui .modal-backdrop {
+  background: rgba(18, 24, 22, 0.38);
+}
+
+.vui .modal-card,
+.vui-v2 .make-call-card {
+  border-radius: var(--apl-radius-lg, 16px);
+  box-shadow: var(--apl-shadow-float, 0 24px 60px rgba(0, 0, 0, 0.35));
+  animation: vk-card-in 0.22s var(--apl-ease, cubic-bezier(0.32, 0.72, 0, 1)) both;
+}
+
+.vui .modal-actions {
+  align-items: center;
+}
+
+/* Alerts slide in with the same ease */
+.vui .alerts-row .alert-banner {
+  border-color: var(--vk-green-glow);
+  background: var(--vk-green-muted);
+  animation: vk-card-in 0.22s var(--apl-ease, ease) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vui .modal-backdrop,
+  .vui .modal-card,
+  .vui-v2 .make-call-card,
+  .vui .alerts-row .alert-banner {
+    animation: none;
+  }
+}
+
+/* ── Focus visibility (keyboard) ───────────────────────────────── */
+
+.vui-v2 :is(button, a, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--vk-green);
+  outline-offset: 2px;
+}
+
+.vui-v2 :is(input, textarea):focus-visible {
+  outline: none; /* apple-grade rings inputs via --apl-accent-tint */
+}
+
+/* ── Skeleton shimmer (loading) ────────────────────────────────── */
+
+.vk-skeleton {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  min-width: 8ch;
+  min-height: 1em;
+  border-radius: 6px;
+  background: var(--ds-surface-high, rgba(255, 255, 255, 0.06));
+  color: transparent !important;
+}
+
+[data-theme="light"] .vk-skeleton {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.vk-skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.07), transparent);
+  animation: vk-shimmer 1.4s infinite;
+}
+
+[data-theme="light"] .vk-skeleton::after {
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), transparent);
+}
+
+@keyframes vk-shimmer {
+  to { transform: translateX(100%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vk-skeleton::after {
+    animation: none;
+  }
+}
+
+/* ── Empty states — icon in a green-tinted square ──────────────── */
+
+.vui .empty-icon {
+  background: var(--vk-green-muted);
+  border-color: var(--vk-green-glow);
+  color: var(--vk-green);
+}
+
+.vui .empty-state p {
+  max-width: 42ch;
+}
+
+/* ── Numbers read like a ledger ────────────────────────────────── */
+
+.vui .metric-value,
+.vui-v2 .metric-value,
+.vui .stat-value {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* ── Display type — Cy Grotesk scope (headings + key metrics only) ─ */
+
+.vui-v2 h1,
+.vui-v2 h2,
+.vui-v2 h3,
+.vui-v2 h4,
+.vui .page-title,
+.vui-v2 .page-title,
+.vui-v2 .topbar-titles h1,
+.vui-v2 .topbar-titles .page-title,
+.vui .section-title,
+.vui-v2 .section-title,
+.vui .card-title,
+.vui-v2 .card-title,
+.vui .settings-form-section-title,
+.vui .as-setting-title,
+.vui .agents-composer-title,
+.vui .agents-roster-title,
+.vui .campaign-panel-title,
+.vui .call-thinking-panel-title,
+.vui .ta-chart-title,
+.vui .call-detail-section-title,
+.vui .call-summary-head h4,
+.vui .vk-briefing-greeting,
+.vui .vk-briefing-line,
+.vui .kpi-value,
+.vui-v2 .kpi-value,
+.vui .metric-value,
+.vui-v2 .metric-value,
+.vui .stat-value,
+.vui .pricing-includes-value,
+.vui .hot-lead-score .score-num,
+.vui .lead-score,
+.vui .ta-metric-value {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+/* ── Dashboard polish appendix ─────────────────────────────────── */
+
+/* Today — topbar, follow-up cards, sidebar rhythm */
+.vui-v2 .topbar-titles {
+  gap: 2px;
+}
+
+.vui-v2 .status-live,
+.vui-v2 .status-pill--live {
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.vui-v2 .vk-needs-card,
+.vui-v2 .action-needed-card,
+.vui-v2 .follow-up-card {
+  padding: 14px 16px;
+}
+
+.vui-v2 .view-all-link,
+.vui-v2 a.view-all-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--vk-green);
+  background: var(--vk-green-muted);
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.vui-v2 .view-all-link:hover,
+.vui-v2 a.view-all-pill:hover {
+  background: var(--vk-green-glow);
+  color: var(--vk-green-hover);
+}
+
+.vui-v2 .sidebar-cta {
+  padding: 12px 14px 4px;
+}
+
+/* Sidebar CTA — .btn-speaksy.btn-speaksy--soft */
+.vui-v2 .sidebar-cta .btn-deploy {
+  width: 100%;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.vui-v2 .sidebar-user-block,
+.vui-v2 .agent-status-list {
+  margin: 8px 10px 0;
+}
+
+.vui-v2 .powered-by {
+  margin-top: 14px;
+  padding-top: 12px;
+}
+
+/* All Leads — pipeline filter + outcome badges */
+.vui-v2 .leads-pipeline-filter,
+.vui-v2 .pipeline-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.12));
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.vui-v2 .leads-toolbar,
+.vui-v2 .leads-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.vui-v2 .outcome-tag[data-outcome="interested"],
+.vui-v2 .badge-interested {
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.14);
+  border-color: rgba(245, 158, 11, 0.28);
+}
+
+.vui-v2 .outcome-tag[data-outcome="booked"],
+.vui-v2 .badge-booked {
+  color: var(--vk-green);
+  background: var(--vk-green-muted);
+  border-color: var(--vk-green-glow);
+}
+
+.vui-v2 .outcome-tag[data-outcome="not_interested"],
+.vui-v2 .badge-not-interested {
+  color: #9ca3af;
+  background: rgba(156, 163, 175, 0.12);
+  border-color: rgba(156, 163, 175, 0.22);
+}
+
+.vui-v2 .outcome-tag[data-outcome="follow_up"],
+.vui-v2 .badge-follow-up {
+  color: #60a5fa;
+  background: rgba(96, 165, 250, 0.12);
+}
+
+/* Priority leads — larger score + temperature */
+.vui-v2 .hot-lead-score .score-num,
+.vui-v2 .lead-score {
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.vui-v2 .hot-lead-score .badge,
+.vui-v2 .temp-badge {
+  font-size: 11px;
+  padding: 4px 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.vui-v2 .badge-hot,
+.vui-v2 .temp-badge--hot {
+  color: #f97316;
+  background: rgba(249, 115, 22, 0.16);
+}
+
+.vui-v2 .badge-follow-up,
+.vui-v2 .temp-badge--warm {
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.14);
+}
+
+/* Call detail — summary card, latency, inspect thinking */
+.vui-v2 .call-summary-card {
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid var(--vk-green-glow);
+  background: linear-gradient(135deg, var(--vk-green-muted), transparent 68%);
+}
+
+.vui-v2 .call-summary-icon {
+  color: var(--vk-green);
+}
+
+.vui-v2 .call-summary-regen {
+  padding: 8px 14px;
+  border-radius: 10px;
+  gap: 6px;
+}
+
+.vui-v2 .call-latency-section {
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--ds-surface-high, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.08));
+}
+
+.vui-v2 #btn-inspect-thinking,
+.vui-v2 .call-thinking-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  background: rgba(99, 102, 241, 0.12);
+  color: #a5b4fc;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.vui-v2 #btn-inspect-thinking:hover,
+.vui-v2 .call-thinking-btn:hover {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: rgba(129, 140, 248, 0.5);
+}
+
+/* Transcript seek */
+.vui-v2 .transcript-bubble--seekable {
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.vui-v2 .transcript-bubble--seekable:hover {
+  border-color: var(--vk-green-glow);
+}
+
+.vui-v2 .transcript-bubble--seekable.is-active {
+  box-shadow: 0 0 0 2px var(--vk-green-glow);
+  border-color: var(--vk-green);
+}
+
+/* CRM pipeline height */
+.vui-v2 .crm-pipeline,
+.vui-v2 .lead-pipeline {
+  min-height: 420px;
+  max-height: 72vh;
+}
+
+/* Site visits */
+.vui-v2 .cal-metrics .metric-cell,
+.vui-v2 .cal-metrics .metric-item {
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.1));
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.vui-v2 .cal-nav-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.12));
+  background: var(--ds-surface-high, rgba(255, 255, 255, 0.04));
+}
+
+.vui-v2 .cal-today-btn {
+  padding: 8px 16px;
+  font-weight: 600;
+}
+
+.vui-v2 .cal-empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* Reports — distinct headers */
+.vui-v2 .reports-grid .query-card:first-child .panel-head h3 {
+  color: #60a5fa;
+}
+
+.vui-v2 .reports-grid .query-card:nth-child(2) .panel-head h3 {
+  color: var(--vk-green);
+}
+
+.vui-v2 .report-export-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Live inbound agent */
+.vui-v2 .main-agent-hero .muted code {
+  display: none;
+}
+
+.vui-v2 .ma-zone--pipeline .pipeline-card,
+.vui-v2 .pipeline-card {
+  margin: 0;
+  border-radius: 12px;
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.1));
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* ── AI assistants composer — spacing & layout ─────────────────── */
+
+.vui-v2 .agents-composer {
+  padding: 28px 30px 26px;
+  gap: 22px;
+  border-radius: 18px;
+}
+
+.vui-v2 .agents-composer-header {
+  align-items: flex-start;
+  gap: 0;
+  padding-bottom: 2px;
+}
+
+.vui-v2 .agents-eyebrow,
+.vui-v2 .agents-composer-eyebrow,
+.vui-v2 .agents-new-label {
+  margin: 0 0 12px;
+  letter-spacing: 0.12em;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.vui-v2 .agents-composer-title {
+  margin: 0 0 10px;
+  font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+  line-height: 1.15;
+}
+
+.vui-v2 .agents-composer-lead {
+  margin: 0;
+  max-width: 58ch;
+  line-height: 1.6;
+}
+
+.vui-v2 .agents-prompt-wrap {
+  margin-top: 2px;
+}
+
+.vui-v2 .agents-prompt-input {
+  min-height: 136px;
+  padding: 20px 22px;
+  border-radius: 14px;
+  line-height: 1.65;
+}
+
+.vui-v2 .agents-use-cases {
+  gap: 14px;
+  padding-top: 2px;
+}
+
+.vui-v2 .agents-use-cases-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.vui-v2 .agents-pill-group {
+  gap: 10px;
+}
+
+.vui-v2 .agents-pill {
+  padding: 9px 16px;
+  font-size: 13px;
+}
+
+.vui-v2 .agents-composer-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 6px;
+  border-top: 1px solid var(--color-border, rgba(255, 255, 255, 0.08));
+  margin-top: 4px;
+}
+
+.vui-v2 .agents-composer-footer .agents-composer-actions {
+  gap: 12px;
+}
+
+.vui-v2 .agents-shell {
+  max-width: 960px;
+  gap: 36px;
+}
+
+/* Voice modal */
+.vui-v2 .modal-backdrop,
+.vui .modal-backdrop {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.vui-v2 .as-voice-search,
+.vui-v2 .voice-search {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.14));
+  background: var(--ds-surface-high, rgba(255, 255, 255, 0.05));
+}
+
+.vui-v2 .perf-outcomes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.vui-v2 .perf-outcome-cell {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border, rgba(255, 255, 255, 0.1));
+  background: var(--ds-surface-high, rgba(255, 255, 255, 0.04));
+}
+
+.vui-v2 .perf-outcome-label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+/* ── Toggles — machined green when on (matches primary CTA) ───── */
+
+body.vui-v2 .toggle input:checked + .toggle-slider,
+body.vui-v2 .as-setting-switch input:checked + .toggle-slider,
+body.vui-v2 .flow-toggle input:checked + .flow-toggle-track,
+body.vui-v2 .day-toggle input:checked + span {
+  border: 0;
+  background: var(--sbtn-surface);
+  box-shadow: var(--sbtn-shadow-compact);
+}
+
+body.vui-v2 .toggle input:checked + .toggle-slider::before,
+body.vui-v2 .as-setting-switch input:checked + .toggle-slider::before {
+  background: #ffffff;
+}
+
+body.vui-v2 .flow-toggle input:checked + .flow-toggle-track .flow-toggle-text {
+  color: #ffffff;
+}
+
+body.vui-v2 .flow-toggle input:checked + .flow-toggle-track .flow-toggle-knob {
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+}
+
+body.vui-v2 .day-toggle input:checked + span {
+  color: #ffffff;
+}
+
+/* Native checkbox toggles → pill switches with the same on-surface */
+body.vui-v2 .toggle-switch input[type="checkbox"],
+body.vui-v2 .api-keys-restart-toggle input[type="checkbox"],
+body.vui-v2 .org-access-toggle input[type="checkbox"],
+body.vui-v2 .lp-toggle input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+  width: 42px;
+  height: 24px;
+  margin: 0;
+  flex-shrink: 0;
+  border-radius: 999px;
+  border: 1px solid var(--ds-outline, var(--color-border));
+  background: var(--ds-surface-raised, var(--color-surface-2));
+  cursor: pointer;
+  vertical-align: middle;
+  transition: background 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+body.vui-v2 .toggle-switch input[type="checkbox"]::before,
+body.vui-v2 .api-keys-restart-toggle input[type="checkbox"]::before,
+body.vui-v2 .org-access-toggle input[type="checkbox"]::before,
+body.vui-v2 .lp-toggle input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  background: var(--color-text-muted, var(--muted));
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
+  transition: transform 0.2s cubic-bezier(.22, .61, .36, 1), background 0.2s ease;
+}
+
+body.vui-v2 .toggle-switch input[type="checkbox"]:checked,
+body.vui-v2 .api-keys-restart-toggle input[type="checkbox"]:checked,
+body.vui-v2 .org-access-toggle input[type="checkbox"]:checked,
+body.vui-v2 .lp-toggle input[type="checkbox"]:checked {
+  border: 0;
+  background: var(--sbtn-surface);
+  box-shadow: var(--sbtn-shadow-compact);
+}
+
+body.vui-v2 .toggle-switch input[type="checkbox"]:checked::before,
+body.vui-v2 .api-keys-restart-toggle input[type="checkbox"]:checked::before,
+body.vui-v2 .org-access-toggle input[type="checkbox"]:checked::before,
+body.vui-v2 .lp-toggle input[type="checkbox"]:checked::before {
+  transform: translateX(18px);
+  background: #ffffff;
+}
+
+body.vui-v2 .toggle-switch input[type="checkbox"]:focus-visible,
+body.vui-v2 .api-keys-restart-toggle input[type="checkbox"]:focus-visible,
+body.vui-v2 .org-access-toggle input[type="checkbox"]:focus-visible,
+body.vui-v2 .lp-toggle input[type="checkbox"]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--vk-green-glow);
+}
+
+body.vui-v2 .toggle-switch input[type="checkbox"]:checked:focus-visible,
+body.vui-v2 .api-keys-restart-toggle input[type="checkbox"]:checked:focus-visible,
+body.vui-v2 .org-access-toggle input[type="checkbox"]:checked:focus-visible,
+body.vui-v2 .lp-toggle input[type="checkbox"]:checked:focus-visible {
+  box-shadow:
+    var(--sbtn-shadow-compact),
+    0 0 0 3px var(--vk-green-glow);
+}
+
+/* Connections — force speaksy (10px) over cached btn-secondary / btn-primary */
+body.vui-v2 .integration-card-foot .integration-connect-btn.btn-speaksy,
+body.vui-v2 .integration-modal-actions #integration-save-btn.btn-speaksy {
+  border: 0 !important;
+  border-radius: 10px !important;
+  color: #ffffff !important;
+  box-shadow: var(--sbtn-magic-shadow-compact) !important;
+  font-family: var(--font-display) !important;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+body.vui-v2 .integration-card-foot .integration-connect-btn.btn-speaksy:hover:not(:disabled),
+body.vui-v2 .integration-modal-actions #integration-save-btn.btn-speaksy:hover:not(:disabled) {
+  box-shadow: var(--sbtn-magic-shadow-hover) !important;
+  transform: translateY(-1px);
+}
+
+/* ── Speaksy tab loader (no wave rings) ─────────────────────────── */
+.speaksy-loading-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 260ms ease;
+  z-index: 9999;
+}
+
+.speaksy-loading-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.speaksy-loading-overlay[data-theme="dark"] {
+  background: #05070a;
+}
+
+.speaksy-loading-overlay[data-theme="light"] {
+  background: #f4f6f5;
+}
+
+.speaksy-loader {
+  position: relative;
+  display: inline-flex;
+}
+
+.speaksy-loader-pill {
+  --h: 76px;
+  --pad: calc(var(--h) * 0.62);
+  --fs: calc(var(--h) * 0.40);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--h);
+  padding: 0 var(--pad);
+  border: 0;
+  border-radius: 999px;
+  overflow: hidden;
+  isolation: isolate;
+  font-family: "Cy Grotesk Wide", var(--font-sans);
+  font-weight: 300;
+  font-style: normal;
+  font-synthesis: none;
+  font-size: var(--fs);
+  letter-spacing: 0.005em;
+  line-height: 1;
+  color: #fff;
+  white-space: nowrap;
+  background:
+    radial-gradient(120% 92% at 8% 0%, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0) 44%),
+    radial-gradient(120% 92% at 96% 4%, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0) 42%),
+    linear-gradient(145deg, #0e2410 0%, #163d18 22%, #245c28 46%, #397e39 66%, #4c9349 84%, #5aa652 100%);
+  animation: speaksy-loader-breathe 2.4s ease-in-out infinite;
+}
+
+@keyframes speaksy-loader-breathe {
+  0%, 100% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.035); filter: brightness(1.08); }
+}
+
+.speaksy-loader-pill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.34) 0%, rgba(0, 0, 0, 0.10) 20%, rgba(0, 0, 0, 0) 44%);
+  box-shadow: inset 0 1.5px 0 rgba(255, 255, 255, 0.22), inset 0 -30% 40px rgba(0, 0, 0, 0.34);
+}
+
+.speaksy-loader-pill::after {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: -2px;
+  height: 42%;
+  border-radius: 999px;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(70% 100% at 50% 100%, rgba(150, 225, 130, 0.40) 0%, rgba(150, 225, 130, 0) 68%);
+}
+
+.speaksy-loader-pill.dark {
+  box-shadow:
+    0 0 0 1.5px #05070a,
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 8px 20px -8px rgba(0, 0, 0, 0.55),
+    0 12px 28px -10px rgba(90, 180, 120, 0.45);
+}
+
+.speaksy-loader-pill.light {
+  box-shadow:
+    0 1px 2px rgba(14, 60, 30, 0.16),
+    0 10px 22px -8px rgba(20, 80, 44, 0.30),
+    0 16px 34px -14px rgba(40, 120, 70, 0.34);
+}
+
+.speaksy-loader-pill > span:first-child {
+  position: relative;
+  z-index: 2;
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  letter-spacing: inherit;
+}
+
+.speaksy-loader-pill .shimmer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40%;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(75deg, transparent 0%, rgba(255, 255, 255, 0.16) 45%, transparent 90%);
+  transform: translateX(-160%);
+  animation: speaksy-loader-shimmer 2.8s ease-in-out infinite;
+}
+
+@keyframes speaksy-loader-shimmer {
+  0% { transform: translateX(-160%); }
+  55%, 100% { transform: translateX(220%); }
+}
+
+.vui-v2 .main.page-swapping {
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .speaksy-loader-pill,
+  .speaksy-loader-pill .shimmer,
+  .vui-v2 .main.page-swapping {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* ── WhatsApp Add Number modal (Phone WhatsApp pilot) ───────────── */
+.integrations-page-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.wa-connect-modal .modal-card {
+  max-width: 720px;
+  width: calc(100% - 2rem);
+}
+
+.wa-connect-card {
+  position: relative;
+  padding: 1.5rem 1.5rem 1.25rem;
+}
+
+.wa-connect-close {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+}
+
+.wa-connect-sub {
+  margin: 0 0 1rem;
+}
+
+.wa-connect-methods-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.wa-method-card {
+  min-height: 180px;
+}
+
+.wa-connect-visual {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 0.75rem;
+}
+
+.wa-connect-qr-label {
+  text-align: center;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+}
+
+.wa-connect-qr-hint {
+  text-align: center;
+  margin: 0 0 1rem;
+  font-size: 0.85rem;
+}
+
+.wa-connect-qr-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+
+.wa-connect-qr-img {
+  display: block;
+  width: 260px;
+  height: 260px;
+  object-fit: contain;
+}
+
+.wa-connect-success-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0.5rem auto 0.75rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--vk-green, #34d399);
+}
+
+.wa-connect-connected-title,
+.wa-connect-error-title {
+  text-align: center;
+  font-weight: 600;
+  margin: 0 0 0.35rem;
+}
+
+.wa-connect-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+@media (max-width: 700px) {
+  .wa-connect-methods-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── WhatsApp Chat History ─────────────────────────────────────────────────── */
+
+.wa-chat-sidebar-collapsed .vui-sidebar {
+  display: none;
+}
+
+.wa-chat-main-full .vui-main {
+  margin-left: 0;
+  max-width: 100%;
+}
+
+.wa-numbers-panel-wrap {
+  margin-bottom: 1rem;
+  padding: 1rem 1.25rem;
+}
+
+.wa-numbers-head h3 {
+  margin: 0 0 0.25rem;
+}
+
+.wa-numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.wa-number-card {
+  padding: 1rem;
+}
+
+.wa-number-card-top {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.wa-number-status {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--vui-fg-muted, var(--muted));
+}
+
+.wa-number-status--connected {
+  color: var(--vk-green, #34d399);
+}
+
+.wa-number-phone {
+  font-size: 1.05rem;
+}
+
+.wa-number-card-foot {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.wa-number-chats-link {
+  text-decoration: none;
+}
+
+.wa-chat-page {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-height: calc(100vh - 120px);
+}
+
+.wa-chat-page-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.wa-chat-page-title {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.wa-chat-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 320px) 1fr;
+  min-height: 560px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.wa-chat-sidebar {
+  border-right: 1px solid var(--vui-border, var(--border));
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.wa-chat-search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--vui-border, var(--border));
+}
+
+.wa-chat-search-wrap svg {
+  width: 16px;
+  height: 16px;
+  opacity: 0.55;
+  flex-shrink: 0;
+}
+
+.wa-chat-search-wrap .input {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+.wa-chat-conv-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.wa-chat-conv-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-bottom: 1px solid var(--vui-border, var(--border));
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.wa-chat-conv-item:hover,
+.wa-chat-conv-item.is-active {
+  background: var(--vui-surface-hover, rgba(255, 255, 255, 0.04));
+}
+
+.wa-chat-conv-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.wa-chat-conv-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.wa-chat-conv-time {
+  font-size: 0.72rem;
+  color: var(--vui-fg-muted, var(--muted));
+}
+
+.wa-chat-conv-preview {
+  font-size: 0.82rem;
+  color: var(--vui-fg-muted, var(--muted));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wa-chat-unread {
+  display: inline-flex;
+  margin-left: 0.35rem;
+  min-width: 1.1rem;
+  height: 1.1rem;
+  padding: 0 0.3rem;
+  border-radius: 999px;
+  background: var(--vk-green, #34d399);
+  color: #0b1a12;
+  font-size: 0.68rem;
+  font-weight: 700;
+  align-items: center;
+  justify-content: center;
+}
+
+.wa-chat-main {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  position: relative;
+}
+
+.wa-chat-thread-head {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--vui-border, var(--border));
+  font-weight: 600;
+}
+
+.wa-chat-thread {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.wa-chat-panel-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--vui-fg-muted, var(--muted));
+  padding: 2rem;
+}
+
+.wa-chat-panel-empty[hidden],
+.wa-chat-panel-empty--thread[hidden] {
+  display: none !important;
+}
+
+.wa-chat-empty-icon {
+  font-size: 2rem;
+  opacity: 0.45;
+}
+
+.wa-bubble-row {
+  display: flex;
+}
+
+.wa-bubble-row.is-out {
+  justify-content: flex-end;
+}
+
+.wa-bubble-row.is-in {
+  justify-content: flex-start;
+}
+
+.wa-bubble {
+  max-width: min(78%, 520px);
+  padding: 0.55rem 0.75rem;
+  border-radius: 14px;
+  position: relative;
+}
+
+.wa-bubble-in {
+  background: var(--vui-surface-hover, rgba(255, 255, 255, 0.06));
+  border: 1px solid var(--vui-border, var(--border));
+}
+
+.wa-bubble-out {
+  background: rgba(52, 211, 153, 0.18);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+}
+
+.wa-bubble-bot {
+  position: absolute;
+  top: -0.35rem;
+  left: -0.35rem;
+  font-size: 0.75rem;
+}
+
+.wa-bubble-text {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.9rem;
+}
+
+.wa-bubble-meta {
+  margin-top: 0.25rem;
+  font-size: 0.68rem;
+  color: var(--vui-fg-muted, var(--muted));
+  text-align: right;
+}
+
+.wa-chat-composer {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-top: 1px solid var(--vui-border, var(--border));
+  align-items: flex-end;
+}
+
+.wa-chat-composer-input {
+  flex: 1;
+  resize: vertical;
+  min-height: 2.5rem;
+}
+
+.wa-chat-composer[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  .wa-chat-layout {
+    grid-template-columns: 1fr;
+  }
+  .wa-chat-sidebar {
+    max-height: 220px;
+    border-right: none;
+    border-bottom: 1px solid var(--vui-border, var(--border));
+  }
+}
+
+/* Print report */
+@media print {
+  body * { visibility: hidden; }
+  #vk-print-report, #vk-print-report * { visibility: visible; }
+  #vk-print-report { position: absolute; left: 0; top: 0; width: 100%; }
+}

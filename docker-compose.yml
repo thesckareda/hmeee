@@ -1,0 +1,104 @@
+# VK Realty — Client Layer (Layer 2)
+# Connects to shared LiveKit at LIVEKIT_URL. No nginx, SIP, or TURN here.
+# Redis: local hot-memory store for caller memory / lead hash (REDIS plan §3.1).
+# If a shared Layer-1 Redis exists, set REDIS_URL in .env and remove the service.
+
+services:
+  vk-realty-hme:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vk-realty-hme-client
+    restart: unless-stopped
+    ports:
+      - "${CLIENT_HTTP_PORT:-8001}:8000"
+    env_file:
+      - .env
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHONDONTWRITEBYTECODE=1
+      - CLIENT_ID=vk-realty-hme
+      - CLIENT_BASE_PATH=${CLIENT_BASE_PATH:-/realestate}
+      - ENVIRONMENT=production
+      - REDIS_URL=${REDIS_URL:-redis://redis:6379/0}
+      - WHATSAPP_SERVICE_URL=http://whatsapp-service:4001
+      - WHATSAPP_INTERNAL_SECRET=${WHATSAPP_INTERNAL_SECRET:-}
+    depends_on:
+      redis:
+        condition: service_healthy
+      whatsapp-service:
+        condition: service_healthy
+    volumes:
+      - ./config.json:/app/config.json
+      - ./data:/app/data
+      - ./knowledge:/app/knowledge:ro
+      - ./configs:/app/configs:ro
+      - ./logs:/app/logs
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "5"
+
+  whatsapp-service:
+    build:
+      context: ./whatsapp-service
+      dockerfile: Dockerfile
+    container_name: vk-realty-hme-whatsapp
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - PORT=4001
+      - WHATSAPP_PROVIDER=${WHATSAPP_PROVIDER:-baileys}
+      - PYTHON_APP_URL=http://vk-realty-hme:8000
+      - WHATSAPP_INTERNAL_SECRET=${WHATSAPP_INTERNAL_SECRET:-}
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_SERVICE_ROLE_KEY=${SUPABASE_SERVICE_ROLE_KEY}
+      - WHATSAPP_MAX_MSGS_PER_MIN=${WHATSAPP_MAX_MSGS_PER_MIN:-20}
+    depends_on:
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:4001/health').then((r)=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    logging:
+      driver: json-file
+      options:
+        max-size: "20m"
+        max-file: "3"
+
+  redis:
+    image: redis:7-alpine
+    container_name: vk-realty-hme-redis
+    restart: unless-stopped
+    # AOF everysec durability; volatile-lru evicts only TTL'd cache keys under
+    # pressure; 256MB holds ~100k lead hashes. Not exposed outside the network.
+    command: >
+      redis-server --appendonly yes --appendfsync everysec
+      --maxmemory 256mb --maxmemory-policy volatile-lru
+      --save ""
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  redis-data:
